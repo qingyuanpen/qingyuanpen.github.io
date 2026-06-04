@@ -493,6 +493,7 @@ main {
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.78)),
     radial-gradient(circle at 16% 0%, rgba(20, 184, 166, 0.1), transparent 34%);
   box-shadow: 0 18px 54px rgba(15, 23, 42, 0.06);
+  text-decoration: none;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -511,6 +512,15 @@ main {
 .content-card:hover {
   border-color: rgba(15, 118, 110, 0.2);
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.1);
+  transform: translateY(-6px);
+}
+
+.content-card:focus-visible {
+  border-color: rgba(15, 118, 110, 0.34);
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.1),
+    0 0 0 4px rgba(15, 118, 110, 0.12);
+  outline: none;
   transform: translateY(-6px);
 }
 
