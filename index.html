@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="生物学硕士与传媒背景交叉的个人品牌网站，分享论文笔记、生物科技新闻、跨界观点和效率工具。">
+  <title>Bio Media Lab | 个人品牌网站</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" aria-label="顶部导航">
+    <nav class="navbar">
+      <a class="brand" href="#about" aria-label="回到个人简介">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-text">
+          <span class="brand-name">Bio Media Lab</span>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Science · Media · Notes</span>
+        </span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="打开导航菜单">
+      <label class="nav-toggle-button" for="nav-toggle" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="#about" data-i18n="nav.about">About Me</a>
+          <a href="#paper-notes" data-i18n="nav.paperNotes">Paper Notes</a>
+          <a href="#bio-news" data-i18n="nav.bioNews">Bio-News Daily</a>
+          <a href="#insights" data-i18n="nav.insights">Insights</a>
+          <a href="#toolkit" data-i18n="nav.toolkit">Toolkit</a>
+        </div>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">EN/中文</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-shell" id="about">
+      <div class="profile-visual">
+        <div class="avatar-orbit" aria-hidden="true"></div>
+        <div class="profile-avatar" aria-label="个人头像">
+          <img src="assets/avatar.png" alt="Guandong Li 的个人头像">
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="about.eyebrow">About Me</p>
+        <h1 data-i18n="about.title">大专逆袭到生物硕士的跨界科研人</h1>
+        <p class="hero-intro" data-i18n="about.intro">我拥有生物学硕士背景，也长期关注内容传播与个人品牌建设。这个网站会持续沉淀我的论文拆解、生物科技观察、科研生活经验，以及“生物 + 传媒”的跨界思考。</p>
+        <p class="hero-note" data-i18n="about.note">希望把复杂的生命科学问题，讲得更清楚、更有结构，也更适合被更多人理解。</p>
+
+        <div class="contact-row">
+          <a class="email-button" href="mailto:qingyuanpen@gmail.com">qingyuanpen@gmail.com</a>
+          <span class="availability" data-i18n="about.availability">Open to collaboration</span>
+        </div>
+
+        <div class="social-links" aria-label="社交媒体链接">
+          <a class="social-link xhs" href="#" aria-label="小红书">
+            <span>小红书</span>
+          </a>
+          <a class="social-link bilibili" href="#" aria-label="B站">
+            <span>B站</span>
+          </a>
+          <a class="social-link x" href="#" aria-label="X">
+            <span>X</span>
+          </a>
+          <a class="social-link facebook" href="#" aria-label="Facebook">
+            <span>f</span>
+          </a>
+          <a class="social-link instagram" href="#" aria-label="Instagram">
+            <span>IG</span>
+          </a>
+          <a class="social-link mail" href="mailto:qingyuanpen@gmail.com" aria-label="邮箱">
+            <span>@</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="paper-notes">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="sections.paper.eyebrow">Paper Notes</p>
+        <h2 data-i18n="sections.paper.title">论文笔记</h2>
+      </div>
+      <div class="card-grid">
+        <article class="content-card">
+          <span class="card-tag" data-i18n="paper.card1.tag">Nature</span>
+          <h3 data-i18n="paper.card1.title">一篇文章看懂细胞命运重编程的关键逻辑</h3>
+          <p data-i18n="paper.card1.summary">拆解高分论文里的实验设计、图表顺序和作者如何证明细胞状态转换。</p>
+          <time datetime="2026-06-01">2026.06.01</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="paper.card2.tag">Cell</span>
+          <h3 data-i18n="paper.card2.title">肿瘤微环境为什么总是论文里的主角？</h3>
+          <p data-i18n="paper.card2.summary">从免疫细胞、空间组学到治疗响应，梳理肿瘤研究中最常见的叙事框架。</p>
+          <time datetime="2026-05-28">2026.05.28</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="paper.card3.tag">Science</span>
+          <h3 data-i18n="paper.card3.title">合成生物学论文的“工程化证明链”</h3>
+          <p data-i18n="paper.card3.summary">如何判断一个生物系统是否真的被设计、验证并具备可迁移价值。</p>
+          <time datetime="2026-05-20">2026.05.20</time>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="bio-news">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="sections.news.eyebrow">Bio-News Daily</p>
+        <h2 data-i18n="sections.news.title">每日生物新闻</h2>
+      </div>
+      <div class="card-grid">
+        <article class="content-card">
+          <span class="card-tag" data-i18n="news.card1.tag">BioTech</span>
+          <h3 data-i18n="news.card1.title">新一代基因编辑疗法正在走向临床深水区</h3>
+          <p data-i18n="news.card1.summary">从递送系统、安全性到支付模式，基因编辑商业化开始进入更现实的阶段。</p>
+          <time datetime="2026-06-04">2026.06.04</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="news.card2.tag">医药动态</span>
+          <h3 data-i18n="news.card2.title">ADC 药物热潮背后，真正的竞争点在哪里？</h3>
+          <p data-i18n="news.card2.summary">靶点、连接子、毒素和适应症选择，决定了 ADC 能否从概念走向产品。</p>
+          <time datetime="2026-06-03">2026.06.03</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="news.card3.tag">合成生物学</span>
+          <h3 data-i18n="news.card3.title">细胞工厂正在从“能做”走向“稳定量产”</h3>
+          <p data-i18n="news.card3.summary">产业化不只看通路设计，更要看发酵、成本、质控和供应链协同。</p>
+          <time datetime="2026-06-02">2026.06.02</time>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="insights">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="sections.insights.eyebrow">Insights</p>
+        <h2 data-i18n="sections.insights.title">有趣观点分享</h2>
+      </div>
+      <div class="card-grid">
+        <article class="content-card">
+          <span class="card-tag" data-i18n="insights.card1.tag">观点</span>
+          <h3 data-i18n="insights.card1.title">科研人也需要训练自己的“表达资产”</h3>
+          <p data-i18n="insights.card1.summary">会做研究和会讲研究，是两种能力；但它们可以互相放大。</p>
+          <time datetime="2026-05-30">2026.05.30</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="insights.card2.tag">跨界搞钱</span>
+          <h3 data-i18n="insights.card2.title">生物背景如何变成内容壁垒？</h3>
+          <p data-i18n="insights.card2.summary">专业知识不是天然优势，能被持续输出、复用和信任，才会变成个人品牌。</p>
+          <time datetime="2026-05-24">2026.05.24</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="insights.card3.tag">科研生活</span>
+          <h3 data-i18n="insights.card3.title">低谷期最该保留的是可恢复的系统</h3>
+          <p data-i18n="insights.card3.summary">当状态不稳定时，靠意志力硬撑不如建立能自动接住自己的工作流。</p>
+          <time datetime="2026-05-16">2026.05.16</time>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="toolkit">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="sections.toolkit.eyebrow">Toolkit</p>
+        <h2 data-i18n="sections.toolkit.title">好用工具推荐</h2>
+      </div>
+      <div class="card-grid">
+        <article class="content-card">
+          <span class="card-tag" data-i18n="toolkit.card1.tag">文献管理</span>
+          <h3 data-i18n="toolkit.card1.title">Zotero：科研人的第二大脑入口</h3>
+          <p data-i18n="toolkit.card1.summary">用标签、集合和笔记模板，把文献从“下载过”变成“能调用”。</p>
+          <time datetime="2026-05-18">2026.05.18</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="toolkit.card2.tag">生信工具</span>
+          <h3 data-i18n="toolkit.card2.title">把常用数据库整理成你的研究导航页</h3>
+          <p data-i18n="toolkit.card2.summary">NCBI、UniProt、GEO 和 STRING 不该只躺在收藏夹里。</p>
+          <time datetime="2026-05-12">2026.05.12</time>
+        </article>
+        <article class="content-card">
+          <span class="card-tag" data-i18n="toolkit.card3.tag">效率工具</span>
+          <h3 data-i18n="toolkit.card3.title">划词翻译：读英文论文的摩擦力管理</h3>
+          <p data-i18n="toolkit.card3.summary">减少查词切换，让注意力更多留在实验逻辑和论证结构上。</p>
+          <time datetime="2026-05-06">2026.05.06</time>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
