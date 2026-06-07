@@ -3,198 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="生物学硕士与传媒背景交叉的个人品牌网站，分享论文笔记、生物科技新闻、跨界观点和效率工具。">
+  <meta name="description" content="生物学硕士与传媒背景交叉的个人品牌网站，分享论文笔记、生物新闻、跨界观点和效率工具。">
   <title>Bio Media Lab | 个人品牌网站</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header" aria-label="顶部导航">
-    <nav class="navbar">
-      <a class="brand" href="#about" aria-label="回到个人简介">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span class="brand-text">
-          <span class="brand-name">Bio Media Lab</span>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Science · Media · Notes</span>
-        </span>
-      </a>
+  <nav class="site-nav" id="site-nav">
+    <a class="nav-brand" href="#about" aria-label="回到首页">
+      <span class="nav-brand-dot" aria-hidden="true"></span>
+      <span>Bio Media Lab</span>
+    </a>
 
-      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="打开导航菜单">
-      <label class="nav-toggle-button" for="nav-toggle" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="打开导航菜单">
+    <label class="nav-toggle-button" for="nav-toggle" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-      <div class="nav-actions">
-        <div class="nav-links">
-          <a href="#about" data-i18n="nav.about">About Me</a>
-          <a href="#paper-notes" data-i18n="nav.paperNotes">Paper Notes</a>
-          <a href="#bio-news" data-i18n="nav.bioNews">Bio-News Daily</a>
-          <a href="#insights" data-i18n="nav.insights">Insights</a>
-          <a href="#toolkit" data-i18n="nav.toolkit">Toolkit</a>
-        </div>
-        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">EN/中文</button>
+    <div class="nav-panel">
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav.about">关于我</a>
+        <a href="#paper-notes" data-i18n="nav.paperNotes">论文笔记</a>
+        <a href="#bio-news" data-i18n="nav.bioNews">每日生物新闻</a>
+        <a href="#insights" data-i18n="nav.insights">有趣观点</a>
+        <a href="#toolkit" data-i18n="nav.toolkit">工具推荐</a>
       </div>
-    </nav>
-  </header>
+      <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">EN/中文</button>
+      <button class="login-trigger" type="button" data-login-open data-i18n="auth.loginButton">邮箱登录</button>
+    </div>
+  </nav>
 
   <main>
-    <section class="hero section-shell" id="about">
-      <div class="profile-visual">
-        <div class="avatar-orbit" aria-hidden="true"></div>
-        <div class="profile-avatar" aria-label="个人头像">
-          <img src="assets/avatar.png" alt="Guandong Li 的个人头像">
+    <section class="hero" id="about">
+      <div class="hero-container">
+        <div class="hero-text">
+          <p class="hero-label-top" data-i18n="about.eyebrow">Biology Master · Media Background</p>
+          <h1 class="hero-name" data-i18n="about.title">大专逆袭到生物硕士的跨界科研人</h1>
+          <p class="hero-subtitle" data-i18n="about.subtitle">生命科学拆解者 · 科研内容创作者</p>
+          <div class="hero-divider"></div>
+          <p class="hero-desc" data-i18n="about.intro">我拥有生物学硕士背景，也长期关注内容传播与个人品牌建设。这个网站沉淀我的论文拆解、生物科技观察、科研生活经验，以及“生物 + 传媒”的跨界思考。</p>
+
+          <div class="hero-tags">
+            <span class="hero-tag" data-i18n="about.tag1">论文拆解</span>
+            <span class="hero-tag" data-i18n="about.tag2">生物新闻</span>
+            <span class="hero-tag" data-i18n="about.tag3">科研传播</span>
+            <span class="hero-tag" data-i18n="about.tag4">效率工具</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#bio-news" data-i18n="about.primaryCta">查看最新内容</a>
+            <a class="btn btn-ghost" href="mailto:qingyuanpen@gmail.com">qingyuanpen@gmail.com</a>
+          </div>
+
+          <div class="social-links" aria-label="社交媒体链接">
+            <a class="social-link xhs" href="#" aria-label="小红书"><span>小红书</span></a>
+            <a class="social-link bilibili" href="#" aria-label="B站"><span>B站</span></a>
+            <a class="social-link x" href="https://x.com/Brandon_with_G" target="_blank" rel="noopener noreferrer" aria-label="X"><span>X</span></a>
+            <a class="social-link linkedin" href="https://www.linkedin.com/in/%E5%86%A0%E4%B8%9C-%E6%9D%8E-873b99352/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span>in</span></a>
+            <a class="social-link facebook" href="https://www.facebook.com/profile.php?id=100024182719975" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span>f</span></a>
+            <a class="social-link instagram" href="https://www.instagram.com/lonny_pen/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span>IG</span></a>
+            <a class="social-link mail" href="mailto:qingyuanpen@gmail.com" aria-label="邮箱"><span>@</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <div class="glow-ring"></div>
+            <div class="glow-ring"></div>
+            <img class="hero-image" src="assets/avatar.png" alt="个人头像" width="420" height="420">
+          </div>
         </div>
       </div>
 
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="about.eyebrow">About Me</p>
-        <h1 data-i18n="about.title">大专逆袭到生物硕士的跨界科研人</h1>
-        <p class="hero-intro" data-i18n="about.intro">我拥有生物学硕士背景，也长期关注内容传播与个人品牌建设。这个网站会持续沉淀我的论文拆解、生物科技观察、科研生活经验，以及“生物 + 传媒”的跨界思考。</p>
-        <p class="hero-note" data-i18n="about.note">希望把复杂的生命科学问题，讲得更清楚、更有结构，也更适合被更多人理解。</p>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span data-i18n="about.scroll">向下阅读</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
 
-        <div class="contact-row">
-          <a class="email-button" href="mailto:qingyuanpen@gmail.com">qingyuanpen@gmail.com</a>
-          <span class="availability" data-i18n="about.availability">Open to collaboration</span>
+    <section class="section bg-warm" id="paper-notes">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label" data-i18n="sections.paper.eyebrow">Paper Notes</p>
+          <h2 class="section-title" data-i18n="sections.paper.title">论文笔记</h2>
+          <p class="section-subtitle" data-i18n="sections.paper.subtitle">高分文献拆解、实验逻辑和图表叙事。</p>
+          <div class="section-line"></div>
         </div>
 
-        <div class="social-links" aria-label="社交媒体链接">
-          <a class="social-link xhs" href="#" aria-label="小红书">
-            <span>小红书</span>
+        <div class="card-grid">
+          <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twfupf/uv_light_can_make_plant_pollen_forget_to_halve/" target="_blank" rel="noopener noreferrer">
+            <span class="card-tag" data-i18n="paper.card1.tag">论文笔记</span>
+            <h3 data-i18n="paper.card1.title">UV 光会让植物花粉“忘记减半”</h3>
+            <p data-i18n="paper.card1.summary">一篇关于紫外光如何干扰植物花粉减数分裂的论文笔记，聚焦环境信号与生殖发育之间的联系。</p>
+            <time datetime="2026-06-01">2026.06.01</time>
           </a>
-          <a class="social-link bilibili" href="#" aria-label="B站">
-            <span>B站</span>
+          <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twfk30/paper_note_pollen_grains_as_a_green_sorbent_for/" target="_blank" rel="noopener noreferrer">
+            <span class="card-tag" data-i18n="paper.card2.tag">论文笔记</span>
+            <h3 data-i18n="paper.card2.title">花粉颗粒作为环境修复的绿色吸附剂</h3>
+            <p data-i18n="paper.card2.summary">拆解花粉颗粒作为绿色吸附材料的潜力，理解天然生物材料如何进入环境修复场景。</p>
+            <time datetime="2026-05-28">2026.05.28</time>
           </a>
-          <a class="social-link x" href="https://x.com/Brandon_with_G" target="_blank" rel="noopener noreferrer" aria-label="X">
-            <span>X</span>
-          </a>
-          <a class="social-link linkedin" href="https://www.linkedin.com/in/%E5%86%A0%E4%B8%9C-%E6%9D%8E-873b99352/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <span>in</span>
-          </a>
-          <a class="social-link facebook" href="https://www.facebook.com/profile.php?id=100024182719975" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <span>f</span>
-          </a>
-          <a class="social-link instagram" href="https://www.instagram.com/lonny_pen/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <span>IG</span>
-          </a>
-          <a class="social-link mail" href="mailto:qingyuanpen@gmail.com" aria-label="邮箱">
-            <span>@</span>
+          <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twenq9/paper_note_signaling_pathway_inhibitors_and/" target="_blank" rel="noopener noreferrer">
+            <span class="card-tag" data-i18n="paper.card3.tag">论文笔记</span>
+            <h3 data-i18n="paper.card3.title">信号通路抑制剂与靶向生物响应</h3>
+            <p data-i18n="paper.card3.summary">围绕信号通路抑制剂展开，梳理它们如何改变细胞行为以及论文中的证据链。</p>
+            <time datetime="2026-05-20">2026.05.20</time>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="content-section section-shell" id="paper-notes">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="sections.paper.eyebrow">Paper Notes</p>
-        <h2 data-i18n="sections.paper.title">论文笔记</h2>
-      </div>
-      <div class="card-grid">
-        <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twfupf/uv_light_can_make_plant_pollen_forget_to_halve/" target="_blank" rel="noopener noreferrer">
-          <span class="card-tag" data-i18n="paper.card1.tag">Paper Note</span>
-          <h3 data-i18n="paper.card1.title">UV light can make plant pollen forget to halve</h3>
-          <p data-i18n="paper.card1.summary">一篇关于紫外光如何干扰植物花粉减数分裂的论文笔记，聚焦环境信号与生殖发育之间的联系。</p>
-          <time datetime="2026-06-01">2026.06.01</time>
-        </a>
-        <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twfk30/paper_note_pollen_grains_as_a_green_sorbent_for/" target="_blank" rel="noopener noreferrer">
-          <span class="card-tag" data-i18n="paper.card2.tag">Paper Note</span>
-          <h3 data-i18n="paper.card2.title">Pollen grains as a green sorbent for environmental cleanup</h3>
-          <p data-i18n="paper.card2.summary">拆解花粉颗粒作为绿色吸附材料的潜力，理解天然生物材料如何进入环境修复场景。</p>
-          <time datetime="2026-05-28">2026.05.28</time>
-        </a>
-        <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twenq9/paper_note_signaling_pathway_inhibitors_and/" target="_blank" rel="noopener noreferrer">
-          <span class="card-tag" data-i18n="paper.card3.tag">Paper Note</span>
-          <h3 data-i18n="paper.card3.title">Signaling pathway inhibitors and targeted biological responses</h3>
-          <p data-i18n="paper.card3.summary">围绕信号通路抑制剂展开，梳理它们如何改变细胞行为以及论文中的证据链。</p>
-          <time datetime="2026-05-20">2026.05.20</time>
-        </a>
+    <section class="section" id="bio-news">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label" data-i18n="sections.news.eyebrow">Bio-News Daily</p>
+          <h2 class="section-title" data-i18n="sections.news.title">每日生物新闻</h2>
+          <p class="section-subtitle" data-i18n="sections.news.subtitle">把生物科技新动态讲成普通人也能进入的问题。</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="card-grid">
+          <a class="content-card feature-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twkpxo/%E6%89%81%E5%BD%A2%E8%99%AB%E5%8F%91%E7%8E%B0%E8%87%AA%E7%88%86%E5%9E%8B%E5%85%8D%E7%96%AB%E7%BB%86%E8%83%9E%E9%81%87%E5%88%B0%E5%BC%82%E5%B8%B8%E4%BF%A1%E5%8F%B7%E5%AE%83%E9%80%89%E6%8B%A9%E5%8E%9F%E5%9C%B0%E6%B8%85%E5%9C%BA/" target="_blank" rel="noopener noreferrer">
+            <span class="card-tag" data-i18n="news.card1.tag">Cell</span>
+            <h3 data-i18n="news.card1.title">扁形虫发现“自爆型免疫细胞”：遇到异常信号，它选择原地清场</h3>
+            <p data-i18n="news.card1.summary">一篇小白也能看懂的 SCI 新闻：Cell 论文报道涡虫 ruptoblasts，可通过 ruptosis 快速破裂并局部清除异常细胞和细菌。</p>
+            <time datetime="2026-06-04">2026.06.04</time>
+          </a>
+          <a class="content-card" href="https://mp.weixin.qq.com/s/j8lCrUg7cQFiorqSczU2Hw" target="_blank" rel="noopener noreferrer">
+            <span class="card-tag" data-i18n="news.card2.tag">Nature</span>
+            <h3 data-i18n="news.card2.title">身体离“死亡”还有多远，RNA 可能比你先知道</h3>
+            <p data-i18n="news.card2.summary">Nature 最新研究整合 4 种哺乳动物、超过 11000 份转录组数据，构建 RNA 衰老时钟，用基因表达追踪生物年龄与死亡风险。</p>
+            <time datetime="2026-06-06">2026.06.06</time>
+          </a>
+          <article class="content-card">
+            <span class="card-tag" data-i18n="news.card3.tag">合成生物学</span>
+            <h3 data-i18n="news.card3.title">细胞工厂正在从“能做”走向“稳定量产”</h3>
+            <p data-i18n="news.card3.summary">产业化不只看通路设计，更要看发酵、成本、质控和供应链协同。</p>
+            <time datetime="2026-06-02">2026.06.02</time>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="content-section section-shell" id="bio-news">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="sections.news.eyebrow">Bio-News Daily</p>
-        <h2 data-i18n="sections.news.title">每日生物新闻</h2>
-      </div>
-      <div class="card-grid">
-        <a class="content-card" href="https://www.reddit.com/r/BioPaperScope/comments/1twkpxo/%E6%89%81%E5%BD%A2%E8%99%AB%E5%8F%91%E7%8E%B0%E8%87%AA%E7%88%86%E5%9E%8B%E5%85%8D%E7%96%AB%E7%BB%86%E8%83%9E%E9%81%87%E5%88%B0%E5%BC%82%E5%B8%B8%E4%BF%A1%E5%8F%B7%E5%AE%83%E9%80%89%E6%8B%A9%E5%8E%9F%E5%9C%B0%E6%B8%85%E5%9C%BA/" target="_blank" rel="noopener noreferrer">
-          <span class="card-tag" data-i18n="news.card1.tag">Cell</span>
-          <h3 data-i18n="news.card1.title">扁形虫发现“自爆型免疫细胞”：遇到异常信号，它选择原地清场</h3>
-          <p data-i18n="news.card1.summary">一篇小白也能看懂的 SCI 新闻：Cell 论文报道涡虫 ruptoblasts，可通过 ruptosis 快速破裂并局部清除异常细胞和细菌。</p>
-          <time datetime="2026-06-04">2026.06.04</time>
-        </a>
-        <a class="content-card" href="https://mp.weixin.qq.com/s/j8lCrUg7cQFiorqSczU2Hw" target="_blank" rel="noopener noreferrer">
-          <span class="card-tag" data-i18n="news.card2.tag">Nature</span>
-          <h3 data-i18n="news.card2.title">身体离“死亡”还有多远，RNA 可能比你先知道</h3>
-          <p data-i18n="news.card2.summary">Nature 最新研究整合 4 种哺乳动物、超过 11000 份转录组数据，构建 RNA 衰老时钟，用基因表达追踪生物年龄与死亡风险。</p>
-          <time datetime="2026-06-06">2026.06.06</time>
-        </a>
-        <article class="content-card">
-          <span class="card-tag" data-i18n="news.card3.tag">合成生物学</span>
-          <h3 data-i18n="news.card3.title">细胞工厂正在从“能做”走向“稳定量产”</h3>
-          <p data-i18n="news.card3.summary">产业化不只看通路设计，更要看发酵、成本、质控和供应链协同。</p>
-          <time datetime="2026-06-02">2026.06.02</time>
-        </article>
+    <section class="section bg-dark" id="insights">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label" data-i18n="sections.insights.eyebrow">Insights</p>
+          <h2 class="section-title" data-i18n="sections.insights.title">有趣观点分享</h2>
+          <p class="section-subtitle" data-i18n="sections.insights.subtitle">生物 + 传媒、科研生活和跨界成长。</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="card-grid">
+          <article class="content-card dark-card">
+            <span class="card-tag" data-i18n="insights.card1.tag">观点</span>
+            <h3 data-i18n="insights.card1.title">科研人也需要训练自己的“表达资产”</h3>
+            <p data-i18n="insights.card1.summary">会做研究和会讲研究，是两种能力；但它们可以互相放大。</p>
+            <time datetime="2026-05-30">2026.05.30</time>
+          </article>
+          <article class="content-card dark-card">
+            <span class="card-tag" data-i18n="insights.card2.tag">跨界搞钱</span>
+            <h3 data-i18n="insights.card2.title">生物背景如何变成内容壁垒？</h3>
+            <p data-i18n="insights.card2.summary">专业知识不是天然优势，能被持续输出、复用和信任，才会变成个人品牌。</p>
+            <time datetime="2026-05-24">2026.05.24</time>
+          </article>
+          <article class="content-card dark-card">
+            <span class="card-tag" data-i18n="insights.card3.tag">科研生活</span>
+            <h3 data-i18n="insights.card3.title">低谷期最该保留的是可恢复的系统</h3>
+            <p data-i18n="insights.card3.summary">当状态不稳定时，靠意志力硬撑不如建立能自动接住自己的工作流。</p>
+            <time datetime="2026-05-16">2026.05.16</time>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="content-section section-shell" id="insights">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="sections.insights.eyebrow">Insights</p>
-        <h2 data-i18n="sections.insights.title">有趣观点分享</h2>
-      </div>
-      <div class="card-grid">
-        <article class="content-card">
-          <span class="card-tag" data-i18n="insights.card1.tag">观点</span>
-          <h3 data-i18n="insights.card1.title">科研人也需要训练自己的“表达资产”</h3>
-          <p data-i18n="insights.card1.summary">会做研究和会讲研究，是两种能力；但它们可以互相放大。</p>
-          <time datetime="2026-05-30">2026.05.30</time>
-        </article>
-        <article class="content-card">
-          <span class="card-tag" data-i18n="insights.card2.tag">跨界搞钱</span>
-          <h3 data-i18n="insights.card2.title">生物背景如何变成内容壁垒？</h3>
-          <p data-i18n="insights.card2.summary">专业知识不是天然优势，能被持续输出、复用和信任，才会变成个人品牌。</p>
-          <time datetime="2026-05-24">2026.05.24</time>
-        </article>
-        <article class="content-card">
-          <span class="card-tag" data-i18n="insights.card3.tag">科研生活</span>
-          <h3 data-i18n="insights.card3.title">低谷期最该保留的是可恢复的系统</h3>
-          <p data-i18n="insights.card3.summary">当状态不稳定时，靠意志力硬撑不如建立能自动接住自己的工作流。</p>
-          <time datetime="2026-05-16">2026.05.16</time>
-        </article>
-      </div>
-    </section>
+    <section class="section bg-warm" id="toolkit">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label" data-i18n="sections.toolkit.eyebrow">Toolkit</p>
+          <h2 class="section-title" data-i18n="sections.toolkit.title">好用工具推荐</h2>
+          <p class="section-subtitle" data-i18n="sections.toolkit.subtitle">效率系统、文献管理和科研写作工具。</p>
+          <div class="section-line"></div>
+        </div>
 
-    <section class="content-section section-shell" id="toolkit">
-      <div class="section-heading">
-        <p class="eyebrow" data-i18n="sections.toolkit.eyebrow">Toolkit</p>
-        <h2 data-i18n="sections.toolkit.title">好用工具推荐</h2>
-      </div>
-      <div class="card-grid">
-        <article class="content-card">
-          <span class="card-tag" data-i18n="toolkit.card1.tag">文献管理</span>
-          <h3 data-i18n="toolkit.card1.title">Zotero：科研人的第二大脑入口</h3>
-          <p data-i18n="toolkit.card1.summary">用标签、集合和笔记模板，把文献从“下载过”变成“能调用”。</p>
-          <time datetime="2026-05-18">2026.05.18</time>
-        </article>
-        <article class="content-card">
-          <span class="card-tag" data-i18n="toolkit.card2.tag">生信工具</span>
-          <h3 data-i18n="toolkit.card2.title">把常用数据库整理成你的研究导航页</h3>
-          <p data-i18n="toolkit.card2.summary">NCBI、UniProt、GEO 和 STRING 不该只躺在收藏夹里。</p>
-          <time datetime="2026-05-12">2026.05.12</time>
-        </article>
-        <article class="content-card">
-          <span class="card-tag" data-i18n="toolkit.card3.tag">效率工具</span>
-          <h3 data-i18n="toolkit.card3.title">划词翻译：读英文论文的摩擦力管理</h3>
-          <p data-i18n="toolkit.card3.summary">减少查词切换，让注意力更多留在实验逻辑和论证结构上。</p>
-          <time datetime="2026-05-06">2026.05.06</time>
-        </article>
+        <div class="card-grid">
+          <article class="content-card">
+            <span class="card-tag" data-i18n="toolkit.card1.tag">文献管理</span>
+            <h3 data-i18n="toolkit.card1.title">Zotero：科研人的第二大脑入口</h3>
+            <p data-i18n="toolkit.card1.summary">用标签、集合和笔记模板，把文献从“下载过”变成“能调用”。</p>
+            <time datetime="2026-05-18">2026.05.18</time>
+          </article>
+          <article class="content-card">
+            <span class="card-tag" data-i18n="toolkit.card2.tag">生信工具</span>
+            <h3 data-i18n="toolkit.card2.title">把常用数据库整理成你的研究导航页</h3>
+            <p data-i18n="toolkit.card2.summary">NCBI、UniProt、GEO 和 STRING 不该只躺在收藏夹里。</p>
+            <time datetime="2026-05-12">2026.05.12</time>
+          </article>
+          <article class="content-card">
+            <span class="card-tag" data-i18n="toolkit.card3.tag">效率工具</span>
+            <h3 data-i18n="toolkit.card3.title">划词翻译：读英文论文的摩擦力管理</h3>
+            <p data-i18n="toolkit.card3.summary">减少查词切换，让注意力更多留在实验逻辑和论证结构上。</p>
+            <time datetime="2026-05-06">2026.05.06</time>
+          </article>
+        </div>
       </div>
     </section>
   </main>
+
+  <div class="login-modal" data-login-modal aria-hidden="true">
+    <div class="login-backdrop" data-login-close></div>
+    <section class="login-card" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <button class="login-close" type="button" data-login-close aria-label="关闭">×</button>
+      <p class="section-label" data-i18n="auth.eyebrow">Member Access</p>
+      <h2 id="login-title" data-i18n="auth.title">邮箱登录</h2>
+      <p data-i18n="auth.note">静态站演示登录：输入邮箱后会在本机保存登录状态。真实邮箱验证码需要接入 Supabase 或 Firebase。</p>
+      <form class="login-form" data-login-form>
+        <label for="login-email" data-i18n="auth.emailLabel">邮箱</label>
+        <input id="login-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required>
+        <button class="btn btn-primary" type="submit" data-i18n="auth.submit">登录</button>
+      </form>
+      <p class="login-status" data-login-status></p>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-brand">Bio Media Lab</p>
+    <p class="footer-motto" data-i18n="footer.motto">用科研训练拆解生命科学，用传媒视角讲清复杂知识。</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
