@@ -515,6 +515,7 @@ input {
   background: rgba(250, 250, 249, 0.04);
 }
 
+.bg-dark .content-card h3,
 .dark-card h3 {
   color: #fafaf9;
 }
