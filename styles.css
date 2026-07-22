@@ -1238,6 +1238,7 @@ html {
   position: relative;
   grid-column: 2;
   align-self: start;
+  justify-self: end;
   width: 100%;
   max-width: 15rem;
   margin: 0;
@@ -1352,9 +1353,10 @@ html[lang="en"] .hero-name {
   display: flex;
   grid-column: span 9;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   flex-wrap: nowrap;
   gap: 1rem clamp(1.15rem, 2vw, 2rem);
+  text-align: right;
 }
 
 .hero-contact-links a {
