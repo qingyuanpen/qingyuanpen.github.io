@@ -5,6 +5,8 @@ const translations = {
     "nav.bioNews": "每日生物新闻",
     "nav.insights": "有趣观点",
     "nav.toolkit": "工具推荐",
+    "nav.contact": "联系我",
+    "nav.letsTalk": "聊聊合作 ↗",
     "about.eyebrow": "Biology Master · Media Background",
     "about.title": "大专逆袭到生物硕士的跨界科研人",
     "about.subtitle": "生命科学拆解者 · 科研内容创作者",
@@ -63,15 +65,11 @@ const translations = {
     "toolkit.card3.tag": "效率工具",
     "toolkit.card3.title": "划词翻译：读英文论文的摩擦力管理",
     "toolkit.card3.summary": "减少查词切换，让注意力更多留在实验逻辑和论证结构上。",
-    "auth.loginButton": "邮箱登录",
-    "auth.logoutButton": "退出登录",
-    "auth.eyebrow": "Member Access",
-    "auth.title": "邮箱登录",
-    "auth.note": "静态站演示登录：输入邮箱后会在本机保存登录状态。真实邮箱验证码需要接入 Supabase 或 Firebase。",
-    "auth.emailLabel": "邮箱",
-    "auth.submit": "登录",
-    "auth.success": "已登录：",
-    "footer.motto": "用科研训练拆解生命科学，用传媒视角讲清复杂知识。"
+    "contact.title": "让研究、内容与新的合作，在这里发生连接。",
+    "contact.copy": "欢迎交流生命科学、科研传播、学术合作与跨学科创意。",
+    "contact.emailLabel": "直接发邮件",
+    "footer.motto": "用科研训练拆解生命科学，用传媒视角讲清复杂知识。",
+    "footer.backTop": "返回顶部 ↑"
   },
   en: {
     "nav.about": "About",
@@ -79,6 +77,8 @@ const translations = {
     "nav.bioNews": "Bio-News",
     "nav.insights": "Insights",
     "nav.toolkit": "Toolkit",
+    "nav.contact": "Contact",
+    "nav.letsTalk": "Let's talk ↗",
     "about.eyebrow": "Biology Master · Media Background",
     "about.title": "A cross-disciplinary researcher from junior college to a biology master's degree",
     "about.subtitle": "Life science analyst · Research content creator",
@@ -137,26 +137,17 @@ const translations = {
     "toolkit.card3.tag": "Productivity",
     "toolkit.card3.title": "Inline translation reduces friction when reading papers",
     "toolkit.card3.summary": "Fewer context switches leave more attention for experimental logic and argument structure.",
-    "auth.loginButton": "Email Login",
-    "auth.logoutButton": "Log out",
-    "auth.eyebrow": "Member Access",
-    "auth.title": "Email Login",
-    "auth.note": "Static-site demo login: your email is stored locally in this browser. Real email verification requires Supabase or Firebase.",
-    "auth.emailLabel": "Email",
-    "auth.submit": "Login",
-    "auth.success": "Logged in as: ",
-    "footer.motto": "Using research training to decode life science, and media thinking to explain complex knowledge."
+    "contact.title": "Where research, communication, and new collaborations connect.",
+    "contact.copy": "Open to conversations in life science, research communication, academic collaboration, and interdisciplinary ideas.",
+    "contact.emailLabel": "Email directly",
+    "footer.motto": "Using research training to decode life science, and media thinking to explain complex knowledge.",
+    "footer.backTop": "Back to top ↑"
   }
 };
 
 const languageToggle = document.querySelector("[data-language-toggle]");
 const translatableElements = document.querySelectorAll("[data-i18n]");
-const loginModal = document.querySelector("[data-login-modal]");
-const loginOpen = document.querySelector("[data-login-open]");
-const loginCloseButtons = document.querySelectorAll("[data-login-close]");
-const loginForm = document.querySelector("[data-login-form]");
-const loginStatus = document.querySelector("[data-login-status]");
-const loginEmail = document.querySelector("#login-email");
+const navToggle = document.querySelector("#nav-toggle");
 
 const savedLanguage = localStorage.getItem("site-language");
 let currentLanguage = savedLanguage === "en" ? "en" : "zh";
@@ -183,70 +174,41 @@ function applyLanguage(language) {
     language === "en" ? "Switch to Chinese" : "Switch to English"
   );
   localStorage.setItem("site-language", language);
-  updateAuthUI();
-}
-
-function getSessionEmail() {
-  return localStorage.getItem("site-user-email");
-}
-
-function openLoginModal() {
-  loginModal.classList.add("is-open");
-  loginModal.setAttribute("aria-hidden", "false");
-  setTimeout(() => loginEmail.focus(), 30);
-}
-
-function closeLoginModal() {
-  loginModal.classList.remove("is-open");
-  loginModal.setAttribute("aria-hidden", "true");
-}
-
-function updateAuthUI() {
-  const email = getSessionEmail();
-
-  if (email) {
-    document.body.classList.remove("auth-locked");
-    loginOpen.textContent = t("auth.logoutButton");
-    loginOpen.dataset.loggedIn = "true";
-    loginStatus.textContent = `${t("auth.success")}${email}`;
-  } else {
-    loginOpen.textContent = t("auth.loginButton");
-    loginOpen.dataset.loggedIn = "false";
-    loginStatus.textContent = "";
-  }
 }
 
 languageToggle.addEventListener("click", () => {
   applyLanguage(currentLanguage === "zh" ? "en" : "zh");
 });
 
-loginOpen.addEventListener("click", () => {
-  if (loginOpen.dataset.loggedIn === "true") {
-    localStorage.removeItem("site-user-email");
-    updateAuthUI();
-    return;
-  }
-  openLoginModal();
+document.querySelectorAll('.nav-links a').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (navToggle) navToggle.checked = false;
+  });
 });
 
-loginCloseButtons.forEach((button) => {
-  button.addEventListener("click", closeLoginModal);
-});
+const revealTargets = document.querySelectorAll(
+  ".section-header, .content-card, .contact-intro, .contact-row"
+);
 
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const email = new FormData(loginForm).get("email").trim();
-  if (!email) return;
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-  localStorage.setItem("site-user-email", email);
-  updateAuthUI();
-  closeLoginModal();
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeLoginModal();
-  }
-});
+  revealTargets.forEach((element, index) => {
+    element.classList.add("reveal");
+    element.style.setProperty("--reveal-delay", `${(index % 3) * 70}ms`);
+    revealObserver.observe(element);
+  });
+} else {
+  revealTargets.forEach((element) => element.classList.add("is-visible"));
+}
 
 applyLanguage(currentLanguage);
