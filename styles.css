@@ -1192,9 +1192,17 @@ html {
   text-transform: uppercase;
 }
 
-.hero-display {
-  max-width: 68rem;
+.hero-masthead {
+  display: grid;
   margin: 1.25rem 0 2.75rem;
+  grid-template-columns: minmax(0, 8fr) minmax(13rem, 4fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.hero-display {
+  max-width: none;
+  margin: 0;
   color: var(--upl-white);
   font-family: var(--display);
   font-size: clamp(5.5rem, 10vw, 8.2rem);
@@ -1217,7 +1225,7 @@ html {
   display: grid;
   padding: 3.5rem 0 5.5rem;
   border-top: var(--upl-hairline);
-  grid-template-columns: minmax(7rem, 2fr) minmax(11rem, 3fr) minmax(0, 7fr);
+  grid-template-columns: minmax(7rem, 3fr) minmax(0, 9fr);
   align-items: start;
   gap: clamp(1.5rem, 3.8vw, 4rem);
 }
@@ -1246,7 +1254,7 @@ html {
 }
 
 .hero-profile-copy {
-  grid-column: 3;
+  grid-column: 2;
 }
 
 .hero-name {
@@ -1416,6 +1424,7 @@ html[lang="en"] .hero-name {
     text-align: left;
   }
 
+  .hero-masthead,
   .hero-profile-grid,
   .hero-contact-strip {
     grid-template-columns: 1fr;
@@ -1508,6 +1517,7 @@ html[lang="en"] .hero-name {
 
 .hero-profile-caption {
   margin: 0;
+  text-align: center;
   padding: 1rem 0 0.15rem;
   color: #fff;
   font-family: var(--sans);
