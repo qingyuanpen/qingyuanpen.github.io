@@ -187,7 +187,7 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".section-header, .content-card, .contact-intro, .contact-row"
+  ".section-header, .content-card"
 );
 
 if ("IntersectionObserver" in window) {
