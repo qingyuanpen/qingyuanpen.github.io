@@ -1536,3 +1536,38 @@ html[lang="en"] .hero-name {
 .hero-profile-caption span + span {
   margin-top: 0.12rem;
 }
+
+
+/* Shared page boundaries */
+:root {
+  --page-max-width: 1180px;
+  --page-gutter: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.site-nav {
+  padding-right: max(var(--page-gutter), calc((100vw - var(--page-max-width)) / 2));
+  padding-left: max(var(--page-gutter), calc((100vw - var(--page-max-width)) / 2));
+}
+
+.hero-container,
+.container,
+.footer-inner {
+  width: min(var(--page-max-width), calc(100% - (2 * var(--page-gutter))));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.section,
+.footer {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.hero-profile-photo {
+  justify-self: end;
+}
+
+.hero-profile-caption {
+  width: 100%;
+  text-align: center;
+}
