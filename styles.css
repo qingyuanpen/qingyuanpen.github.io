@@ -1499,3 +1499,28 @@ html[lang="en"] .hero-name {
     gap: 1.1rem 1.5rem;
   }
 }
+
+
+/* About profile order and identity caption */
+.hero-profile-grid {
+  padding-bottom: 3.5rem;
+}
+
+.hero-profile-caption {
+  margin: 0;
+  padding: 1rem 0 0.15rem;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.hero-profile-caption span {
+  display: block;
+}
+
+.hero-profile-caption span + span {
+  margin-top: 0.12rem;
+}
