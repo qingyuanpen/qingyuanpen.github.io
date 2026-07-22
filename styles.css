@@ -1217,16 +1217,36 @@ html {
   display: grid;
   padding: 3.5rem 0 5.5rem;
   border-top: var(--upl-hairline);
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 5rem;
+  grid-template-columns: minmax(7rem, 2fr) minmax(11rem, 3fr) minmax(0, 7fr);
+  align-items: start;
+  gap: clamp(1.5rem, 3.8vw, 4rem);
 }
 
 .hero-grid-label {
-  grid-column: span 4;
+  grid-column: 1;
+}
+
+.hero-profile-photo {
+  position: relative;
+  grid-column: 2;
+  align-self: start;
+  width: 100%;
+  max-width: 15rem;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: radial-gradient(circle at 50% 42%, rgba(50, 67, 255, 0.28), transparent 68%);
+}
+
+.hero-profile-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(0.9) contrast(1.04);
 }
 
 .hero-profile-copy {
-  grid-column: span 8;
+  grid-column: 3;
 }
 
 .hero-name {
@@ -1403,6 +1423,7 @@ html[lang="en"] .hero-name {
   }
 
   .hero-grid-label,
+  .hero-profile-photo,
   .hero-profile-copy,
   .hero-contact-label,
   .hero-contact-links {
@@ -1411,6 +1432,11 @@ html[lang="en"] .hero-name {
 
   .hero-profile-grid {
     padding: 2.5rem 0 4rem;
+  }
+
+  .hero-profile-photo {
+    width: min(15rem, 65vw);
+    justify-self: start;
   }
 
   .hero-contact-links {
@@ -1444,6 +1470,10 @@ html[lang="en"] .hero-name {
   html[lang="en"] .hero-name {
     font-size: 0.68rem;
     line-height: 1.7;
+  }
+
+  .hero-profile-photo {
+    width: min(13rem, 68vw);
   }
 
   .hero-subtitle {
