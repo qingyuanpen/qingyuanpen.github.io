@@ -1588,3 +1588,15 @@ html[lang="en"] .hero-name {
     line-height: 0.95;
   }
 }
+
+/* Keep the opening title phrase on one line */
+.hero-display > span:first-child {
+  font-size: 0.62em;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .hero-display > span:first-child {
+    font-size: 0.48em;
+  }
+}
