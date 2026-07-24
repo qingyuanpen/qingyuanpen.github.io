@@ -105,14 +105,48 @@ a {
   padding: clamp(3.2rem, 8vw, 7.2rem) 0 2.2rem;
 }
 
+.article-kicker-row {
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
 .article-section {
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   padding-bottom: 0.22rem;
   border-bottom: 3px solid var(--blue);
   color: var(--blue-dark);
   font-size: 1.05rem;
   font-weight: 800;
+}
+
+.article-language-toggle {
+  display: inline-flex;
+  min-height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.85rem;
+  border: 1px solid rgba(50, 67, 255, 0.34);
+  border-radius: 999px;
+  color: var(--blue-dark);
+  background: rgba(50, 67, 255, 0.06);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.article-language-toggle:hover,
+.article-language-toggle:focus-visible {
+  border-color: var(--blue);
+  color: #fff;
+  background: var(--blue);
+  outline: none;
+  transform: translateY(-1px);
 }
 
 .paper-series,
