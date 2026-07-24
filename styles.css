@@ -1378,7 +1378,9 @@ html[lang="en"] .hero-name {
   transform: translateY(-1px);
 }
 
-#paper-notes {
+#research,
+#research-notes,
+#portfolio {
   scroll-margin-top: 4.25rem;
 }
 
@@ -1570,4 +1572,19 @@ html[lang="en"] .hero-name {
 .hero-profile-caption {
   width: 100%;
   text-align: center;
+}
+
+
+/* Long-form research positioning */
+.hero-display {
+  font-size: clamp(2.75rem, 5.2vw, 4.2rem);
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+@media (max-width: 560px) {
+  .hero-display {
+    font-size: clamp(2.4rem, 12vw, 3.65rem);
+    line-height: 0.95;
+  }
 }
