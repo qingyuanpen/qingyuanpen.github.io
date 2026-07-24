@@ -1194,7 +1194,7 @@ html {
 
 .hero-masthead {
   display: grid;
-  margin: 1.25rem 0 2.75rem;
+  margin: 0 0 2.75rem;
   grid-template-columns: minmax(0, 8fr) minmax(13rem, 4fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 5rem);
@@ -1577,14 +1577,14 @@ html[lang="en"] .hero-name {
 
 /* Long-form research positioning */
 .hero-display {
-  font-size: clamp(2.75rem, 5.2vw, 4.2rem);
+  font-size: clamp(5.5rem, 10.4vw, 8.4rem);
   line-height: 0.92;
   text-wrap: balance;
 }
 
 @media (max-width: 560px) {
   .hero-display {
-    font-size: clamp(2.4rem, 12vw, 3.65rem);
+    font-size: clamp(4.8rem, 24vw, 7.3rem);
     line-height: 0.95;
   }
 }
