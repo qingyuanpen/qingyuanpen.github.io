@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="研究笔记：拆解 p38MAPK、GSK3β、mTOR 与 HDAC 抑制剂对小鼠造血干/祖细胞体外扩增的证据、局限与实验设计启示。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="抑制信号通路，真的能扩增造血干细胞吗？">
+  <meta property="og:description" content="从小鼠 LSK 细胞、九天培养和流式表型出发，区分细胞数量、干性标志与长期功能。">
+  <meta property="og:url" content="https://qingyuanpen.github.io/research-notes/hsc-signaling-pathway-inhibitors/">
+  <meta name="twitter:card" content="summary">
+  <title>抑制信号通路，真的能扩增造血干细胞吗？ | GRANDSON RESEARCH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../sulfo-phospho-vanillin-csf/article.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "抑制信号通路，真的能扩增造血干细胞吗？",
+      "description": "研究笔记：拆解多条信号通路抑制对小鼠造血干/祖细胞体外扩增的证据、局限与实验设计启示。",
+      "author": {
+        "@type": "Person",
+        "name": "Grandson Lee"
+      },
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "mainEntityOfPage": "https://qingyuanpen.github.io/research-notes/hsc-signaling-pathway-inhibitors/"
+    }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="../../">GRANDSON RESEARCH</a>
+      <nav class="site-links" aria-label="文章导航">
+        <a href="../../#research">Research</a>
+        <a href="../../#research-notes">Research Notes</a>
+        <a href="../../#portfolio">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <header class="article-header">
+        <div class="article-header-inner">
+          <a class="article-section" href="../../#research-notes">Research Notes</a>
+          <p class="paper-series">STEM CELLS · SIGNALING PATHWAYS · PAPER BREAKDOWN</p>
+          <h1>抑制信号通路，真的能扩增造血干细胞吗？</h1>
+          <p class="standfirst">p38MAPK、GSK3β、mTOR 和 HDAC 都会影响干细胞的增殖、分化与静息。上海师范大学生命科学学院的这项研究把多种小分子抑制剂放入同一套小鼠 LSK 细胞培养体系，寻找能增加“干细胞样”群体的组合——也留下了一个关键问题：表型数量增加，是否等于真正的功能性扩增？</p>
+
+          <div class="article-meta">
+            <div>
+              <p class="byline">文献拆解：李冠东（Grandson Lee）</p>
+              <p class="meta-line"><time datetime="2026-07-24">2026年7月24日</time><span aria-hidden="true">·</span><span>约 9 分钟阅读</span></p>
+            </div>
+            <a class="source-button" href="https://www.spandidos-publications.com/10.3892/mmr.2020.11647?text=fulltext" target="_blank" rel="noopener noreferrer">查看论文原文 ↗</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="article-layout">
+        <aside class="article-rail" aria-label="文章目录">
+          <p>IN THIS NOTE</p>
+          <a href="#question">研究问题</a>
+          <a href="#model">实验模型</a>
+          <a href="#evidence">关键证据</a>
+          <a href="#interpretation">结果解释</a>
+          <a href="#translation">研究启示</a>
+          <a href="#limits">局限与判断</a>
+        </aside>
+
+        <div class="article-content">
+          <figure class="method-figure">
+            <div class="method-figure-head">
+              <p>THE EXPERIMENTAL LOGIC</p>
+              <span>从小鼠骨髓到流式结果</span>
+            </div>
+            <ol class="method-flow">
+              <li>
+                <span class="step-index">01</span>
+                <strong>分离细胞</strong>
+                <small>从小鼠股骨和胫骨获取骨髓并制成单细胞悬液</small>
+              </li>
+              <li>
+                <span class="step-index">02</span>
+                <strong>富集 LSK</strong>
+                <small>选择 Sca-1 阳性细胞，再分选 Lin−Sca-1+c-Kit+ 群体</small>
+              </li>
+              <li>
+                <span class="step-index">03</span>
+                <strong>抑制通路</strong>
+                <small>加入 p38MAPK、GSK3β、mTOR 或 HDAC 抑制剂培养 9 天</small>
+              </li>
+              <li>
+                <span class="step-index">04</span>
+                <strong>比较表型</strong>
+                <small>统计总细胞、Lin− 与 LSK 的比例和绝对数量</small>
+              </li>
+            </ol>
+            <figcaption>图 1｜论文的实验逻辑。研究终点主要是流式标志物和细胞数量，并未完成移植后的长期重建功能验证。</figcaption>
+          </figure>
+
+          <section class="quick-read" aria-labelledby="quick-read-title">
+            <p class="block-label" id="quick-read-title">QUICK READ</p>
+            <ul>
+              <li>模型来自 6–8 周龄雌性 C57BL6/J 小鼠骨髓，不是人脐带血或临床样本。</li>
+              <li>1 μM SB203580 抑制 p38MAPK 后，LSK 比例和绝对数量相对 DMSO 对照增加。</li>
+              <li>GSK3β 抑制剂 SB216763 也促进 LSK 扩增；与 SB203580 联用时，相对 DMSO 的多项指标上升。</li>
+              <li>组合组的 Lin− 和 LSK 比例与单用 1 μM SB203580 并无显著差异，因此“协同”证据要谨慎表述。</li>
+            </ul>
+          </section>
+
+          <section id="question">
+            <h2>为什么要在体外扩增造血干细胞？</h2>
+            <p>造血干细胞（HSC）能重建血液和免疫系统，但供者骨髓、外周血或脐带血中的可用细胞数量有限。体外扩增的难点不是简单让细胞分裂得更多，而是在增殖过程中尽量保留自我更新能力，避免它们过早分化或耗竭。</p>
+            <p>这项研究把干细胞状态理解为多条通路共同平衡的结果：p38MAPK 与应激和分化有关，GSK3β 连接 Wnt/β-catenin 等调控，mTOR 感知营养与生长信号，HDAC 则影响染色质和基因表达。作者的问题是：分别或联合抑制这些通路，能否提高体外培养后 Lin− 与 LSK 细胞的数量？</p>
+            <blockquote>
+              <p>“扩增”至少有三层含义：总细胞变多、表型定义的 LSK 变多、能够长期重建造血的真正 HSC 变多。这篇论文主要回答前两层。</p>
+            </blockquote>
+          </section>
+
+          <section id="model">
+            <h2>研究怎样定义并追踪“干细胞样”群体？</h2>
+            <p>作者从小鼠股骨和胫骨分离骨髓细胞，先富集 Sca-1 阳性细胞，再用流式细胞术分选 LSK 群体。LSK 指 Lin−Sca-1+c-Kit+：不表达成熟血细胞的 lineage 标志，同时表达 Sca-1 和 c-Kit。它常用于富集小鼠造血干/祖细胞，但并不是纯粹的长期 HSC 身份标签。</p>
+            <p>细胞在含 TPO、SCF 和 Flt3 ligand 等细胞因子的培养基中培养 9 天，再加入不同浓度或组合的抑制剂。研究分别读取总细胞数、Lin− 细胞比例和绝对数量，以及 LSK 比例和绝对数量。数据以三次独立实验的均值 ± SEM 表示，并使用方差分析或两组比较。</p>
+
+            <div class="metric-grid" aria-label="造血干细胞抑制剂研究的核心数字">
+              <div class="metric">
+                <strong>9 days</strong>
+                <span>小分子抑制剂体外处理与培养时间</span>
+              </div>
+              <div class="metric">
+                <strong>4 pathways</strong>
+                <span>p38MAPK、GSK3β、mTOR 与 HDAC</span>
+              </div>
+              <div class="metric">
+                <strong>LSK</strong>
+                <span>Lin−Sca-1+c-Kit+ 的小鼠干/祖细胞表型</span>
+              </div>
+              <div class="metric">
+                <strong>3</strong>
+                <span>论文统计部分报告的独立实验次数</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="evidence">
+            <h2>四条通路分别给出了什么信号？</h2>
+
+            <div class="table-wrap" role="region" aria-label="不同信号通路抑制剂的主要观察" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">通路 / 抑制剂</th>
+                    <th scope="col">论文中的主要观察</th>
+                    <th scope="col">更谨慎的解释</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>p38MAPK / SB203580</td>
+                    <td>1 μM 时 LSK 比例和绝对数量相对 DMSO 增加；更高浓度下细胞数下降</td>
+                    <td>存在剂量窗口，抑制过强可能损害生长</td>
+                  </tr>
+                  <tr>
+                    <td>GSK3β / SB216763、CHIR99021</td>
+                    <td>SB216763 增加总细胞、Lin− 与 LSK 指标，整体表现优于 CHIR99021</td>
+                    <td>同靶点药物也可能因效力和非靶效应产生不同结果</td>
+                  </tr>
+                  <tr>
+                    <td>HDAC / VPA</td>
+                    <td>0.25 mM 总细胞数较高；1 mM 细胞数减少但形态更未分化</td>
+                    <td>“维持未分化”与“扩大细胞数量”可能是不同目标</td>
+                  </tr>
+                  <tr>
+                    <td>mTOR / rapamycin</td>
+                    <td>总细胞数下降，但 Lin− 和 LSK 比例上升，细胞更均一</td>
+                    <td>抑制增殖可能提高群体纯度，却不一定提高总产量</td>
+                  </tr>
+                  <tr>
+                    <td>p38MAPK + GSK3β</td>
+                    <td>相对 DMSO，多项细胞数量与表型指标增加</td>
+                    <td>与单用 SB203580 相比，Lin− 和 LSK 比例未显著更高</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="interpretation">
+            <h2>为什么“细胞更多”不等于“干性更强”？</h2>
+            <p>总细胞数、LSK 比例和 LSK 绝对数量回答的是三个不同问题。总数增加可能来自成熟或祖细胞扩增；比例增加可能只是其他群体减少；只有绝对 LSK 数增加，才能说明表型定义的目标群体确实变多。但即使如此，LSK 仍包含异质性的造血干细胞和祖细胞。</p>
+            <p>验证长期 HSC 功能通常还需要移植、竞争性重建和长期多谱系造血等实验。这篇研究没有提供这些终点，因此它支持的是“某些通路抑制条件增加小鼠 LSK 表型群体”，而不能直接证明这些细胞具备更强、更持久的体内造血重建能力。</p>
+
+            <h3>组合是否真的协同？</h3>
+            <p>SB203580 与 SB216763 联用组相对 DMSO 对照，多项指标显著增加；但论文同时报告，该组合的 Lin− 和 LSK 比例与 1 μM SB203580 单药组没有显著差异。要证明严格意义上的协同，最好预先定义加和模型，并直接比较组合与每个单药，而不是只看组合是否优于溶剂对照。</p>
+          </section>
+
+          <section id="translation">
+            <h2>这篇论文对实验设计有什么启示？</h2>
+            <div class="translation-box">
+              <p class="block-label">TRANSFERABLE LOGIC</p>
+              <ol>
+                <li><strong>先定义真正的成功终点。</strong> 比例、绝对数量、纯度和长期功能不能互相替代；研究开始前应明确哪个指标决定结论。</li>
+                <li><strong>剂量效应可能不是单调的。</strong> 低剂量抑制应激或分化，高剂量却可能抑制生长或产生毒性，因此需要完整剂量窗口。</li>
+                <li><strong>组合实验要直接检验交互。</strong> “组合优于对照”不自动等于“组合优于单药”，更不自动等于协同。</li>
+                <li><strong>形态只是辅助证据。</strong> 细胞看起来均一或未分化，必须与标志物、数量和功能实验结合解释。</li>
+                <li><strong>体外结果需要分层外推。</strong> 从小鼠 LSK 到人 HSC，再到临床移植，中间每一层都需要独立验证。</li>
+              </ol>
+            </div>
+            <p>这篇论文也提供了一个与你当前学习环境很近的研究案例：作者单位为上海师范大学生命科学学院，作者列表中包括 Jing Li。它适合用来练习如何从本校公开论文反向理解实验设计、流式终点与结论边界，但仅凭姓名和单位不应进一步推断未公开的合作或课题关系。</p>
+          </section>
+
+          <section id="limits">
+            <h2>阅读时最需要警惕什么？</h2>
+            <ul class="limitations">
+              <li><strong>表型不能替代功能。</strong> 研究没有以长期移植重建证明扩增后的细胞仍具真正 HSC 功能。</li>
+              <li><strong>模型不是人源系统。</strong> 结果来自小鼠骨髓 LSK，不能直接转化为人脐带血扩增方案。</li>
+              <li><strong>骨髓微环境被大幅简化。</strong> 体外培养缺少基质细胞、空间结构和多种动态信号。</li>
+              <li><strong>“协同”证据有限。</strong> 组合相对 DMSO 改善，但与关键单药组的直接优势并不稳定。</li>
+              <li><strong>论文存在表述不一致。</strong> 个别讨论语句将体外结果写成体内，且“分化增加”与全文强调的干性维持并不一致，阅读时应以实验方法和图表终点为准。</li>
+              <li><strong>机制仍未闭环。</strong> 作者也承认 p38MAPK 与 GSK3β 如何改变静息 HSC 的扩增和增殖仍不清楚。</li>
+            </ul>
+
+            <div class="verdict">
+              <p class="block-label">MY VERDICT</p>
+              <h3>它是有价值的通路筛选研究，但还不是可直接用于移植的 HSC 扩增方案。</h3>
+              <p>最可信的结论是：在这套小鼠 LSK 九天培养体系中，抑制 p38MAPK 和/或 GSK3β 能增加部分表型与数量指标。下一步需要更严格的组合效应统计、人源细胞验证，以及最关键的长期移植重建实验。</p>
+            </div>
+          </section>
+
+          <section class="paper-reference" aria-labelledby="paper-reference-title">
+            <p class="block-label" id="paper-reference-title">PAPER</p>
+            <p>Jiang Y, Xu Z, Ma N, Yin L, Hao C, Li J. Effects of signaling pathway inhibitors on hematopoietic stem cells. <em>Molecular Medicine Reports</em>. 2021;23:9.</p>
+            <div class="reference-links">
+              <a href="https://doi.org/10.3892/mmr.2020.11647" target="_blank" rel="noopener noreferrer">DOI ↗</a>
+              <a href="https://www.reddit.com/r/BioPaperScope/comments/1twenq9/paper_note_signaling_pathway_inhibitors_and/" target="_blank" rel="noopener noreferrer">原始 Reddit Note ↗</a>
+            </div>
+          </section>
+
+          <nav class="article-end-nav" aria-label="文章结束导航">
+            <a href="../../#research-notes">← 返回 Research Notes</a>
+            <a href="#">回到顶部 ↑</a>
+          </nav>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p>GRANDSON RESEARCH</p>
+      <span>Mucin Science · Data Storytelling · Scientific Visualization</span>
+    </div>
+  </footer>
+</body>
+</html>
