@@ -27,7 +27,7 @@
 .record-summary {
   display: grid;
   margin: 0 0 3.5rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: 1px solid var(--ink);
   border-left: 1px solid var(--ink);
 }
@@ -87,6 +87,11 @@
 .status-chip.warn {
   color: var(--record-warn);
   background: var(--record-warn-soft);
+}
+
+.status-chip.ok {
+  color: var(--record-ok);
+  background: var(--record-ok-soft);
 }
 
 .status-chip.stop {
