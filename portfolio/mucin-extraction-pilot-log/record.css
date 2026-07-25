@@ -1,0 +1,222 @@
+:root {
+  --record-ok: #1b6b4a;
+  --record-ok-soft: #e9f5ef;
+  --record-warn: #9a5a00;
+  --record-warn-soft: #fff4dd;
+  --record-stop: #a62b2b;
+  --record-stop-soft: #fff0ef;
+  --record-pending: #5f6368;
+  --record-pending-soft: #f0f1f3;
+}
+
+.record-status {
+  display: inline-flex;
+  min-height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border: 1px solid var(--record-warn);
+  color: var(--record-warn);
+  background: var(--record-warn-soft);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.record-summary {
+  display: grid;
+  margin: 0 0 3.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.record-summary-card {
+  display: flex;
+  min-height: 13rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.record-summary-card .group-code {
+  color: var(--blue-dark);
+  font-family: var(--mono);
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.record-summary-card h2 {
+  margin: 2.3rem 0 0.5rem;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.record-summary-card h2::before {
+  display: none;
+}
+
+.record-summary-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.status-chip {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  align-items: center;
+  padding: 0.28rem 0.58rem;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status-chip.warn {
+  color: var(--record-warn);
+  background: var(--record-warn-soft);
+}
+
+.status-chip.stop {
+  color: var(--record-stop);
+  background: var(--record-stop-soft);
+}
+
+.status-chip.pending {
+  color: var(--record-pending);
+  background: var(--record-pending-soft);
+}
+
+.record-timeline {
+  margin: 2rem 0 2.5rem;
+  padding: 0;
+  border-top: 4px solid var(--ink);
+  list-style: none;
+}
+
+.record-timeline li {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.record-timeline time,
+.record-timeline .timeline-step {
+  color: var(--blue-dark);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.record-timeline strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.record-timeline p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.deviation-grid {
+  display: grid;
+  margin: 2rem 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.deviation-card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-top-width: 5px;
+}
+
+.deviation-card.warn {
+  border-top-color: var(--record-warn);
+  background: var(--record-warn-soft);
+}
+
+.deviation-card.stop {
+  border-top-color: var(--record-stop);
+  background: var(--record-stop-soft);
+}
+
+.deviation-card .block-label {
+  color: currentColor;
+}
+
+.deviation-card h3 {
+  margin: 0.75rem 0;
+  font-size: 1.08rem;
+}
+
+.deviation-card p {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.record-boundary {
+  margin: 2.5rem 0 0;
+  padding: 1.4rem;
+  border: 1px dashed var(--record-pending);
+  background: var(--record-pending-soft);
+}
+
+.record-boundary p:last-child {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.article-content section.table-wrap {
+  margin: 2rem 0;
+}
+
+.decision-box {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-left: 6px solid var(--record-stop);
+  background: var(--record-stop-soft);
+}
+
+.decision-box h3 {
+  margin: 0.7rem 0;
+}
+
+.decision-box p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .record-summary,
+  .deviation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .record-summary-card {
+    min-height: 10rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-timeline li {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
