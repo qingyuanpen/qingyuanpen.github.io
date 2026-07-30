@@ -89,7 +89,7 @@ const translations = {
     "sections.portfolio.subtitle": "Documenting growth through verifiable research records, data analysis, and scientific visualization.",
     "portfolio.card1.tag": "Research Archive",
     "portfolio.card1.title": "Pilot Mucin Study Public Summary",
-    "portfolio.card1.summary": "A redacted record of progress, image evidence, corrected deviations, and colorimetric method/QC review without reproducible experimental parameters.",
+    "portfolio.card1.summary": "A redacted record of progress, image evidence, and the first plate-reader pilot outcome without raw absorbance values or reproducible experimental parameters.",
     "portfolio.card2.tag": "Data & Figures",
     "portfolio.card2.title": "From raw records to interpretable figures",
     "portfolio.card2.summary": "Building reproducible examples of data organization, statistical analysis, and scientific figure design.",
