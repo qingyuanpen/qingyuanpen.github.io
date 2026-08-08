@@ -535,7 +535,91 @@
     statusItems.forEach((item) => {
       const card = document.createElement("article");
       card.className = "vault-status-card";
-      const label = docum…811 tokens truncated…Dates().length) return;
+      const label = document.createElement("span");
+      label.textContent = item.label;
+      const value = document.createElement("strong");
+      value.textContent = item.value;
+      const note = document.createElement("small");
+      note.textContent = item.note;
+      card.append(label, value, note);
+      grid.append(card);
+    });
+
+    $("#lastBackupTime").textContent = backupLabel;
+    const badge = $("#backupHealthBadge");
+    badge.textContent = healthText;
+    badge.classList.toggle("needs-attention", age >= BACKUP_REMINDER_DAYS);
+    renderSnapshotList();
+  }
+
+  function openVaultDatabase() {
+    return new Promise((resolve, reject) => {
+      if (!("indexedDB" in window)) {
+        reject(new Error("IndexedDB is not supported"));
+        return;
+      }
+      const request = indexedDB.open(VAULT_DB_NAME, VAULT_DB_VERSION);
+      request.addEventListener("upgradeneeded", () => {
+        const database = request.result;
+        if (!database.objectStoreNames.contains(SNAPSHOT_STORE)) {
+          const store = database.createObjectStore(SNAPSHOT_STORE, { keyPath: "id", autoIncrement: true });
+          store.createIndex("createdAt", "createdAt", { unique: false });
+        }
+      });
+      request.addEventListener("success", () => resolve(request.result));
+      request.addEventListener("error", () => reject(request.error));
+    });
+  }
+
+  async function getSnapshots() {
+    const database = await openVaultDatabase();
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction(SNAPSHOT_STORE, "readonly");
+      const request = transaction.objectStore(SNAPSHOT_STORE).getAll();
+      request.addEventListener("success", () => {
+        database.close();
+        resolve(request.result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+      });
+      request.addEventListener("error", () => {
+        database.close();
+        reject(request.error);
+      });
+    });
+  }
+
+  async function createSnapshot(reason) {
+    if (!activeDates().length) return;
+    const database = await openVaultDatabase();
+    await new Promise((resolve, reject) => {
+      const transaction = database.transaction(SNAPSHOT_STORE, "readwrite");
+      transaction.objectStore(SNAPSHOT_STORE).add({
+        createdAt: new Date().toISOString(),
+        reason,
+        entries: JSON.parse(JSON.stringify(state.entries)),
+      });
+      transaction.addEventListener("complete", resolve);
+      transaction.addEventListener("error", () => reject(transaction.error));
+    });
+    database.close();
+    await pruneSnapshots();
+  }
+
+  async function pruneSnapshots() {
+    const snapshots = await getSnapshots();
+    if (snapshots.length <= SNAPSHOT_LIMIT) return;
+    const database = await openVaultDatabase();
+    await new Promise((resolve, reject) => {
+      const transaction = database.transaction(SNAPSHOT_STORE, "readwrite");
+      const store = transaction.objectStore(SNAPSHOT_STORE);
+      snapshots.slice(SNAPSHOT_LIMIT).forEach((snapshot) => store.delete(snapshot.id));
+      transaction.addEventListener("complete", resolve);
+      transaction.addEventListener("error", () => reject(transaction.error));
+    });
+    database.close();
+  }
+
+  function maybeCreateSnapshot(reason) {
+    if (!activeDates().length) return;
     const lastTime = state.lastSnapshotAt ? new Date(state.lastSnapshotAt).getTime() : 0;
     if (Date.now() - lastTime < SNAPSHOT_INTERVAL_MS) return;
     state.lastSnapshotAt = new Date().toISOString();
@@ -1062,4 +1146,3 @@
 
   initialize();
 })();
-
