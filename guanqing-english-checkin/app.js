@@ -2,6 +2,12 @@
   "use strict";
 
   const STORAGE_KEY = "guanqingEnglishCheckin.v1";
+  const VAULT_DB_NAME = "guanqingEnglishCheckinVault";
+  const VAULT_DB_VERSION = 1;
+  const SNAPSHOT_STORE = "snapshots";
+  const SNAPSHOT_LIMIT = 20;
+  const SNAPSHOT_INTERVAL_MS = 30 * 60 * 1000;
+  const BACKUP_REMINDER_DAYS = 7;
   const TASKS = [
     { key: "vocabulary", label: "词汇" },
     { key: "listening", label: "Listening" },
@@ -60,12 +66,22 @@
           version: 1,
           theme: stored.theme || "",
           entries: stored.entries,
+          lastBackupAt: stored.lastBackupAt || "",
+          backupReminderDismissedAt: stored.backupReminderDismissedAt || "",
+          lastSnapshotAt: stored.lastSnapshotAt || "",
         };
       }
     } catch (error) {
       console.warn("Unable to read saved check-ins", error);
     }
-    return { version: 1, theme: "", entries: {} };
+    return {
+      version: 1,
+      theme: "",
+      entries: {},
+      lastBackupAt: "",
+      backupReminderDismissedAt: "",
+      lastSnapshotAt: "",
+    };
   }
 
   function saveState() {
@@ -226,6 +242,7 @@
     state.entries[selectedDate] = readForm();
     saveState();
     renderDerived();
+    maybeCreateSnapshot("自动快照");
   }
 
   function renderSelectedDate() {
@@ -289,10 +306,12 @@
 
     if (!$("#statsView").hidden) renderStats();
     if (!$("#galleryView").hidden) renderGallery();
+    if (!$("#vaultView").hidden) renderVault();
+    renderBackupReminder();
   }
 
   function switchView(name, updateHash = true) {
-    const validName = ["today", "stats", "gallery"].includes(name) ? name : "today";
+    const validName = ["today", "stats", "gallery", "vault"].includes(name) ? name : "today";
     $$("[data-view]").forEach((view) => {
       const active = view.dataset.view === validName;
       view.hidden = !active;
@@ -304,6 +323,7 @@
     });
     if (validName === "stats") renderStats();
     if (validName === "gallery") renderGallery();
+    if (validName === "vault") renderVault();
     if (updateHash) history.replaceState(null, "", `#${validName}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -462,6 +482,158 @@
       });
       grid.append(button);
     });
+  }
+
+  function backupAgeDays() {
+    if (!state.lastBackupAt) return Number.POSITIVE_INFINITY;
+    const elapsed = Date.now() - new Date(state.lastBackupAt).getTime();
+    return Math.max(0, Math.floor(elapsed / (24 * 60 * 60 * 1000)));
+  }
+
+  function formatDateTime(value) {
+    if (!value) return "从未备份";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "时间未知";
+    return new Intl.DateTimeFormat("zh-CN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(date);
+  }
+
+  function renderBackupReminder() {
+    const reminder = $("#backupReminder");
+    const hasRecords = activeDates().length > 0;
+    const dismissedToday = state.backupReminderDismissedAt?.slice(0, 10) === todayKey;
+    const age = backupAgeDays();
+    const due = age >= BACKUP_REMINDER_DAYS;
+    reminder.hidden = !hasRecords || !due || dismissedToday;
+    if (!reminder.hidden) {
+      $("#backupReminderCopy").textContent = state.lastBackupAt
+        ? `距离上次备份已经 ${age} 天，建议下载一个新的完整备份。`
+        : "你已经有打卡记录，建议现在下载第一份完整备份。";
+    }
+  }
+
+  function renderVault() {
+    const records = activeDates().length;
+    const dataBytes = new Blob([JSON.stringify(state.entries)]).size;
+    const age = backupAgeDays();
+    const healthText = age < BACKUP_REMINDER_DAYS ? "备份正常" : "建议立即备份";
+    const backupLabel = state.lastBackupAt ? formatDateTime(state.lastBackupAt) : "从未备份";
+    const statusItems = [
+      { label: "浏览器自动保存", value: "已开启", note: "每次修改立即保存" },
+      { label: "已记录天数", value: `${records} 天`, note: "有完成项目的日期" },
+      { label: "记录数据大小", value: dataBytes < 1024 ? `${dataBytes} B` : `${Math.ceil(dataBytes / 1024)} KB`, note: "不包含录音文件" },
+      { label: "文件备份状态", value: healthText, note: backupLabel },
+    ];
+
+    const grid = $("#vaultStatusGrid");
+    grid.replaceChildren();
+    statusItems.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "vault-status-card";
+      const label = docum…811 tokens truncated…Dates().length) return;
+    const lastTime = state.lastSnapshotAt ? new Date(state.lastSnapshotAt).getTime() : 0;
+    if (Date.now() - lastTime < SNAPSHOT_INTERVAL_MS) return;
+    state.lastSnapshotAt = new Date().toISOString();
+    saveState();
+    createSnapshot(reason).catch(() => {
+      state.lastSnapshotAt = "";
+      saveState();
+    });
+  }
+
+  async function renderSnapshotList() {
+    const list = $("#snapshotList");
+    try {
+      const snapshots = await getSnapshots();
+      list.replaceChildren();
+      if (!snapshots.length) {
+        const empty = document.createElement("p");
+        empty.className = "snapshot-empty";
+        empty.textContent = "产生打卡记录后，这里会自动出现版本。";
+        list.append(empty);
+        return;
+      }
+      snapshots.forEach((snapshot) => {
+        const row = document.createElement("div");
+        row.className = "snapshot-row";
+        const copy = document.createElement("div");
+        const title = document.createElement("strong");
+        title.textContent = snapshot.reason || "自动快照";
+        const detail = document.createElement("span");
+        detail.textContent = `${formatDateTime(snapshot.createdAt)} · ${Object.keys(snapshot.entries || {}).length} 个日期`;
+        copy.append(title, detail);
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "恢复此版本";
+        button.addEventListener("click", () => restoreSnapshot(snapshot));
+        row.append(copy, button);
+        list.append(row);
+      });
+    } catch (error) {
+      list.replaceChildren();
+      const message = document.createElement("p");
+      message.className = "snapshot-empty";
+      message.textContent = "当前浏览器无法使用版本快照，请坚持下载备份文件。";
+      list.append(message);
+    }
+  }
+
+  async function restoreSnapshot(snapshot) {
+    const confirmed = window.confirm(`确定恢复 ${formatDateTime(snapshot.createdAt)} 的版本吗？当前记录会先自动留下一份快照。`);
+    if (!confirmed) return;
+    try {
+      await createSnapshot("恢复前备份");
+      state.entries = JSON.parse(JSON.stringify(snapshot.entries || {}));
+      state.lastSnapshotAt = new Date().toISOString();
+      saveState();
+      selectedDate = todayKey;
+      renderSelectedDate();
+      renderVault();
+      showToast("版本已恢复。");
+    } catch (error) {
+      showToast("版本恢复失败，请改用文件备份恢复。");
+    }
+  }
+
+  function normalizeImportedEntries(entries) {
+    if (!entries || typeof entries !== "object" || Array.isArray(entries)) return null;
+    const normalized = {};
+    Object.entries(entries).forEach(([dateKey, value]) => {
+      if (/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) normalized[dateKey] = normalizeEntry(value);
+    });
+    return normalized;
+  }
+
+  async function importBackupFile(file) {
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      showToast("备份文件过大，无法安全导入。");
+      return;
+    }
+    try {
+      const payload = JSON.parse(await file.text());
+      const entries = normalizeImportedEntries(payload.entries || payload.data?.entries);
+      if (!entries) throw new Error("Invalid backup format");
+      const dayCount = Object.keys(entries).length;
+      const confirmed = window.confirm(`将从“${file.name}”恢复 ${dayCount} 个日期的记录。当前数据会先自动留下一份快照，是否继续？`);
+      if (!confirmed) return;
+      await createSnapshot("导入前备份").catch(() => {});
+      state.entries = entries;
+      state.lastBackupAt = new Date().toISOString();
+      state.lastSnapshotAt = "";
+      saveState();
+      selectedDate = todayKey;
+      renderSelectedDate();
+      renderVault();
+      showToast(`已恢复 ${dayCount} 个日期的学习记录。`);
+    } catch (error) {
+      showToast("无法识别这个备份文件，请选择网站导出的 JSON 文件。");
+    }
   }
 
   function setTheme(theme) {
@@ -769,10 +941,18 @@
   }
 
   function exportData() {
+    state.lastBackupAt = new Date().toISOString();
+    state.backupReminderDismissedAt = "";
+    saveState();
     const exportPayload = {
+      format: "guanqing-english-checkin-backup",
+      version: 1,
       name: "冠清英语打卡",
-      exportedAt: new Date().toISOString(),
-      ...state,
+      exportedAt: state.lastBackupAt,
+      entries: state.entries,
+      notes: {
+        audio: "备份包含录音文件名和时长，不包含录音文件本身。",
+      },
     };
     const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -781,7 +961,10 @@
     link.download = `冠清英语打卡-学习记录-${todayKey}.json`;
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-    showToast("学习记录已导出。");
+    renderBackupReminder();
+    renderVault();
+    createSnapshot("文件备份时快照").catch(() => {});
+    showToast("完整备份已下载，请把文件保存在安全位置。");
   }
 
   function bindEvents() {
@@ -848,6 +1031,18 @@
     $("#downloadImageButton").addEventListener("click", downloadCard);
     $("#shareImageButton").addEventListener("click", shareCard);
     $("#exportDataButton").addEventListener("click", exportData);
+    $("#vaultBackupButton").addEventListener("click", exportData);
+    $("#quickBackupButton").addEventListener("click", exportData);
+    $("#dismissBackupReminder").addEventListener("click", () => {
+      state.backupReminderDismissedAt = new Date().toISOString();
+      saveState();
+      renderBackupReminder();
+    });
+    $("#backupImport").addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      await importBackupFile(file);
+      event.target.value = "";
+    });
 
     window.addEventListener("hashchange", () => switchView(location.hash.slice(1), false));
     window.addEventListener("beforeunload", () => {
@@ -862,6 +1057,7 @@
     bindEvents();
     renderSelectedDate();
     switchView(location.hash.slice(1) || "today", false);
+    maybeCreateSnapshot("启用数据保险箱");
   }
 
   initialize();
