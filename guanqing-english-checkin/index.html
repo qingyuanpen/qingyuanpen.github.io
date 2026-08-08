@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173f31" />
+    <meta
+      name="description"
+      content="冠清英语打卡：记录词汇、听力、IELTS、论文阅读和口语跟读，把每天的进步保存成一张漂亮的打卡图。"
+    />
+    <meta property="og:title" content="冠清英语打卡" />
+    <meta
+      property="og:description"
+      content="一页一日，持续生长。记录英语学习，生成每日打卡图片。"
+    />
+    <title>冠清英语打卡</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#today" aria-label="冠清英语打卡首页">
+          <span class="brand-mark" aria-hidden="true">GQ</span>
+          <span>
+            <strong>冠清英语打卡</strong>
+            <small>GUANQING ENGLISH LOG</small>
+          </span>
+        </a>
+
+        <nav class="primary-nav" aria-label="主要导航">
+          <button class="nav-button is-active" type="button" data-view-target="today">
+            今日打卡
+          </button>
+          <button class="nav-button" type="button" data-view-target="stats">
+            成长记录
+          </button>
+          <button class="nav-button" type="button" data-view-target="gallery">
+            打卡图册
+          </button>
+        </nav>
+
+        <div class="header-actions">
+          <span class="streak-chip" id="headerStreak">连续 0 天</span>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="切换深浅色主题">
+            <span aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-view is-active" id="todayView" data-view="today">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">DAILY PRACTICE</p>
+              <h1>今天，也往前一点。</h1>
+              <p class="heading-copy">完成一项就点亮一项，允许小步，但不要空白。</p>
+            </div>
+            <div class="date-control" aria-label="选择打卡日期">
+              <button id="previousDate" type="button" aria-label="前一天">←</button>
+              <label>
+                <span class="sr-only">打卡日期</span>
+                <input id="entryDate" type="date" />
+              </label>
+              <button id="nextDate" type="button" aria-label="后一天">→</button>
+            </div>
+          </div>
+
+          <div class="today-layout">
+            <form class="checkin-form" id="checkinForm">
+              <article class="task-card" data-task-card="vocabulary">
+                <div class="task-status">
+                  <input id="vocabularyDone" type="checkbox" data-done="vocabulary" />
+                  <label for="vocabularyDone" aria-label="标记词汇任务完成"></label>
+                </div>
+                <div class="task-content">
+                  <div class="task-heading-row">
+                    <div>
+                      <h2>词汇</h2>
+                      <p>新词与复习分开记录，看见真实积累。</p>
+                    </div>
+                    <span class="task-number">01</span>
+                  </div>
+                  <div class="counter-grid">
+                    <div class="counter-field">
+                      <span>新词</span>
+                      <div class="stepper">
+                        <button type="button" data-step="newWords" data-delta="-1" aria-label="减少新词数量">−</button>
+                        <input id="newWords" type="number" min="0" max="999" inputmode="numeric" />
+                        <button type="button" data-step="newWords" data-delta="1" aria-label="增加新词数量">＋</button>
+                      </div>
+                    </div>
+                    <div class="counter-field">
+                      <span>复习</span>
+                      <div class="stepper">
+                        <button type="button" data-step="reviewedWords" data-delta="-1" aria-label="减少复习数量">−</button>
+                        <input id="reviewedWords" type="number" min="0" max="9999" inputmode="numeric" />
+                        <button type="button" data-step="reviewedWords" data-delta="1" aria-label="增加复习数量">＋</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="task-card" data-task-card="listening">
+                <div class="task-status">
+                  <input id="listeningDone" type="checkbox" data-done="listening" />
+                  <label for="listeningDone" aria-label="标记听力任务完成"></label>
+                </div>
+                <div class="task-content">
+                  <div class="task-heading-row">
+                    <div>
+                      <h2>Listening</h2>
+                      <p>留下材料与段落，方便之后回听。</p>
+                    </div>
+                    <span class="task-number">02</span>
+                  </div>
+                  <div class="field-grid two-columns">
+                    <label class="field">
+                      <span>材料</span>
+                      <input id="listeningMaterial" type="text" placeholder="例：BBC 6 Minute English" />
+                    </label>
+                    <label class="field">
+                      <span>Section</span>
+                      <input id="listeningSection" type="text" placeholder="例：Section 2" />
+                    </label>
+                  </div>
+                </div>
+              </article>
+
+              <article class="task-card" data-task-card="ielts">
+                <div class="task-status">
+                  <input id="ieltsDone" type="checkbox" data-done="ielts" />
+                  <label for="ieltsDone" aria-label="标记 IELTS 主任务完成"></label>
+                </div>
+                <div class="task-content">
+                  <div class="task-heading-row">
+                    <div>
+                      <h2>IELTS 主任务</h2>
+                      <p>一天只突出一个主任务，减少切换。</p>
+                    </div>
+                    <span class="task-number">03</span>
+                  </div>
+                  <fieldset class="task-pills">
+                    <legend class="sr-only">选择 IELTS 主任务</legend>
+                    <label><input type="radio" name="ieltsTask" value="Reading" /><span>Reading</span></label>
+                    <label><input type="radio" name="ieltsTask" value="Writing" /><span>Writing</span></label>
+                    <label><input type="radio" name="ieltsTask" value="Speaking" /><span>Speaking</span></label>
+                  </fieldset>
+                  <label class="field">
+                    <span>具体内容</span>
+                    <input id="ieltsNote" type="text" placeholder="例：Passage 3 精读与错题" />
+                  </label>
+                </div>
+              </article>
+
+              <article class="task-card" data-task-card="paper">
+                <div class="task-status">
+                  <input id="paperDone" type="checkbox" data-done="paper" />
+                  <label for="paperDone" aria-label="标记论文任务完成"></label>
+                </div>
+                <div class="task-content">
+                  <div class="task-heading-row">
+                    <div>
+                      <h2>论文</h2>
+                      <p>记录阅读深度与题目，再写下一句收获。</p>
+                    </div>
+                    <span class="task-number">04</span>
+                  </div>
+                  <div class="field-grid paper-fields">
+                    <label class="field compact-field">
+                      <span>方式</span>
+                      <select id="paperMode">
+                        <option value="摘要">摘要</option>
+                        <option value="深读">深读</option>
+                      </select>
+                    </label>
+                    <label class="field">
+                      <span>题目</span>
+                      <input id="paperTitle" type="text" placeholder="论文或章节标题" />
+                    </label>
+                  </div>
+                  <label class="field">
+                    <span>一句收获</span>
+                    <input id="paperInsight" type="text" placeholder="今天最值得留下的一句话" />
+                  </label>
+                </div>
+              </article>
+
+              <article class="task-card" data-task-card="speaking">
+                <div class="task-status">
+                  <input id="speakingDone" type="checkbox" data-done="speaking" />
+                  <label for="speakingDone" aria-label="标记口语或跟读任务完成"></label>
+                </div>
+                <div class="task-content">
+                  <div class="task-heading-row">
+                    <div>
+                      <h2>口语 / 跟读</h2>
+                      <p>上传已有录音，或直接录下今天的声音。</p>
+                    </div>
+                    <span class="task-number">05</span>
+                  </div>
+                  <div class="recording-actions">
+                    <label class="secondary-button file-button">
+                      <input id="audioUpload" type="file" accept="audio/*" />
+                      <span>上传录音</span>
+                    </label>
+                    <button class="secondary-button" id="recordButton" type="button">开始录音</button>
+                    <button class="secondary-button" id="stopRecordButton" type="button" disabled>停止</button>
+                    <span class="recording-time" id="recordingTime">00:00</span>
+                  </div>
+                  <div class="audio-summary" id="audioSummary" hidden>
+                    <audio id="audioPreview" controls></audio>
+                    <div>
+                      <strong id="audioFileName">尚未添加录音</strong>
+                      <span id="audioDuration">0 秒</span>
+                    </div>
+                    <a id="saveRecording" href="#" download hidden>保存录音</a>
+                  </div>
+                </div>
+              </article>
+
+              <div class="completion-bar">
+                <div class="completion-copy">
+                  <strong id="formProgress">0%</strong>
+                  <span>今日完成度<small id="formProgressDetail">0 / 5 项已点亮</small></span>
+                </div>
+                <button class="primary-button" id="openCardButton" type="button">生成打卡图片</button>
+              </div>
+            </form>
+
+            <aside class="live-preview" aria-label="打卡图片实时预览">
+              <div class="preview-meta">
+                <span>分享图实时预览</span>
+                <span>1080 × 1440</span>
+              </div>
+              <div class="share-card" id="shareCardPreview">
+                <div class="share-card-head">
+                  <div>
+                    <span class="share-kicker">DAILY ENGLISH LOG</span>
+                    <strong id="previewDay">Day 001</strong>
+                  </div>
+                  <div class="progress-ring" id="previewProgressRing" style="--progress: 0deg">
+                    <span id="previewProgress">0%</span>
+                  </div>
+                </div>
+                <blockquote>“Fluency grows quietly, one honest day at a time.”</blockquote>
+                <div class="share-task-list" id="previewTaskList"></div>
+                <div class="share-card-foot">
+                  <div>
+                    <strong id="previewStreak">0 day streak</strong>
+                    <span id="previewDate">冠清英语打卡</span>
+                  </div>
+                  <span class="growth-seal">持续<br />生长</span>
+                </div>
+              </div>
+              <p class="privacy-note">数据默认只保存在这台设备的浏览器中。</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="page-view" id="statsView" data-view="stats" hidden>
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">YOUR GROWTH</p>
+              <h1>成长不是一条直线。</h1>
+              <p class="heading-copy">用趋势看坚持，不用一次中断否定整个过程。</p>
+            </div>
+          </div>
+
+          <div class="stat-grid" id="statGrid"></div>
+
+          <div class="insight-layout">
+            <section class="panel calendar-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">CHECK-IN CALENDAR</p>
+                  <h2 id="calendarTitle">本月打卡</h2>
+                </div>
+                <div class="calendar-actions">
+                  <button id="previousMonth" type="button" aria-label="上个月">←</button>
+                  <button id="nextMonth" type="button" aria-label="下个月">→</button>
+                </div>
+              </div>
+              <div class="calendar-weekdays" aria-hidden="true">
+                <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+              </div>
+              <div class="calendar-grid" id="calendarGrid"></div>
+              <div class="calendar-legend">
+                <span>少</span><i></i><i></i><i></i><i></i><i></i><span>多</span>
+              </div>
+            </section>
+
+            <section class="panel module-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">LAST 7 DAYS</p>
+                  <h2>近七天任务分布</h2>
+                </div>
+              </div>
+              <div class="module-bars" id="moduleBars"></div>
+              <p class="panel-note" id="moduleInsight">开始打卡后，这里会出现你的学习侧重点。</p>
+            </section>
+          </div>
+        </section>
+
+        <section class="page-view" id="galleryView" data-view="gallery" hidden>
+          <div class="page-heading gallery-heading">
+            <div>
+              <p class="eyebrow">YOUR ARCHIVE</p>
+              <h1>把坚持收藏成册。</h1>
+              <p class="heading-copy">每个有行动的日子，都会留下一张可以回看的卡片。</p>
+            </div>
+            <button class="secondary-button" id="exportDataButton" type="button">导出学习记录</button>
+          </div>
+          <div class="gallery-empty" id="galleryEmpty">
+            <span aria-hidden="true">✦</span>
+            <h2>第一张卡片，正在等你。</h2>
+            <p>完成任意一项任务后，它就会出现在这里。</p>
+            <button class="primary-button" type="button" data-go-today>开始今天的打卡</button>
+          </div>
+          <div class="gallery-grid" id="galleryGrid"></div>
+        </section>
+      </main>
+
+      <footer>
+        <span>冠清英语打卡</span>
+        <span>一页一日，持续生长。</span>
+      </footer>
+    </div>
+
+    <dialog class="card-dialog" id="cardDialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">CHECK-IN CARD</p>
+          <h2>今日打卡图片</h2>
+        </div>
+        <button class="icon-button" id="closeCardDialog" type="button" aria-label="关闭">×</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="checkinCanvas" width="1080" height="1440">
+          你的浏览器不支持画布，暂时无法生成图片。
+        </canvas>
+      </div>
+      <div class="dialog-actions">
+        <button class="secondary-button" id="shareImageButton" type="button">分享图片</button>
+        <button class="primary-button" id="downloadImageButton" type="button">下载 PNG</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
