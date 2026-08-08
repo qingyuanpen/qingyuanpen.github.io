@@ -37,6 +37,9 @@
           <button class="nav-button" type="button" data-view-target="gallery">
             打卡图册
           </button>
+          <button class="nav-button" type="button" data-view-target="vault">
+            数据保险箱
+          </button>
         </nav>
 
         <div class="header-actions">
@@ -64,6 +67,18 @@
               <button id="nextDate" type="button" aria-label="后一天">→</button>
             </div>
           </div>
+
+          <aside class="backup-reminder" id="backupReminder" hidden>
+            <span class="backup-reminder-mark" aria-hidden="true">↧</span>
+            <div>
+              <strong>该给学习记录做一次本地备份了</strong>
+              <p id="backupReminderCopy">下载一个备份文件，即使误删浏览器数据也能恢复。</p>
+            </div>
+            <div class="backup-reminder-actions">
+              <button class="secondary-button" id="dismissBackupReminder" type="button">稍后提醒</button>
+              <button class="primary-button" id="quickBackupButton" type="button">立即备份</button>
+            </div>
+          </aside>
 
           <div class="today-layout">
             <form class="checkin-form" id="checkinForm">
@@ -310,7 +325,7 @@
               <h1>把坚持收藏成册。</h1>
               <p class="heading-copy">每个有行动的日子，都会留下一张可以回看的卡片。</p>
             </div>
-            <button class="secondary-button" id="exportDataButton" type="button">导出学习记录</button>
+            <button class="secondary-button" id="exportDataButton" type="button">备份学习记录</button>
           </div>
           <div class="gallery-empty" id="galleryEmpty">
             <span aria-hidden="true">✦</span>
@@ -319,6 +334,66 @@
             <button class="primary-button" type="button" data-go-today>开始今天的打卡</button>
           </div>
           <div class="gallery-grid" id="galleryGrid"></div>
+        </section>
+
+        <section class="page-view" id="vaultView" data-view="vault" hidden>
+          <div class="page-heading vault-heading">
+            <div>
+              <p class="eyebrow">DATA VAULT</p>
+              <h1>给坚持，多一层保护。</h1>
+              <p class="heading-copy">浏览器负责每天自动保存，备份文件负责真正长期留存。</p>
+            </div>
+          </div>
+
+          <div class="vault-status-grid" id="vaultStatusGrid"></div>
+
+          <div class="vault-layout">
+            <section class="panel backup-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">LOCAL BACKUP</p>
+                  <h2>完整备份文件</h2>
+                </div>
+                <span class="vault-badge" id="backupHealthBadge">尚未备份</span>
+              </div>
+              <p class="vault-copy">
+                建议每周下载一次 JSON 备份，保存在“文档”或你常用的备份文件夹。它包含全部打卡记录，但不包含录音文件本身。
+              </p>
+              <div class="vault-actions">
+                <button class="primary-button" id="vaultBackupButton" type="button">下载完整备份</button>
+                <label class="secondary-button file-button">
+                  <input id="backupImport" type="file" accept="application/json,.json" />
+                  <span>导入备份并恢复</span>
+                </label>
+              </div>
+              <div class="backup-details">
+                <span>上次文件备份</span>
+                <strong id="lastBackupTime">从未备份</strong>
+              </div>
+            </section>
+
+            <section class="panel snapshot-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">VERSION HISTORY</p>
+                  <h2>最近版本快照</h2>
+                </div>
+                <span class="vault-badge">最多 20 个</span>
+              </div>
+              <p class="vault-copy">
+                网站会定期留下一个本地版本，用于撤销误操作。快照仍属于浏览器数据，不能替代下载备份。
+              </p>
+              <div class="snapshot-list" id="snapshotList">
+                <p class="snapshot-empty">产生打卡记录后，这里会自动出现版本。</p>
+              </div>
+            </section>
+          </div>
+
+          <section class="backup-guide">
+            <div><span>01</span><strong>每天正常打卡</strong><p>修改后立即保存在当前浏览器。</p></div>
+            <div><span>02</span><strong>每周下载备份</strong><p>网站会在超过七天时提醒你。</p></div>
+            <div><span>03</span><strong>需要时导入恢复</strong><p>选择原来的 JSON 文件即可恢复。</p></div>
+          </section>
         </section>
       </main>
 
