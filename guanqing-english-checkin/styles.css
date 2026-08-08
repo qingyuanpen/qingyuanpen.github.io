@@ -180,6 +180,7 @@ button {
   padding: 9px 13px;
   border-radius: 11px;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .nav-button:hover,
@@ -828,6 +829,52 @@ h1 {
   text-align: center;
 }
 
+.backup-reminder {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  margin: -6px 0 20px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--orange) 45%, var(--line));
+  border-radius: var(--radius-medium);
+  background: color-mix(in srgb, var(--yellow) 19%, var(--paper));
+}
+
+.backup-reminder[hidden] {
+  display: none;
+}
+
+.backup-reminder-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--orange) 22%, var(--paper));
+  color: var(--orange);
+  font-size: 20px;
+}
+
+.backup-reminder strong,
+.backup-reminder p {
+  display: block;
+  margin: 0;
+}
+
+.backup-reminder p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.backup-reminder-actions,
+.vault-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1129,6 +1176,174 @@ h1 {
   font-size: 18px;
 }
 
+.vault-heading {
+  margin-bottom: 20px;
+}
+
+.vault-status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 16px;
+}
+
+.vault-status-card {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  background: var(--paper);
+}
+
+.vault-status-card span,
+.vault-status-card small,
+.vault-status-card strong {
+  display: block;
+}
+
+.vault-status-card span,
+.vault-status-card small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.vault-status-card strong {
+  margin: 7px 0 3px;
+  color: var(--green-strong);
+  font-size: 20px;
+}
+
+.vault-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 16px;
+}
+
+.vault-copy {
+  margin: -3px 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.vault-badge {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green-strong);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.vault-badge.needs-attention {
+  background: color-mix(in srgb, var(--yellow) 28%, var(--paper));
+  color: var(--orange);
+}
+
+.backup-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.backup-details strong {
+  color: var(--ink);
+  font-weight: 600;
+  text-align: right;
+}
+
+.snapshot-list {
+  display: grid;
+  gap: 7px;
+  max-height: 310px;
+  overflow: auto;
+  padding-right: 3px;
+}
+
+.snapshot-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--paper-soft);
+}
+
+.snapshot-row strong,
+.snapshot-row span {
+  display: block;
+}
+
+.snapshot-row strong {
+  font-size: 12px;
+}
+
+.snapshot-row span,
+.snapshot-empty {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.snapshot-row button {
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.snapshot-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 11px;
+  text-align: center;
+}
+
+.backup-guide {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.backup-guide > div {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  background: color-mix(in srgb, var(--paper-soft) 72%, transparent);
+}
+
+.backup-guide span,
+.backup-guide strong,
+.backup-guide p {
+  display: block;
+}
+
+.backup-guide span {
+  margin-bottom: 7px;
+  color: var(--orange);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+.backup-guide strong {
+  font-size: 13px;
+}
+
+.backup-guide p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -1230,7 +1445,8 @@ footer {
   }
 
   .today-layout,
-  .insight-layout {
+  .insight-layout,
+  .vault-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1240,7 +1456,8 @@ footer {
     margin: 8px auto 0;
   }
 
-  .stat-grid {
+  .stat-grid,
+  .vault-status-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1280,6 +1497,14 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .backup-reminder {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .backup-reminder-actions {
+    grid-column: 2;
+  }
+
   footer {
     padding: 20px 16px 92px;
   }
@@ -1309,8 +1534,29 @@ footer {
   .two-columns,
   .paper-fields,
   .stat-grid,
+  .vault-status-grid,
+  .backup-guide,
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+
+  .backup-reminder {
+    grid-template-columns: 1fr;
+  }
+
+  .backup-reminder-mark {
+    display: none;
+  }
+
+  .backup-reminder-actions {
+    grid-column: 1;
+  }
+
+  .backup-reminder-actions .primary-button,
+  .backup-reminder-actions .secondary-button,
+  .vault-actions .primary-button,
+  .vault-actions .secondary-button {
+    flex: 1 1 100%;
   }
 
   .compact-field {
