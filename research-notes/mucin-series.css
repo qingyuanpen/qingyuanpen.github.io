@@ -1,0 +1,126 @@
+@import url("sulfo-phospho-vanillin-csf/article.css");
+
+.series-map {
+  display: grid;
+  margin: 2rem 0 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.series-card {
+  display: flex;
+  min-height: 15rem;
+  flex-direction: column;
+  padding: 1.35rem;
+  background: var(--paper);
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.series-card:hover,
+.series-card:focus-visible {
+  color: #fff;
+  background: var(--blue);
+  outline: none;
+}
+
+.series-card small {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.series-card strong {
+  margin: 1rem 0 0.65rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.series-card span {
+  margin-top: auto;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.series-card:hover span,
+.series-card:focus-visible span {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.concept-strip {
+  display: grid;
+  margin: 1.8rem 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--ink);
+}
+
+.concept-strip > div {
+  min-height: 9rem;
+  padding: 1rem;
+  border-right: 1px solid var(--ink);
+}
+
+.concept-strip > div:last-child {
+  border-right: 0;
+}
+
+.concept-strip strong,
+.concept-strip span {
+  display: block;
+}
+
+.concept-strip strong {
+  color: var(--blue-dark);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.concept-strip span {
+  margin-top: 0.8rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.english-abstract {
+  margin-top: 3rem;
+  padding: 1.4rem;
+  border-left: 5px solid var(--blue);
+  background: var(--soft);
+}
+
+.english-abstract p:last-child {
+  margin-bottom: 0;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.scope-note {
+  margin: 2.2rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(50, 67, 255, 0.34);
+  color: #26306e;
+  background: rgba(50, 67, 255, 0.055);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .series-map,
+  .concept-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-strip > div {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .concept-strip > div:last-child {
+    border-bottom: 0;
+  }
+}
