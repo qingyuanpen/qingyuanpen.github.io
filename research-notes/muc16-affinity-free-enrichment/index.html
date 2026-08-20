@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="论文笔记：不依赖抗体亲和捕获，如何通过超滤、阴离子交换和体积排阻从患者腹水中富集 MUC16，并用质谱识别肽段。">
+  <meta property="og:type" content="article"><meta property="og:title" content="不用抗体，如何从患者腹水中富集并鉴定 MUC16？"><meta property="og:description" content="一条从巨大分子截留、电荷分离到体积排阻与 bottom-up MS 的方法链。"><meta property="og:url" content="https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/"><meta name="twitter:card" content="summary">
+  <title>MUC16 的非亲和富集与质谱分析 | GRANDSON RESEARCH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../mucin-series.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"不用抗体，如何从患者腹水中富集并鉴定 MUC16？","author":{"@type":"Person","name":"Grandson Lee"},"datePublished":"2026-08-20","dateModified":"2026-08-20","mainEntityOfPage":"https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/"}</script>
+</head>
+<body>
+  <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../">GRANDSON RESEARCH</a><nav class="site-links" aria-label="文章导航"><a href="../mucin-literature-review/">Mucin Series</a><a href="../../#research-notes">Research Notes</a><a href="../../#portfolio">Portfolio</a></nav></div></header>
+  <main><article>
+    <header class="article-header"><div class="article-header-inner"><div class="article-kicker-row"><a class="article-section" href="../mucin-literature-review/">Mucin Literature Series · 05</a><a class="article-language-toggle" href="#english-abstract">EN ABSTRACT</a></div><p class="paper-series">MUC16 · AFFINITY-FREE · MASS SPECTROMETRY</p><h1>不用抗体，如何从患者腹水中富集并鉴定 MUC16？</h1><p class="standfirst">超滤保留巨大分子，Q-Sepharose 利用负电荷，Sepharose CL-4B 再按水动力尺寸分组。最终六个池均检出 MUC16 肽段——但“能被质谱检出”仍不等于“获得高纯、完整且有天然功能的黏蛋白”。</p><div class="article-meta"><div><p class="byline">论文笔记：李冠东（Grandson Lee）</p><p class="meta-line"><time datetime="2026-08-20">2026年8月20日</time><span aria-hidden="true">·</span><span>约 10 分钟阅读</span></p></div><a class="source-button" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7785687/" target="_blank" rel="noopener noreferrer">查看开放全文 ↗</a></div></div></header>
+
+    <div class="article-layout"><aside class="article-rail" aria-label="文章目录"><p>IN THIS NOTE</p><a href="#problem">研究问题</a><a href="#workflow">富集流程</a><a href="#evidence">质谱证据</a><a href="#blindspots">分析盲区</a><a href="#limits">局限</a></aside><div class="article-content">
+      <section class="quick-read" aria-labelledby="quick-read-title"><p class="block-label" id="quick-read-title">QUICK READ</p><ul><li>3 份独立患者腹水经过过滤、1000 kDa 超滤、Q-Sepharose 和 Sepharose CL-4B。</li><li>“Affinity-free”是不用 MUC16 抗体做捕获，不代表流程没有尺寸与电荷选择偏倚。</li><li>每位患者的早出 Pool 1 检出更多 MUC16 肽段，但每池仍有 167–416 种蛋白。</li><li>CA125 U/mg 总蛋白是操作性富集指标，不是 MUC16 质量纯度百分比。</li><li>bottom-up MS 需要变性、还原和酶切，不能验证原始巨型分子的天然结构或功能。</li></ul></section>
+
+      <section id="problem"><h2>研究问题：抗体之外，能不能“看见”更多 MUC16？</h2><p>CA125 是 MUC16 上由抗体识别的一组表位，而不是整条 MUC16 的同义词。临床免疫测定依赖特定抗体，可能漏掉表位不可及或结构不同的蛋白形态。作者希望先不使用亲和抗体捕获，而用尺寸和电荷物性从复杂腹水中富集 MUC16，再用 LC-MS/MS 检测蛋白肽段。</p><p>这种路线减少了捕获阶段的表位偏倚，却没有消除所有偏倚：膜截留、电荷结合、聚集状态、SEC 峰位、胰蛋白酶可及性和质谱离子化仍会选择不同的 MUC16 形态与肽段。</p></section>
+
+      <section id="workflow"><h2>非亲和富集的五步逻辑</h2><div class="concept-strip" aria-label="MUC16 富集逻辑"><div><strong>CLARIFY</strong><span>离心与逐级过滤清除细胞和大颗粒</span></div><div><strong>RETAIN</strong><span>1000 kDa 切向流优先保留巨大分子</span></div><div><strong>CHARGE</strong><span>Q-Sepharose 洗去较弱结合蛋白并洗脱强负电组分</span></div><div><strong>SIZE + MS</strong><span>CL-4B 收集早出池，再进行破坏性 bottom-up MS</span></div></div>
+        <p>阴离子交换后仍有约 75%–85% 的 CA125 免疫反应性留在柱上，高盐洗脱回收粗腹水 CA125 总读数的约 60%–70%。随后体积排阻产生两个早出池，Pool 1 接近排阻体积，Pool 2 稍晚；两个池分别保存并分析，而不是为了提高回收率立即混合。</p>
+        <p class="scope-note"><strong>原文校勘：</strong>正文、流程图和图注在 Q 柱流速、超滤膜图示及第一洗缓冲液上存在明显不一致。其中“400 mL/min”对该柱径尤其异常。方法思想可以学习，具体参数必须回到可审计 SOP 复核，不能直接照抄。</p>
+      </section>
+
+      <section id="evidence"><h2>富集后，质谱到底看见了什么？</h2><div class="metric-grid" aria-label="MUC16 质谱结果"><div class="metric"><strong>3 patients</strong><span>真正独立的生物学样本数</span></div><div class="metric"><strong>6 / 6 pools</strong><span>每位患者两个 SEC 池均检出 MUC16 肽段</span></div><div class="metric"><strong>2–53</strong><span>各池平均检出的 MUC16 肽段数量范围</span></div><div class="metric"><strong>1–12%</strong><span>论文使用的序列模型下，各池 MUC16 覆盖率范围</span></div></div>
+        <p>Pool 1 在三名患者中都比对应 Pool 2 检出更多 MUC16 肽段。输入 CA125 读数与 MUC16 肽段数量呈强线性趋势（图示 R² = 0.995），但只有六个患者—池级数据点，而且上样量越高本来就越容易发现更多肽段；它支持方法学趋势，不能充当临床定量校准模型。</p>
+        <p>检出的肽段主要来自串联重复区的 SEA 结构域、C-loop 和少量 C 端区域。高度 O-糖基化、富 Ser/Thr 的区域几乎没有被普通胰蛋白酶 bottom-up 方法覆盖。这不是那些区域不存在，而是糖基化、重复序列与酶切可及性共同造成的分析盲区。</p>
+      </section>
+
+      <section id="blindspots"><h2>三个“看起来像纯度”的指标，其实各有盲区</h2><div class="translation-box"><p class="block-label">DO NOT CONFUSE</p><ol><li><strong>CA125 U/mg 蛋白：</strong>表示抗体反应性相对普通蛋白被富集，不是 MUC16 质量百分比。</li><li><strong>早出 SEC 峰：</strong>表示水动力尺寸很大，低盐聚集物或与 MUC16 结合的较小蛋白也可能共洗脱。</li><li><strong>MUC16 肽段检出：</strong>证明样品中存在可被消化和识别的序列，不证明整条天然分子完整。</li></ol></div><p>每个池仍检出 167–416 种蛋白，说明这是为质谱“富集到可见”，不是纯化到均一。低分子蛋白出现在早出池，可能与低离子强度导致聚集，或与 MUC16 蛋白/糖链相互作用有关。</p><p>质谱前处理使用 SDS、还原剂、烷基化和胰蛋白酶消化，目的正是把复杂蛋白拆成可分析肽段。因此这条证据链适合做身份确认，却无法在同一小份样品上再评价黏度、聚合或屏障活性。</p></section>
+
+      <section id="limits"><h2>局限与迁移边界</h2><ul class="limitations"><li><strong>样本量小。</strong> 只有 3 名 III 期浆液性卵巢癌患者，无独立验证队列和非癌对照。</li><li><strong>重复命名偏乐观。</strong> 同一患者、同一材料池拆出的消化份不是独立生物学重复。</li><li><strong>追踪仍依赖抗体。</strong> 捕获虽无抗体，过程评价仍使用临床 CA125 免疫测定。</li><li><strong>并非高纯。</strong> 每池仍含数百种蛋白，且患者间富集回收差异很大。</li><li><strong>数据库与序列模型有年代性。</strong> 论文使用 2014 年数据库和当时的 MUC16 序列模型，现代复分析应更新。</li><li><strong>没有天然功能终点。</strong> 高温超滤、高盐洗脱和后续破坏性 MS 是否改变原分子构象，论文没有回答。</li><li><strong>MUC16 不等于 MUC2。</strong> 前者是跨膜黏蛋白的脱落胞外段，后者是分泌型凝胶形成黏蛋白；纯化行为与功能不能直接互换。</li></ul><div class="verdict"><p class="block-label">MY VERDICT</p><h3>这是一条优秀的“先富集、再确认身份”路线，不是一份天然黏蛋白成品放行报告。</h3><p>它最可迁移的原则是：先利用巨大尺寸与负电荷缩小复杂度，早出池分开保存，再用牺牲性小份做质谱确认。最纯的池与最保留天然复合状态的池，未必是同一个池。</p></div></section>
+
+      <section class="english-abstract" id="english-abstract" aria-labelledby="english-title"><p class="block-label" id="english-title">ENGLISH ABSTRACT</p><p>Schuster-Little and colleagues enriched MUC16 from ascites obtained from three patients using clarification, 1000 kDa tangential-flow filtration, Q-Sepharose anion exchange, and Sepharose CL-4B size-exclusion chromatography. MUC16 peptides were detected by bottom-up LC-MS/MS in all six patient-pool samples, with earlier SEC pools yielding more peptides. The workflow demonstrates that antibody affinity capture is not required to make this low-abundance giant glycoprotein detectable by mass spectrometry. It remains an enrichment method rather than a purification to homogeneity: each pool contained many other proteins, CA125 units per milligram are not mass purity, and destructive proteomics cannot establish native molecular integrity or function. The study provides a useful analytical strategy, but MUC16 and secreted gel-forming MUC2 are not interchangeable targets.</p></section>
+
+      <section class="paper-reference" aria-labelledby="paper-reference-title"><p class="block-label" id="paper-reference-title">PAPER</p><p>Schuster-Little N, Fritz-Klaus R, Etzel M, Patankar N, Javeri S, Patankar MS, Whelan RJ. Affinity-free enrichment and mass spectrometry analysis of the ovarian cancer biomarker CA125 (MUC16) from patient-derived ascites. <em>Analyst</em>. 2021;146(1):85–94.</p><div class="reference-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7785687/" target="_blank" rel="noopener noreferrer">PMCID PMC7785687 ↗</a><a href="https://doi.org/10.1039/D0AN01701A" target="_blank" rel="noopener noreferrer">DOI ↗</a></div></section>
+      <nav class="article-end-nav" aria-label="文章结束导航"><a href="../mucin-literature-review/">← 返回黏蛋白专题</a><a href="#">回到顶部 ↑</a></nav>
+    </div></div>
+  </article></main>
+  <footer class="site-footer"><div><p>GRANDSON RESEARCH</p><span>Mucin Science · Data Storytelling · Scientific Visualization</span></div></footer>
+</body>
+</html>
+
