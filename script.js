@@ -2,7 +2,7 @@ const translations = {
   zh: {
     "nav.about": "关于我",
     "nav.research": "研究",
-    "nav.researchNotes": "研究笔记",
+    "nav.researchNotes": "论文笔记",
     "nav.portfolio": "作品集",
     "nav.contact": "联系我",
     "about.eyebrow": "MUCIN SCIENCE & BIOMATERIALS",
@@ -22,8 +22,8 @@ const translations = {
     "research.card3.tag": "研究实践",
     "research.card3.title": "从实验记录到可复现研究工作流",
     "research.card3.summary": "连接文献证据、实验决策、原始记录、数据分析与科研表达。",
-    "sections.notes.eyebrow": "Research Notes",
-    "sections.notes.title": "研究笔记",
+    "sections.notes.eyebrow": "Paper Notes",
+    "sections.notes.title": "论文笔记",
     "sections.notes.subtitle": "高分文献拆解、实验逻辑和图表叙事。",
     "notes.spv.tag": "方法学笔记",
     "notes.spv.title": "一篇 1981 年论文，如何把脑脊液总脂质测定变成常规方法？",
@@ -31,6 +31,22 @@ const translations = {
     "notes.mucinSeries.tag": "专题综述",
     "notes.mucinSeries.title": "从巨大糖蛋白到功能性材料：黏蛋白研究的六个关键问题",
     "notes.mucinSeries.summary": "以五篇代表性论文为线索，串起黏蛋白的结构、唾液酸、分级纯化、天然功能保存与质谱鉴定。",
+    "notes.canine.tag": "论文笔记",
+    "notes.canine.title": "去除唾液酸为何会让犬气管黏蛋白黏度下降？",
+    "notes.canine.summary": "从结合态唾液酸、热处理对照与黏度变化，判断末端糖链如何参与黏蛋白分子间作用。",
+    "notes.colonic.tag": "论文笔记",
+    "notes.colonic.title": "结肠上皮黏蛋白：Sepharose 4B + DEAE 能纯到什么程度？",
+    "notes.colonic.summary": "重读经典两步分离路线，并解释为什么外水体积峰不能直接等同于纯黏蛋白。",
+    "notes.porcine.tag": "论文笔记",
+    "notes.porcine.title": "保留天然功能的猪胃黏蛋白纯化：为什么“温和”更重要？",
+    "notes.porcine.summary": "解析切向流过滤、体积排阻与透析过滤如何兼顾回收率、分子完整性和天然功能。",
+    "notes.sialic.tag": "论文笔记",
+    "notes.sialic.title": "唾液酸不是一种“开关”：四层功能框架",
+    "notes.sialic.summary": "从物理效应、内源受体、病原体识别与分子模拟理解唾液酸的结构语境。",
+    "notes.muc16.tag": "论文笔记",
+    "notes.muc16.title": "不用亲和抗体，能否从腹水中富集 MUC16（CA125）？",
+    "notes.muc16.summary": "拆解超滤、离子交换、凝胶过滤与质谱证据，并区分富集、鉴定和真正的纯度。",
+    "notes.next": "下一篇论文笔记",
     "notes.card2.tag": "研究笔记",
     "notes.card2.title": "松花粉如何变成绿色固相萃取填料？",
     "notes.card2.summary": "从表面结构、实验设计与土壤加标验证，判断天然花粉能否替代部分商业 SPE 材料。",
@@ -55,7 +71,7 @@ const translations = {
   en: {
     "nav.about": "About",
     "nav.research": "Research",
-    "nav.researchNotes": "Research Notes",
+    "nav.researchNotes": "Paper Notes",
     "nav.portfolio": "Portfolio",
     "nav.contact": "Contact",
     "about.eyebrow": "MUCIN SCIENCE & BIOMATERIALS",
@@ -75,8 +91,8 @@ const translations = {
     "research.card3.tag": "Research Practice",
     "research.card3.title": "From experimental records to a reproducible research workflow",
     "research.card3.summary": "Connecting literature evidence, experimental decisions, raw records, data analysis, and scientific communication.",
-    "sections.notes.eyebrow": "Research Notes",
-    "sections.notes.title": "Research Notes",
+    "sections.notes.eyebrow": "Paper Notes",
+    "sections.notes.title": "Paper Notes",
     "sections.notes.subtitle": "High-impact papers, experimental logic, and figure narratives.",
     "notes.spv.tag": "Methods Note",
     "notes.spv.title": "How a 1981 paper turned CSF total-lipid analysis into a routine assay",
@@ -84,6 +100,22 @@ const translations = {
     "notes.mucinSeries.tag": "Topic Review",
     "notes.mucinSeries.title": "From giant glycoproteins to functional materials: six questions that organize mucin research",
     "notes.mucinSeries.summary": "Five papers connect mucin structure, sialic acid, fractionation, preservation of native function, and mass-spectrometric identification.",
+    "notes.canine.tag": "Paper Note",
+    "notes.canine.title": "Why does removing sialic acid reduce canine tracheal mucin viscosity?",
+    "notes.canine.summary": "Using bound sialic acid, heated controls, and viscosity changes to examine terminal glycans in mucin interactions.",
+    "notes.colonic.tag": "Paper Note",
+    "notes.colonic.title": "Colonic epithelial mucin: how far can Sepharose 4B plus DEAE purify it?",
+    "notes.colonic.summary": "Revisiting a classic two-step separation and why a void-volume peak is not automatically pure mucin.",
+    "notes.porcine.tag": "Paper Note",
+    "notes.porcine.title": "Purifying native porcine gastric mucin: why does gentleness matter?",
+    "notes.porcine.summary": "How tangential-flow filtration, size exclusion, and diafiltration balance recovery, integrity, and native function.",
+    "notes.sialic.tag": "Paper Note",
+    "notes.sialic.title": "Sialic acid is not a single switch: a four-layer functional framework",
+    "notes.sialic.summary": "Reading sialic acids through physical effects, endogenous receptors, pathogen recognition, and molecular mimicry.",
+    "notes.muc16.tag": "Paper Note",
+    "notes.muc16.title": "Can MUC16 (CA125) be enriched from ascites without affinity capture?",
+    "notes.muc16.summary": "Separating enrichment, identification, and purity across ultrafiltration, chromatography, and mass spectrometry.",
+    "notes.next": "Next paper note",
     "notes.card2.tag": "Research Note",
     "notes.card2.title": "How can pine pollen become a greener solid-phase extraction sorbent?",
     "notes.card2.summary": "Testing whether natural pollen can replace some commercial SPE materials through surface analysis, experimental design, and spiked-soil validation.",
@@ -109,6 +141,7 @@ const translations = {
 
 const languageToggle = document.querySelector("[data-language-toggle]");
 const translatableElements = document.querySelectorAll("[data-i18n]");
+const translatableAriaLabels = document.querySelectorAll("[data-i18n-aria-label]");
 const navToggle = document.querySelector("#nav-toggle");
 
 const savedLanguage = localStorage.getItem("site-language");
@@ -126,6 +159,13 @@ function applyLanguage(language) {
     const key = element.dataset.i18n;
     if (dictionary[key]) {
       element.textContent = dictionary[key];
+    }
+  });
+
+  translatableAriaLabels.forEach((element) => {
+    const key = element.dataset.i18nAriaLabel;
+    if (dictionary[key]) {
+      element.setAttribute("aria-label", dictionary[key]);
     }
   });
 
@@ -147,6 +187,30 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     if (navToggle) navToggle.checked = false;
   });
 });
+
+const paperNotesCarousel = document.querySelector("[data-paper-notes-carousel]");
+
+if (paperNotesCarousel) {
+  const viewport = paperNotesCarousel.querySelector("[data-paper-notes-viewport]");
+  const track = paperNotesCarousel.querySelector(".paper-notes-track");
+  const nextButton = paperNotesCarousel.querySelector("[data-paper-notes-next]");
+
+  nextButton.addEventListener("click", () => {
+    const firstCard = track.querySelector(".content-card");
+    if (!firstCard) return;
+
+    const trackStyles = window.getComputedStyle(track);
+    const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
+    const step = firstCard.getBoundingClientRect().width + gap;
+    const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+    const reachedEnd = viewport.scrollLeft >= maxScroll - 4;
+
+    viewport.scrollTo({
+      left: reachedEnd ? 0 : Math.min(viewport.scrollLeft + step, maxScroll),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
+  });
+}
 
 const revealTargets = document.querySelectorAll(
   ".section-header, .content-card"
@@ -174,4 +238,3 @@ if ("IntersectionObserver" in window) {
 }
 
 applyLanguage(currentLanguage);
-

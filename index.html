@@ -27,7 +27,7 @@
       <div class="nav-links">
         <a href="#about" data-i18n="nav.about">关于我</a>
         <a href="#research" data-i18n="nav.research">研究</a>
-        <a href="#research-notes" data-i18n="nav.researchNotes">研究笔记</a>
+        <a href="#research-notes" data-i18n="nav.researchNotes">论文笔记</a>
         <a href="#portfolio" data-i18n="nav.portfolio">作品集</a>
         <a href="#contact" data-i18n="nav.contact">联系我</a>
       </div>
@@ -125,37 +125,56 @@
     <section class="section bg-warm" id="research-notes">
       <div class="container">
         <div class="section-header">
-          <p class="section-label" data-i18n="sections.notes.eyebrow">Research Notes</p>
-          <h2 class="section-title" data-i18n="sections.notes.title">研究笔记</h2>
+          <p class="section-label" data-i18n="sections.notes.eyebrow">Paper Notes</p>
+          <h2 class="section-title" data-i18n="sections.notes.title">论文笔记</h2>
           <p class="section-subtitle" data-i18n="sections.notes.subtitle">高分文献拆解、实验逻辑和图表叙事。</p>
           <div class="section-line"></div>
         </div>
 
-        <div class="card-grid">
-          <a class="content-card feature-card" href="research-notes/mucin-literature-review/">
-            <span class="card-tag" data-i18n="notes.mucinSeries.tag">专题综述</span>
-            <h3 data-i18n="notes.mucinSeries.title">从巨大糖蛋白到功能性材料：黏蛋白研究的六个关键问题</h3>
-            <p data-i18n="notes.mucinSeries.summary">以五篇代表性论文为线索，串起黏蛋白的结构、唾液酸、分级纯化、天然功能保存与质谱鉴定。</p>
-            <time datetime="2026-08-20">2026.08.20</time>
-          </a>
-          <a class="content-card feature-card" href="research-notes/sulfo-phospho-vanillin-csf/">
-            <span class="card-tag" data-i18n="notes.spv.tag">方法学笔记</span>
-            <h3 data-i18n="notes.spv.title">一篇 1981 年论文，如何把脑脊液总脂质测定变成常规方法？</h3>
-            <p data-i18n="notes.spv.summary">拆解氯仿-甲醇萃取与硫酸-磷酸-香草醛显色的证据链，并判断哪些逻辑能迁移到黏蛋白样品。</p>
-            <time datetime="2026-07-24">2026.07.24</time>
-          </a>
-          <a class="content-card" href="research-notes/pollen-grains-green-sorbent/">
-            <span class="card-tag" data-i18n="notes.card2.tag">研究笔记</span>
-            <h3 data-i18n="notes.card2.title">松花粉如何变成绿色固相萃取填料？</h3>
-            <p data-i18n="notes.card2.summary">从表面结构、实验设计与土壤加标验证，判断天然花粉能否替代部分商业 SPE 材料。</p>
-            <time datetime="2026-05-28">2026.05.28</time>
-          </a>
-          <a class="content-card" href="research-notes/hsc-signaling-pathway-inhibitors/">
-            <span class="card-tag" data-i18n="notes.card3.tag">研究笔记</span>
-            <h3 data-i18n="notes.card3.title">抑制信号通路，真的能扩增造血干细胞吗？</h3>
-            <p data-i18n="notes.card3.summary">拆解小鼠 LSK 细胞的 9 天体外培养，区分标志物扩增、细胞数量与真正的长期功能。</p>
-            <time datetime="2026-05-20">2026.05.20</time>
-          </a>
+        <div class="paper-notes-carousel" data-paper-notes-carousel>
+          <div class="paper-notes-viewport" data-paper-notes-viewport>
+            <div class="paper-notes-track">
+              <a class="content-card feature-card" href="research-notes/mucin-literature-review/">
+                <span class="card-tag" data-i18n="notes.mucinSeries.tag">专题综述</span>
+                <h3 data-i18n="notes.mucinSeries.title">从巨大糖蛋白到功能性材料：黏蛋白研究的六个关键问题</h3>
+                <p data-i18n="notes.mucinSeries.summary">以五篇代表性论文为线索，串起黏蛋白的结构、唾液酸、分级纯化、天然功能保存与质谱鉴定。</p>
+                <time datetime="2026-08-20">2026.08.20</time>
+              </a>
+              <a class="content-card" href="research-notes/canine-tracheal-mucin-sialic-acid/">
+                <span class="card-tag" data-i18n="notes.canine.tag">论文笔记</span>
+                <h3 data-i18n="notes.canine.title">去除唾液酸为何会让犬气管黏蛋白黏度下降？</h3>
+                <p data-i18n="notes.canine.summary">从结合态唾液酸、热处理对照与黏度变化，判断末端糖链如何参与黏蛋白分子间作用。</p>
+                <time datetime="2026-08-20">2026.08.20</time>
+              </a>
+              <a class="content-card" href="research-notes/colonic-epithelial-mucin-purification/">
+                <span class="card-tag" data-i18n="notes.colonic.tag">论文笔记</span>
+                <h3 data-i18n="notes.colonic.title">结肠上皮黏蛋白：Sepharose 4B + DEAE 能纯到什么程度？</h3>
+                <p data-i18n="notes.colonic.summary">重读经典两步分离路线，并解释为什么外水体积峰不能直接等同于纯黏蛋白。</p>
+                <time datetime="2026-08-20">2026.08.20</time>
+              </a>
+              <a class="content-card" href="research-notes/native-porcine-gastric-mucin-purification/">
+                <span class="card-tag" data-i18n="notes.porcine.tag">论文笔记</span>
+                <h3 data-i18n="notes.porcine.title">保留天然功能的猪胃黏蛋白纯化：为什么“温和”更重要？</h3>
+                <p data-i18n="notes.porcine.summary">解析切向流过滤、体积排阻与透析过滤如何兼顾回收率、分子完整性和天然功能。</p>
+                <time datetime="2026-08-20">2026.08.20</time>
+              </a>
+              <a class="content-card" href="research-notes/sialic-acids-health-disease/">
+                <span class="card-tag" data-i18n="notes.sialic.tag">论文笔记</span>
+                <h3 data-i18n="notes.sialic.title">唾液酸不是一种“开关”：四层功能框架</h3>
+                <p data-i18n="notes.sialic.summary">从物理效应、内源受体、病原体识别与分子模拟理解唾液酸的结构语境。</p>
+                <time datetime="2026-08-20">2026.08.20</time>
+              </a>
+              <a class="content-card" href="research-notes/muc16-affinity-free-enrichment/">
+                <span class="card-tag" data-i18n="notes.muc16.tag">论文笔记</span>
+                <h3 data-i18n="notes.muc16.title">不用亲和抗体，能否从腹水中富集 MUC16（CA125）？</h3>
+                <p data-i18n="notes.muc16.summary">拆解超滤、离子交换、凝胶过滤与质谱证据，并区分富集、鉴定和真正的纯度。</p>
+                <time datetime="2026-08-20">2026.08.20</time>
+              </a>
+            </div>
+          </div>
+          <button class="paper-notes-next" type="button" data-paper-notes-next data-i18n-aria-label="notes.next" aria-label="下一篇论文笔记">
+            <span aria-hidden="true">→</span>
+          </button>
         </div>
       </div>
     </section>
@@ -208,4 +227,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
