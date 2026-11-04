@@ -1,5 +1,5 @@
 # qingyuanpen.github.io
-# 🧬 Hello, World! Welcome to Qingyuan's Bio-Media Space! 👋
+# 🧬 Hello, World! Welcome to Brandon Lee's Bio-Media Space! 👋
 
 Welcome to my personal brand website! I am a cross-disciplinary researcher navigating the fascinating intersection of **Life Sciences** and **Media & Communications**. 🚀
 
@@ -31,3 +31,4 @@ Feel free to reach out for collaborations, academic chats, or media consulting!
 
 ---
 *✨ "Science is not finished until it's communicated." Let's build something amazing together! ✨*
+
