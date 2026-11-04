@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="论文笔记：不依赖抗体亲和捕获，如何通过超滤、阴离子交换和体积排阻从患者腹水中富集 MUC16，并用质谱识别肽段。">
-  <meta property="og:type" content="article"><meta property="og:title" content="不用抗体，如何从患者腹水中富集并鉴定 MUC16？"><meta property="og:description" content="一条从巨大分子截留、电荷分离到体积排阻与 bottom-up MS 的方法链。"><meta property="og:url" content="https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/"><meta name="twitter:card" content="summary">
-  <title>MUC16 的非亲和富集与质谱分析 | BRANDON LEE</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../mucin-series.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"不用抗体，如何从患者腹水中富集并鉴定 MUC16？","author":{"@type":"Person","name":"Brandon Lee"},"datePublished":"2026-08-20","dateModified":"2026-08-20","mainEntityOfPage":"https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/"}</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="从患者腹水的尺寸、电荷分离到肽段鉴定，区分富集与高纯完整样品。">
+<title>不用亲和抗体，如何富集并鉴定MUC16？ · 康奈尔笔记 | BRANDON LEE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@400;500;600;700;900&amp;family=Noto+Serif+SC:wght@600;700;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../sulfo-phospho-vanillin-csf/article.css"><link rel="stylesheet" href="../cornell-notes.css">
+<link rel="canonical" href="https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/"><meta property="og:type" content="article"><meta property="og:title" content="不用亲和抗体，如何富集并鉴定MUC16？"><meta property="og:url" content="https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "不用亲和抗体，如何富集并鉴定MUC16？", "author": {"@type": "Person", "name": "Brandon Lee"}, "datePublished": "2026-08-20", "dateModified": "2026-11-04", "mainEntityOfPage": "https://qingyuanpen.github.io/research-notes/muc16-affinity-free-enrichment/", "citation": "https://doi.org/10.1039/D0AN01701A"}</script>
 </head>
 <body>
-  <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../">BRANDON LEE</a><nav class="site-links" aria-label="文章导航"><a href="../mucin-literature-review/">Mucin Series</a><a href="../../#research-notes">Research Notes</a><a href="../../#portfolio">Portfolio</a></nav></div></header>
-  <main><article>
-    <header class="article-header"><div class="article-header-inner"><div class="article-kicker-row"><a class="article-section" href="../mucin-literature-review/">Mucin Literature Series · 05</a><a class="article-language-toggle" href="#english-abstract">EN ABSTRACT</a></div><p class="paper-series">MUC16 · AFFINITY-FREE · MASS SPECTROMETRY</p><h1>不用抗体，如何从患者腹水中富集并鉴定 MUC16？</h1><p class="standfirst">超滤保留巨大分子，Q-Sepharose 利用负电荷，Sepharose CL-4B 再按水动力尺寸分组。最终六个池均检出 MUC16 肽段——但“能被质谱检出”仍不等于“获得高纯、完整且有天然功能的黏蛋白”。</p><div class="article-meta"><div><p class="byline">论文笔记：李冠东（Brandon Lee）</p><p class="meta-line"><time datetime="2026-08-20">2026年8月20日</time><span aria-hidden="true">·</span><span>约 10 分钟阅读</span></p></div><a class="source-button" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7785687/" target="_blank" rel="noopener noreferrer">查看开放全文 ↗</a></div></div></header>
-
-    <div class="article-layout"><aside class="article-rail" aria-label="文章目录"><p>IN THIS NOTE</p><a href="#problem">研究问题</a><a href="#workflow">富集流程</a><a href="#evidence">质谱证据</a><a href="#blindspots">分析盲区</a><a href="#limits">局限</a></aside><div class="article-content">
-      <section class="quick-read" aria-labelledby="quick-read-title"><p class="block-label" id="quick-read-title">QUICK READ</p><ul><li>3 份独立患者腹水经过过滤、1000 kDa 超滤、Q-Sepharose 和 Sepharose CL-4B。</li><li>“Affinity-free”是不用 MUC16 抗体做捕获，不代表流程没有尺寸与电荷选择偏倚。</li><li>每位患者的早出 Pool 1 检出更多 MUC16 肽段，但每池仍有 167–416 种蛋白。</li><li>CA125 U/mg 总蛋白是操作性富集指标，不是 MUC16 质量纯度百分比。</li><li>bottom-up MS 需要变性、还原和酶切，不能验证原始巨型分子的天然结构或功能。</li></ul></section>
-
-      <section id="problem"><h2>研究问题：抗体之外，能不能“看见”更多 MUC16？</h2><p>CA125 是 MUC16 上由抗体识别的一组表位，而不是整条 MUC16 的同义词。临床免疫测定依赖特定抗体，可能漏掉表位不可及或结构不同的蛋白形态。作者希望先不使用亲和抗体捕获，而用尺寸和电荷物性从复杂腹水中富集 MUC16，再用 LC-MS/MS 检测蛋白肽段。</p><p>这种路线减少了捕获阶段的表位偏倚，却没有消除所有偏倚：膜截留、电荷结合、聚集状态、SEC 峰位、胰蛋白酶可及性和质谱离子化仍会选择不同的 MUC16 形态与肽段。</p></section>
-
-      <section id="workflow"><h2>非亲和富集的五步逻辑</h2><div class="concept-strip" aria-label="MUC16 富集逻辑"><div><strong>CLARIFY</strong><span>离心与逐级过滤清除细胞和大颗粒</span></div><div><strong>RETAIN</strong><span>1000 kDa 切向流优先保留巨大分子</span></div><div><strong>CHARGE</strong><span>Q-Sepharose 洗去较弱结合蛋白并洗脱强负电组分</span></div><div><strong>SIZE + MS</strong><span>CL-4B 收集早出池，再进行破坏性 bottom-up MS</span></div></div>
-        <p>阴离子交换后仍有约 75%–85% 的 CA125 免疫反应性留在柱上，高盐洗脱回收粗腹水 CA125 总读数的约 60%–70%。随后体积排阻产生两个早出池，Pool 1 接近排阻体积，Pool 2 稍晚；两个池分别保存并分析，而不是为了提高回收率立即混合。</p>
-        <p class="scope-note"><strong>原文校勘：</strong>正文、流程图和图注在 Q 柱流速、超滤膜图示及第一洗缓冲液上存在明显不一致。其中“400 mL/min”对该柱径尤其异常。方法思想可以学习，具体参数必须回到可审计 SOP 复核，不能直接照抄。</p>
-      </section>
-
-      <section id="evidence"><h2>富集后，质谱到底看见了什么？</h2><div class="metric-grid" aria-label="MUC16 质谱结果"><div class="metric"><strong>3 patients</strong><span>真正独立的生物学样本数</span></div><div class="metric"><strong>6 / 6 pools</strong><span>每位患者两个 SEC 池均检出 MUC16 肽段</span></div><div class="metric"><strong>2–53</strong><span>各池平均检出的 MUC16 肽段数量范围</span></div><div class="metric"><strong>1–12%</strong><span>论文使用的序列模型下，各池 MUC16 覆盖率范围</span></div></div>
-        <p>Pool 1 在三名患者中都比对应 Pool 2 检出更多 MUC16 肽段。输入 CA125 读数与 MUC16 肽段数量呈强线性趋势（图示 R² = 0.995），但只有六个患者—池级数据点，而且上样量越高本来就越容易发现更多肽段；它支持方法学趋势，不能充当临床定量校准模型。</p>
-        <p>检出的肽段主要来自串联重复区的 SEA 结构域、C-loop 和少量 C 端区域。高度 O-糖基化、富 Ser/Thr 的区域几乎没有被普通胰蛋白酶 bottom-up 方法覆盖。这不是那些区域不存在，而是糖基化、重复序列与酶切可及性共同造成的分析盲区。</p>
-      </section>
-
-      <section id="blindspots"><h2>三个“看起来像纯度”的指标，其实各有盲区</h2><div class="translation-box"><p class="block-label">DO NOT CONFUSE</p><ol><li><strong>CA125 U/mg 蛋白：</strong>表示抗体反应性相对普通蛋白被富集，不是 MUC16 质量百分比。</li><li><strong>早出 SEC 峰：</strong>表示水动力尺寸很大，低盐聚集物或与 MUC16 结合的较小蛋白也可能共洗脱。</li><li><strong>MUC16 肽段检出：</strong>证明样品中存在可被消化和识别的序列，不证明整条天然分子完整。</li></ol></div><p>每个池仍检出 167–416 种蛋白，说明这是为质谱“富集到可见”，不是纯化到均一。低分子蛋白出现在早出池，可能与低离子强度导致聚集，或与 MUC16 蛋白/糖链相互作用有关。</p><p>质谱前处理使用 SDS、还原剂、烷基化和胰蛋白酶消化，目的正是把复杂蛋白拆成可分析肽段。因此这条证据链适合做身份确认，却无法在同一小份样品上再评价黏度、聚合或屏障活性。</p></section>
-
-      <section id="limits"><h2>局限与迁移边界</h2><ul class="limitations"><li><strong>样本量小。</strong> 只有 3 名 III 期浆液性卵巢癌患者，无独立验证队列和非癌对照。</li><li><strong>重复命名偏乐观。</strong> 同一患者、同一材料池拆出的消化份不是独立生物学重复。</li><li><strong>追踪仍依赖抗体。</strong> 捕获虽无抗体，过程评价仍使用临床 CA125 免疫测定。</li><li><strong>并非高纯。</strong> 每池仍含数百种蛋白，且患者间富集回收差异很大。</li><li><strong>数据库与序列模型有年代性。</strong> 论文使用 2014 年数据库和当时的 MUC16 序列模型，现代复分析应更新。</li><li><strong>没有天然功能终点。</strong> 高温超滤、高盐洗脱和后续破坏性 MS 是否改变原分子构象，论文没有回答。</li><li><strong>MUC16 不等于 MUC2。</strong> 前者是跨膜黏蛋白的脱落胞外段，后者是分泌型凝胶形成黏蛋白；纯化行为与功能不能直接互换。</li></ul><div class="verdict"><p class="block-label">MY VERDICT</p><h3>这是一条优秀的“先富集、再确认身份”路线，不是一份天然黏蛋白成品放行报告。</h3><p>它最可迁移的原则是：先利用巨大尺寸与负电荷缩小复杂度，早出池分开保存，再用牺牲性小份做质谱确认。最纯的池与最保留天然复合状态的池，未必是同一个池。</p></div></section>
-
-      <section class="english-abstract" id="english-abstract" aria-labelledby="english-title"><p class="block-label" id="english-title">ENGLISH ABSTRACT</p><p>Schuster-Little and colleagues enriched MUC16 from ascites obtained from three patients using clarification, 1000 kDa tangential-flow filtration, Q-Sepharose anion exchange, and Sepharose CL-4B size-exclusion chromatography. MUC16 peptides were detected by bottom-up LC-MS/MS in all six patient-pool samples, with earlier SEC pools yielding more peptides. The workflow demonstrates that antibody affinity capture is not required to make this low-abundance giant glycoprotein detectable by mass spectrometry. It remains an enrichment method rather than a purification to homogeneity: each pool contained many other proteins, CA125 units per milligram are not mass purity, and destructive proteomics cannot establish native molecular integrity or function. The study provides a useful analytical strategy, but MUC16 and secreted gel-forming MUC2 are not interchangeable targets.</p></section>
-
-      <section class="paper-reference" aria-labelledby="paper-reference-title"><p class="block-label" id="paper-reference-title">PAPER</p><p>Schuster-Little N, Fritz-Klaus R, Etzel M, Patankar N, Javeri S, Patankar MS, Whelan RJ. Affinity-free enrichment and mass spectrometry analysis of the ovarian cancer biomarker CA125 (MUC16) from patient-derived ascites. <em>Analyst</em>. 2021;146(1):85–94.</p><div class="reference-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7785687/" target="_blank" rel="noopener noreferrer">PMCID PMC7785687 ↗</a><a href="https://doi.org/10.1039/D0AN01701A" target="_blank" rel="noopener noreferrer">DOI ↗</a></div></section>
-      <nav class="article-end-nav" aria-label="文章结束导航"><a href="../mucin-literature-review/">← 返回黏蛋白专题</a><a href="#">回到顶部 ↑</a></nav>
-    </div></div>
-  </article></main>
-  <footer class="site-footer"><div><p>BRANDON LEE</p><span>Mucin Science · Data Storytelling · Scientific Visualization</span></div></footer>
-</body>
-</html>
-
+<header class="site-header"><div class="site-header-inner"><a class="site-brand" href="https://qingyuanpen.github.io/">BRANDON LEE</a><nav class="site-links" aria-label="文章导航"><a href="#cornell">Cornell Notes</a><a href="#abstract">Abstract</a><a href="#summary">Summary</a></nav></div></header>
+<main><article>
+<header class="article-header"><div class="article-header-inner">
+<div class="article-kicker-row"><a class="article-section" href="https://qingyuanpen.github.io/#research-notes">Paper Notes</a><a class="article-language-toggle" href="#abstract">摘要精读 ↓</a></div>
+<p class="paper-series">PAPER READING · CORNELL NOTES · 04</p>
+<h1>不用亲和抗体，如何富集并鉴定MUC16？</h1><p class="standfirst" lang="en">Affinity-free enrichment and mass spectrometry analysis of the ovarian cancer biomarker CA125 (MUC16) from patient-derived ascites</p>
+<div class="article-meta"><div><p class="byline">阅读笔记：李冠东（Brandon Lee）</p><p class="meta-line"><time datetime="2026-10-30">2026.10.30 打卡</time><span aria-hidden="true">·</span><span>约 6 分钟阅读</span></p></div><a class="source-button" href="https://doi.org/10.1039/D0AN01701A" target="_blank" rel="noopener noreferrer">原论文 · DOI ↗</a></div>
+<p class="citation">Schuster-Little N et al. · Analyst · 2021, 146(1): 85–94 · Research Article</p>
+</div></header>
+<div class="notebook article-content">
+<span id="problem"></span><span id="workflow"></span><span id="evidence"></span><span id="blindspots"></span><span id="limits"></span><section id="cornell" class="cornell-sheet" aria-labelledby="cornell-title"><div class="section-heading"><p class="block-label">01 / CORNELL NOTES</p><h2 id="cornell-title">四个问题，抓住论文主线</h2></div>
+<div class="cornell-labels" aria-hidden="true"><span>CUES / 线索区</span><span>NOTES / 笔记区</span></div><dl class="cornell-rows"><div class="cornell-row"><dt><span class="cue-number">01</span>为什么不用抗体？</dt><dd>传统CA125免疫测定依赖抗体识别的表位。作者希望通过非亲和富集，使更多MUC16分子区域进入质谱分析；<strong>CA125不能简单等同于“一段糖链”</strong>，也不是MUC16整体结构的完整读数。</dd></div><div class="cornell-row"><dt><span class="cue-number">02</span>怎样富集？</dt><dd>从三名患者的腹水出发，结合过滤、超滤、阴离子交换和体积排阻层析，再进行bottom-up蛋白质组学。<strong>捕获阶段不依赖抗体</strong>，不意味着尺寸、电荷或质谱检测没有选择偏倚。</dd></div><div class="cornell-row"><dt><span class="cue-number">03</span>得到了什么？</dt><dd>检出肽段定位到CA125串联重复区中的SEA结构域和C-loop区域；肽段丰度与临床CA125读数相关。但分离池中仍有许多其他蛋白，<strong>检出目标不等于纯化至均一</strong>。</dd></div><div class="cornell-row"><dt><span class="cue-number">04</span>如何借鉴？</dt><dd><span class="note-tag">阅读判断</span>可借鉴“先降低复杂度，再确认身份”的逻辑。MUC16与分泌型凝胶形成黏蛋白MUC2不同，具体流程不能照搬；破坏性肽段分析也不证明天然分子完整或有功能，更不是成熟的早筛方法。</dd></div></dl></section>
+<span id="english-abstract"></span><section id="abstract" aria-labelledby="abstract-title"><div class="section-heading"><p class="block-label">02 / ABSTRACT CLOSE READING</p><h2 id="abstract-title">5句摘要，逐句读懂</h2><p class="section-intro">粗体标出主干或核心动作；展开可查看句法与术语。保留原摘要措辞，翻译和笔记区分作者结论与阅读判断。</p></div>
+<div class="reading-card"><p class="sentence-index">SENTENCE 01 <span>方法开发动机</span></p>
+<p class="english-sentence" lang="en"><strong>Developing a mass spectrometry-based assay</strong> for the ovarian cancer biomarker CA125 (MUC16) <strong>is a desirable goal</strong>, because it may enable detection of molecular regions that are not recognized by antibodies and are therefore analytically silent in the current immunoassay.</p>
+<p class="sentence-translation">开发基于质谱的卵巢癌生物标志物CA125（MUC16）检测方法是值得追求的目标，因为它可能检测到抗体无法识别、因而在现有免疫测定中没有分析信号的分子区域。</p>
+<details><summary>句法与关键词</summary><dl class="syntax-list"><div><dt>Developing… is…</dt><dd>动名词短语作主语；assay 指检测方法，不是 essay。</dd></div><div><dt>analytically silent</dt><dd>在该分析体系中未被读出，不是分子不存在。</dd></div></dl></details></div><div class="reading-card"><p class="sentence-index">SENTENCE 02 <span>个体分子形式</span></p>
+<p class="english-sentence" lang="en">Additionally, <strong>the ability</strong> to characterize the CA125 proteoforms expressed by individuals <strong>may offer clinical insight</strong>.</p>
+<p class="sentence-translation">此外，表征不同个体表达的CA125蛋白质分子形式，可能提供临床研究线索。</p>
+<details><summary>句法与关键词</summary><dl class="syntax-list"><div><dt>to characterize / expressed by individuals</dt><dd>不定式限定 ability；过去分词短语限定 proteoforms。</dd></div><div><dt>may offer</dt><dd>保留可能性；proteoforms 是同一蛋白的不同分子形式。</dd></div></dl></details></div><div class="reading-card"><p class="sentence-index">SENTENCE 03 <span>样品来源与缺口</span></p>
+<p class="english-sentence" lang="en"><strong>Enrichment of CA125</strong> from malignant ascites <strong>may provide</strong> a high-quality source of this important ovarian cancer biomarker, but <strong>a reliable strategy</strong> for such enrichment <strong>is currently lacking</strong>.</p>
+<p class="sentence-translation">从恶性腹水中富集CA125，可能为这一重要卵巢癌标志物提供高质量研究材料，但当时仍缺乏可靠的富集策略。</p>
+<details><summary>句法与关键词</summary><dl class="syntax-list"><div><dt>but</dt><dd>连接样品来源的潜力和方法学缺口；currently 指论文发表时的背景。</dd></div></dl></details></div><div class="reading-card"><p class="sentence-index">SENTENCE 04 <span>研究流程</span></p>
+<p class="english-sentence" lang="en">Beginning with crude ascites isolated from three individual patients with high grade serous ovarian cancer, <strong>we enriched for MUC16</strong> using filtration, ion exchange, and size exclusion chromatography and then <strong>performed bottom-up proteomics</strong> on the isolated proteins.</p>
+<p class="sentence-translation">研究人员以三名高级别浆液性卵巢癌患者的原始腹水为起点，利用过滤、离子交换和体积排阻层析富集MUC16，再对分离蛋白进行自下而上的蛋白质组学分析。</p>
+<details><summary>句法与关键词</summary><dl class="syntax-list"><div><dt>Beginning with…</dt><dd>分词短语说明起始材料。</dd></div><div><dt>bottom-up proteomics</dt><dd>先把蛋白质消化成肽段再分析；质谱依据离子质荷比等信息，而非简单测移动速度。</dd></div></dl></details></div><div class="reading-card"><p class="sentence-index">SENTENCE 05 <span>肽段与临床读数</span></p>
+<p class="english-sentence" lang="en"><strong>This approach of enrichment and analysis reveals</strong> that the peptides detected via mass spectrometry map to the SEA domain and C-loop regions within the tandem repeat domains of CA125 and that <strong>peptide abundance correlates</strong> with clinical CA125 counts.</p>
+<p class="sentence-translation">这种富集与分析策略表明，质谱检出的肽段对应CA125串联重复区中的SEA结构域和C-loop区域，且肽段丰度与临床CA125读数相关。</p>
+<details><summary>句法与关键词</summary><dl class="syntax-list"><div><dt>reveals that… and that…</dt><dd>两个并列宾语从句，分别说明序列定位和丰度相关性。</dd></div><div><dt>map to / correlate with</dt><dd>对应到序列位置／与……相关；相关性不代表因果或临床替代能力。</dd></div></dl></details></div>
+</section>
+<section id="summary" class="cornell-summary" aria-labelledby="summary-title"><p class="block-label">03 / SUMMARY · 总结区</p><h2 id="summary-title">我留下的一句话</h2><p>富集、身份鉴定、质量纯度和天然完整性是四个不同问题，不能用一个质谱检出结果替代。</p></section>
+<div class="article-end-nav"><a href="#cornell">↑ 回到笔记</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7785687/" target="_blank" rel="noopener noreferrer">原文与书目记录 ↗</a></div>
+<div class="article-end-nav"><a href="https://qingyuanpen.github.io/research-notes/self-healing-mucin-gels-antiviral/">← 上一篇</a><a href="../lipolysis-fat-mobilization/">下一篇 · 10-31 →</a></div>
+</div></article></main>
+<footer class="site-footer"><div><p>BRANDON LEE</p><span>Mucin Science · Data Storytelling · Scientific Visualization</span></div></footer>
+</body></html>
 
