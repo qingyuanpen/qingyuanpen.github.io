@@ -10,6 +10,7 @@ const translations = {
     "about.subtitle": "硕士研究生新生 · 黏蛋白科学研究者",
     "about.intro": "我正在围绕羊大肠黏液黏蛋白的提取、绿色工艺优化与活性分析，建立严谨、可复现的研究工作流。未来希望将黏蛋白科学与生物材料、数据叙事和科研可视化结合起来。",
     "about.primaryCta": "查看研究",
+    "about.checkin": "每日打卡 ↗",
     "sections.research.eyebrow": "Research",
     "sections.research.title": "研究",
     "sections.research.subtitle": "聚焦羊大肠黏液黏蛋白的提取、绿色工艺优化与后续活性分析。",
@@ -97,6 +98,7 @@ const translations = {
     "about.subtitle": "Incoming Master’s Student · Researcher in Mucin Science",
     "about.intro": "I am building a rigorous research workflow around sheep large-intestine mucin extraction, greener process development, and activity analysis. Long term, I hope to connect mucin science with biomaterials, data storytelling, and scientific visualization.",
     "about.primaryCta": "View Research",
+    "about.checkin": "Daily Check-in ↗",
     "sections.research.eyebrow": "Research",
     "sections.research.title": "Research",
     "sections.research.subtitle": "Focusing on sheep large-intestine mucin extraction, greener process development, and downstream activity analysis.",
@@ -274,4 +276,5 @@ if ("IntersectionObserver" in window) {
 }
 
 applyLanguage(currentLanguage);
+
 

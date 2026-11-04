@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="李冠东 Brandon Lee 的每日打卡：记录科研、英语与运动，让每一步成长留下轨迹。">
+  <meta name="color-scheme" content="dark">
+  <title>每日打卡 · 李冠东 Brandon Lee</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230c1718'/%3E%3Cpath d='m10 22 7 7 14-18' fill='none' stroke='%2375f0c4' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.js"></script>
+  <link rel="canonical" href="https://qingyuanpen.github.io/daily-checkin/">
+</head>
+<body>
+<a class="skip-link" href="#daily-form">跳到每日填写</a>
+<svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6m-5 0v6l-6 10a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 15h10"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v16M12 5C8 2 4 3 2 4v15c4-2 7-1 10 2 3-3 6-4 10-2V4c-2-1-6-2-10 1Z"/></symbol>
+  <symbol id="i-motion" viewBox="0 0 24 24"><path d="m3 15 4-6 5 9 5-12 4 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1"/></symbol>
+  <symbol id="i-rise" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4L21 5m-7 0h7v7"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V3m-5 5 5-5 5 5M4 16v5h16v-5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6l9-4Z"/><path d="m8 12 3 3 5-6"/></symbol>
+</svg>
+<aside class="rail" aria-label="页面导航">
+  <a class="rail-logo" href="../#about" aria-label="Brandon Lee 首页">B<span>.</span></a>
+  <div class="rail-links">
+    <a href="#overview" class="rail-item active" aria-label="成长总览"><svg><use href="#i-grid"/></svg></a>
+    <a href="#daily-form" class="rail-item" aria-label="每日填写"><svg><use href="#i-calendar"/></svg></a>
+    <a href="#history" class="rail-item" aria-label="历史记录"><svg><use href="#i-clock"/></svg></a>
+  </div>
+  <span class="rail-bottom">BL</span>
+</aside>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="wordmark" href="../#about">BRANDON LEE <span>/</span> <small>GROWTH LOG</small></a>
+    <div class="topbar-actions"><span class="storage-badge" id="storage-badge"><i></i> 本机保存</span><button type="button" class="button ghost small" id="demo-toggle">查看演示 ↗</button><a class="back-link" href="../#about">返回首页 ↗</a></div>
+  </header>
+  <main class="main" id="overview">
+    <div class="demo-banner" id="demo-banner" hidden><span>演示模式 · 以下为虚构示例，仅展示页面效果，不会写入你的记录。</span><button type="button" id="demo-exit">返回我的记录 →</button></div>
+    <div class="error-banner" id="storage-error" role="alert" hidden></div>
+    <section class="intro">
+      <div><div class="eyebrow"><span class="live-dot"></span> THE EVERYDAY PROJECT <span class="muted">/ 个人成长记录</span></div><h1>每日打卡<span class="title-dot">.</span></h1><p class="intro-copy">让每一次投入，都成为看得见的成长。</p><div class="identity-line"><span class="avatar">李</span><span>李冠东 <span class="muted">Brandon Lee</span></span><span class="identity-divider"></span><span class="mono muted" id="today-label"></span></div></div>
+      <a class="cycle-teaser" href="#commitment"><div class="cycle-orbit" id="cycle-orbit"><span id="cycle-percent">0<small>%</small></span></div><div><span class="eyebrow muted">CURRENT CHAPTER</span><strong>第 01 期 · 两周承诺</strong><span class="mono muted">2026.11.05 — 11.18 <span aria-hidden="true">↗</span></span></div></a>
+    </section>
+    <div class="section-toolbar"><div class="section-caption"><span class="live-dot"></span> 成长总览 <small id="scope-label">本期累计</small></div><div class="segmented" role="group" aria-label="统计范围"><button type="button" class="selected" data-scope="cycle" aria-pressed="true">本期 14 天</button><button type="button" data-scope="30" aria-pressed="false">近 30 天</button><button type="button" data-scope="all" aria-pressed="false">全部记录</button></div></div>
+    <section class="metrics" aria-label="累计数据">
+      <article class="metric"><div class="metric-label">累计投入 <svg><use href="#i-clock"/></svg></div><div class="metric-value"><span id="stat-hours">0.0</span><small>小时</small></div><p id="stat-minutes">科研、英语与运动的实际时长</p><span class="metric-line mint"></span></article>
+      <article class="metric"><div class="metric-label">记录天数 <svg><use href="#i-calendar"/></svg></div><div class="metric-value"><span id="stat-recorded">0</span><small>天</small></div><p>每个日期只计算一次</p><span class="metric-line blue"></span></article>
+      <article class="metric"><div class="metric-label">任务达标 <svg><use href="#i-check"/></svg></div><div class="metric-value"><span id="stat-complete">0</span><small>天</small></div><p id="stat-rate">等待第一条记录</p><span class="metric-line lilac"></span></article>
+      <article class="metric"><div class="metric-label">当前连续达标 <svg><use href="#i-rise"/></svg></div><div class="metric-value"><span id="stat-streak">0</span><small>天</small></div><p id="stat-best">最长连续 0 天 · 按北京时间</p><span class="metric-line amber"></span></article>
+    </section>
+    <section class="overview-grid">
+      <article class="panel trend-panel"><div class="panel-heading"><div><p class="eyebrow muted">TIME WELL SPENT</p><h2>每一天的投入</h2></div><div class="legend"><span><i class="research"></i>科研</span><span><i class="english"></i>英语</span><span><i class="fitness"></i>运动</span></div></div><div class="chart-wrap"><div class="chart-y"><span id="chart-top">120</span><span id="chart-mid">60</span><span>0</span></div><div class="chart-area"><div class="chart-grid" aria-hidden="true"><span></span><span></span><span></span></div><div class="bars" id="bars" role="list" aria-label="每日投入时长"></div></div></div><div class="chart-footer"><span id="chart-range" class="mono muted">11.05 — 11.18</span><span id="chart-summary" class="muted">从第一条真实记录开始</span><span class="mono muted">MIN / DAY</span></div></article>
+      <article class="panel tracks-panel"><div class="panel-heading"><div><p class="eyebrow muted">THREE WAYS FORWARD</p><h2>三条成长主线</h2></div><svg class="subtle-icon"><use href="#i-rise"/></svg></div><div class="track research"><div class="track-title"><span><svg><use href="#i-flask"/></svg>科研</span><strong><span id="research-total">0</span><small>分钟</small></strong></div><div class="track-progress"><i id="research-progress"></i></div><div class="track-foot"><span>实验 · 文献 · 分析 · 汇报</span><span id="research-days">0 天达标</span></div></div><div class="track english"><div class="track-title"><span><svg><use href="#i-book"/></svg>英语</span><strong><span id="english-total">0</span><small>分钟</small></strong></div><div class="track-progress"><i id="english-progress"></i></div><div class="track-foot"><span>阅读 · 听力 · 词汇 · 表达</span><span id="english-days">0 天达标</span></div></div><div class="track fitness"><div class="track-title"><span><svg><use href="#i-motion"/></svg>运动</span><strong><span id="fitness-total">0</span><small>分钟</small></strong></div><div class="track-progress"><i id="fitness-progress"></i></div><div class="track-foot"><span>力量 · 球类 · 有氧 · 恢复</span><span id="fitness-days">0 次训练</span></div></div><p class="tracks-note">进度条表示本范围内已记录日期的单项达标比例。</p></article>
+    </section>
+    <details class="commitment panel" id="commitment"><summary><span><span class="pill">本期承诺</span> 科研 30 分钟 · 英语 30 分钟 · 运动 20 分钟</span><span class="muted">查看规则 ＋</span></summary><div class="commitment-content"><p>2026.11.05—11.18 为本期承诺周期。每 7 天最多 2 个已提前报备的恢复日；突发生病、受伤等情况可报备暂停。本页按任务量统计，不代替群内对截止时间与红包的核验。</p><p>周期以外可以继续记录时长，暂不判定任务达标。科研和英语分别计时，同一段时间不重复计入。</p></div></details>
+    <section class="entry-section" id="daily-form">
+      <div class="entry-heading"><div><p class="eyebrow muted">SMALL STEPS, REAL PROGRESS</p><h2>记录今天的进步<span class="title-dot">.</span></h2><p>做了什么，投入多久，留下什么。每天花一分钟记下来。</p></div><div class="date-control"><label for="entry-date">记录日期</label><div><input type="date" id="entry-date" required aria-describedby="date-hint"><button type="button" id="today-button">今天</button></div></div></div>
+      <p id="date-hint" class="date-hint"></p>
+      <form id="entry-form" class="panel entry-panel">
+        <div class="entry-cards">
+          <fieldset class="entry-card research"><legend><span class="domain-icon"><svg><use href="#i-flask"/></svg></span><span>科研<small>RESEARCH</small></span><span class="entry-result" id="research-result">待记录</span></legend><div class="minutes-field"><label for="research-minutes">实际投入</label><div><input id="research-minutes" name="researchMinutes" type="number" min="0" max="1440" step="1" value="0" inputmode="numeric" required><span>分钟 <small>/ 保底 30</small></span></div></div><label class="note-label" for="research-note">今天推进了什么？</label><textarea id="research-note" maxlength="1600" rows="3" placeholder="例如：整理文献对照表，明确下一步问题"></textarea><div class="hint-chips" aria-label="科研记录示例"><span>实验</span><span>文献</span><span>分析</span><span>汇报</span></div></fieldset>
+          <fieldset class="entry-card english"><legend><span class="domain-icon"><svg><use href="#i-book"/></svg></span><span>英语<small>ENGLISH</small></span><span class="entry-result" id="english-result">待记录</span></legend><div class="minutes-field"><label for="english-minutes">实际投入</label><div><input id="english-minutes" name="englishMinutes" type="number" min="0" max="1440" step="1" value="0" inputmode="numeric" required><span>分钟 <small>/ 保底 30</small></span></div></div><label class="note-label" for="english-note">今天学到了什么？</label><textarea id="english-note" maxlength="1600" rows="3" placeholder="例如：精读一段摘要，录制一分钟英文复述"></textarea><div class="hint-chips" aria-label="英语记录示例"><span>阅读</span><span>听力</span><span>词汇</span><span>表达</span></div></fieldset>
+          <fieldset class="entry-card fitness"><legend><span class="domain-icon"><svg><use href="#i-motion"/></svg></span><span>运动<small>MOVEMENT</small></span><span class="entry-result" id="fitness-result">待记录</span></legend><div class="minutes-field"><label for="fitness-minutes">实际投入</label><div><input id="fitness-minutes" name="fitnessMinutes" type="number" min="0" max="1440" step="1" value="0" inputmode="numeric" required><span>分钟 <small>/ 保底 20</small></span></div></div><label class="note-label" for="fitness-note">今天怎样动起来？</label><textarea id="fitness-note" maxlength="1600" rows="3" placeholder="例如：完成一组力量训练，记录动作与组次"></textarea><label class="recovery-control"><input type="checkbox" id="recovery"> 计划恢复日</label><label class="recovery-confirm" id="recovery-confirm-wrap" hidden><input type="checkbox" id="recovery-confirm"> 已提前在群内报备</label></fieldset>
+        </div>
+        <div class="reflection-row"><div class="reflection-input"><label for="reflection">留给明天的自己 <span class="muted">选填</span></label><input id="reflection" maxlength="600" placeholder="今天的一个收获，或明天最想推进的一步"></div><div class="pause-control"><label><input type="checkbox" id="paused"> 特殊情况暂停</label><input id="pause-reason" maxlength="300" placeholder="简要说明报备情况" aria-label="暂停原因" hidden></div></div>
+        <div id="form-error" class="form-error" role="alert" hidden></div>
+        <div class="save-row"><p><svg><use href="#i-shield"/></svg><span>记录仅保存在本机浏览器，建议定期导出备份。</span></p><div class="save-actions"><span id="save-state" class="muted" aria-live="polite">尚未保存</span><button type="submit" class="button primary" id="save-button">保存今日记录 <svg><use href="#i-arrow"/></svg></button></div></div>
+      </form>
+    </section>
+    <section id="history" class="history-section"><div class="history-heading"><div><p class="eyebrow muted">YOUR DAYS, IN DETAIL</p><h2>日积月累</h2></div><div class="history-actions"><button type="button" class="button ghost small" id="export-button"><svg><use href="#i-download"/></svg>导出备份</button><button type="button" class="button ghost small" id="import-button"><svg><use href="#i-upload"/></svg>导入记录</button><input type="file" id="import-file" accept=".json,application/json" hidden></div></div><div class="panel history-panel" id="history-list"></div><button type="button" class="show-more" id="show-more" hidden>查看更多记录 ↓</button><p class="storage-detail" id="storage-detail">本机记录 · 尚未连接云端</p></section>
+    <footer class="footer"><span>BRANDON LEE <span class="muted">/ GROWTH LOG</span></span><p>持续投入，诚实记录。</p><span class="mono muted">ONE DAY AT A TIME ↗</span></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+<dialog id="import-dialog"><h2>合并导入记录</h2><p id="import-summary"></p><p class="muted">同日期优先保留本机已有记录，不覆盖。导入后可继续编辑。</p><div><button type="button" class="button ghost" id="cancel-import">取消</button><button type="button" class="button primary" id="confirm-import">确认导入</button></div></dialog>
+<noscript><p class="error-banner">请启用 JavaScript 后使用每日打卡和保存功能。</p></noscript>
+</body>
+</html>
