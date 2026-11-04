@@ -43,9 +43,12 @@ const translations = {
     "notes.porcine.tag": "论文笔记",
     "notes.porcine.title": "保留天然功能的猪胃黏蛋白纯化：为什么“温和”更重要？",
     "notes.porcine.summary": "解析切向流过滤、体积排阻与透析过滤如何兼顾回收率、分子完整性和天然功能。",
-    "notes.sialic.tag": "论文笔记",
-    "notes.sialic.title": "唾液酸不是一种“开关”：四层功能框架",
-    "notes.sialic.summary": "从物理效应、内源受体、病原体识别与分子模拟理解唾液酸的结构语境。",
+    "notes.mosquito.tag": "康奈尔笔记",
+    "notes.mosquito.title": "蚊子总脂质的快速测定",
+    "notes.mosquito.summary": "从单只蚊子的SPV测定到饥饿基线，保留两句摘要精读。",
+    "notes.sialic.tag": "康奈尔笔记",
+    "notes.sialic.title": "唾液酸与人类健康和疾病",
+    "notes.sialic.summary": "四个问题梳理糖链末端的生物学作用，保留五句摘要精读。",
     "notes.muc16.tag": "论文笔记",
     "notes.muc16.title": "不用亲和抗体，能否从腹水中富集 MUC16（CA125）？",
     "notes.muc16.summary": "拆解超滤、离子交换、凝胶过滤与质谱证据，并区分富集、鉴定和真正的纯度。",
@@ -115,9 +118,12 @@ const translations = {
     "notes.porcine.tag": "Paper Note",
     "notes.porcine.title": "Purifying native porcine gastric mucin: why does gentleness matter?",
     "notes.porcine.summary": "How tangential-flow filtration, size exclusion, and diafiltration balance recovery, integrity, and native function.",
-    "notes.sialic.tag": "Paper Note",
-    "notes.sialic.title": "Sialic acid is not a single switch: a four-layer functional framework",
-    "notes.sialic.summary": "Reading sialic acids through physical effects, endogenous receptors, pathogen recognition, and molecular mimicry.",
+    "notes.mosquito.tag": "Cornell Note",
+    "notes.mosquito.title": "Rapid determination of total lipids in mosquitoes",
+    "notes.mosquito.summary": "SPV measurement and a starvation baseline, with both abstract sentences closely read.",
+    "notes.sialic.tag": "Cornell Note",
+    "notes.sialic.title": "Sialic acids in human health and disease",
+    "notes.sialic.summary": "Four guiding questions on terminal glycans, with a close reading of all five abstract sentences.",
     "notes.muc16.tag": "Paper Note",
     "notes.muc16.title": "Can MUC16 (CA125) be enriched from ascites without affinity capture?",
     "notes.muc16.summary": "Separating enrichment, identification, and purity across ultrafiltration, chromatography, and mass spectrometry.",
@@ -244,3 +250,4 @@ if ("IntersectionObserver" in window) {
 }
 
 applyLanguage(currentLanguage);
+

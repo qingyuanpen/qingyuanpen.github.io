@@ -1,0 +1,58 @@
+.preview-mark {color:#a6adff;font-family:var(--sans);letter-spacing:0;white-space:nowrap;}
+.article-header-inner {padding-top:3.2rem;}
+h1 {font-size:clamp(2.5rem,5.2vw,4.4rem);line-height:1.2;margin-bottom:1.2rem;}
+.article-kicker-row {margin-bottom:1.7rem;}
+.standfirst {font-size:clamp(1rem,1.8vw,1.25rem);font-family:var(--sans);}
+.citation {margin:1.2rem 0 0;color:var(--muted);font-size:.78rem;line-height:1.65;}
+.citation cite {font-style:normal;}
+.notebook {width:min(1040px,calc(100% - 2.5rem));margin:0 auto;padding:2.8rem 0 4rem;}
+.notebook section {margin-top:3rem;}
+.notebook section:first-child {margin-top:0;}
+.section-heading {margin-bottom:1.4rem;}
+.section-heading h2 {font-size:clamp(1.45rem,3vw,2rem);margin:.65rem 0;}
+.section-heading h2::before,.cornell-summary h2::before {display:none;}
+.notebook .section-intro {color:var(--muted);font-size:.85rem;margin:.5rem 0 0;}
+.cornell-labels,.cornell-row {display:grid;grid-template-columns:24% minmax(0,1fr);}
+.cornell-labels {border-top:4px solid var(--ink);color:white;background:var(--ink);font-family:var(--mono);font-size:.67rem;letter-spacing:.08em;}
+.cornell-labels span {padding:.85rem 1.25rem;}
+.cornell-rows {margin:0;border-bottom:1px solid var(--ink);}
+.cornell-row {border-bottom:1px solid var(--line);}
+.cornell-row:last-child {border-bottom:0;}
+.cornell-row dt {padding:1.3rem 1.25rem;background:var(--soft);border-right:1px solid var(--line);font-size:1.02rem;font-weight:700;line-height:1.5;}
+.cue-number {display:block;margin-bottom:.45rem;color:var(--blue-dark);font:600 .65rem var(--mono);letter-spacing:.08em;}
+.cornell-row dd {margin:0;padding:1.4rem 1.6rem;align-self:center;font-size:.98rem;line-height:1.9;}
+.note-tag {display:inline-block;margin-right:.45rem;color:var(--blue-dark);font-size:.73rem;font-weight:700;}
+.reading-card {padding:1.6rem 1.8rem;border:1px solid var(--line);border-left:4px solid var(--blue);margin-top:1rem;}
+.notebook .sentence-index {color:var(--blue-dark);font:600 .68rem var(--mono);letter-spacing:.09em;margin-bottom:1.2rem;}
+.sentence-index span {padding-left:.9rem;color:var(--muted);font-family:var(--sans);font-weight:400;letter-spacing:0;}
+.notebook .english-sentence {font-family:Inter,Arial,sans-serif;font-size:1.1rem;line-height:1.9;overflow-wrap:anywhere;margin-bottom:.9rem;}
+.english-sentence strong {color:var(--blue-dark);font-weight:700;}
+.notebook .sentence-translation {color:#4a4a4a;font-size:.94rem;line-height:1.85;margin-bottom:0;}
+details {margin-top:1.2rem;border-top:1px solid var(--line);font-size:.85rem;}
+summary {padding:.9rem 0 0;cursor:pointer;color:var(--blue-dark);font-weight:600;}
+summary:focus-visible,a:focus-visible {outline:2px solid var(--blue);outline-offset:4px;}
+.syntax-list {margin:.9rem 0 0;}
+.syntax-list div {margin-top:.7rem;}
+.syntax-list dt {font-weight:600;overflow-wrap:anywhere;}
+.syntax-list dd {margin:.2rem 0 0;color:var(--muted);}
+.notebook .cornell-summary {padding:1.7rem 1.9rem;background:var(--soft);border-top:4px solid var(--blue);}
+.cornell-summary h2 {font-size:1.35rem;margin:.6rem 0 .8rem;}
+.cornell-summary p:last-child {margin:0;font-family:var(--serif);font-size:1.12rem;font-weight:600;line-height:1.8;}
+.article-end-nav {margin-top:2rem;}
+@media(min-width:1000px){.desktop-break{display:none;}}
+@media(max-width:600px){
+ .notebook {width:calc(100% - 2rem);padding-top:2rem;}
+ .article-header-inner {padding-top:2rem;}
+ .cornell-labels {grid-template-columns:1fr;}
+ .cornell-labels span:first-child {display:none;}
+ .cornell-row {grid-template-columns:1fr;}
+ .cornell-row dt {border-right:0;padding:.9rem 1rem;font-size:.95rem;}
+ .cornell-row dt br {display:none;}
+ .cue-number {display:inline-block;margin:0 .65rem 0 0;}
+ .cornell-row dd {padding:1rem;font-size:.93rem;}
+ .reading-card {padding:1.25rem 1rem;}
+ .notebook .english-sentence {font-size:1.02rem;}
+ .notebook .cornell-summary {padding:1.2rem;}
+ .citation {font-size:.73rem;}
+}
+

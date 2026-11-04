@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="论文笔记：Ajit Varki 2008 年综述如何把唾液酸解释为糖链末端的物理屏障、识别配体与病原体博弈界面。">
-  <meta property="og:type" content="article"><meta property="og:title" content="唾液酸：糖链末端的一层“功能接口”"><meta property="og:description" content="从电荷与水合，到免疫识别、病原体结合、肿瘤和胃肠道黏液。"><meta property="og:url" content="https://qingyuanpen.github.io/research-notes/sialic-acids-health-disease/"><meta name="twitter:card" content="summary">
-  <title>唾液酸与人类健康和疾病 | BRANDON LEE</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../mucin-series.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"唾液酸：糖链末端的一层功能接口","author":{"@type":"Person","name":"Brandon Lee"},"datePublished":"2026-08-20","dateModified":"2026-08-20","mainEntityOfPage":"https://qingyuanpen.github.io/research-notes/sialic-acids-health-disease/"}</script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="康奈尔论文笔记：唾液酸是什么、为何位于糖链末端以及如何参与生理和疾病。保留Varki（2008）综述的五句摘要精读。">
+  <title>唾液酸与人类健康和疾病 · 康奈尔笔记 | BRANDON LEE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../sulfo-phospho-vanillin-csf/article.css"><link rel="stylesheet" href="../cornell-notes.css">
+  <link rel="canonical" href="https://qingyuanpen.github.io/research-notes/sialic-acids-health-disease/">
+  <meta property="og:type" content="article"><meta property="og:title" content="唾液酸与人类健康和疾病"><meta property="og:url" content="https://qingyuanpen.github.io/research-notes/sialic-acids-health-disease/">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "唾液酸与人类健康和疾病", "author": {"@type": "Person", "name": "Brandon Lee"}, "datePublished": "2026-08-20", "dateModified": "2026-11-04", "mainEntityOfPage": "https://qingyuanpen.github.io/research-notes/sialic-acids-health-disease/", "citation": "https://doi.org/10.1016/j.molmed.2008.06.002"}</script>
 </head>
 <body>
-  <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="../../">BRANDON LEE</a><nav class="site-links" aria-label="文章导航"><a href="../mucin-literature-review/">Mucin Series</a><a href="../../#research-notes">Research Notes</a><a href="../../#portfolio">Portfolio</a></nav></div></header>
+  <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="https://qingyuanpen.github.io/">BRANDON LEE</a><nav class="site-links" aria-label="文章导航"><a href="#cornell">Cornell Notes</a><a href="#abstract">Abstract</a><a href="#summary">Summary</a></nav></div></header>
   <main><article>
-    <header class="article-header"><div class="article-header-inner"><div class="article-kicker-row"><a class="article-section" href="../mucin-literature-review/">Mucin Literature Series · 04</a><a class="article-language-toggle" href="#english-abstract">EN ABSTRACT</a></div><p class="paper-series">GLYCOBIOLOGY · IMMUNITY · HOST–PATHOGEN</p><h1>唾液酸：糖链末端的一层“功能接口”</h1><p class="standfirst">它既提供负电荷和水合，也决定分子清除、免疫识别与病原体结合。Varki 的经典综述提醒我们：一个“总唾液酸”数字，远不足以描述末端糖链的真实生物学。</p><div class="article-meta"><div><p class="byline">论文笔记：李冠东（Brandon Lee）</p><p class="meta-line"><time datetime="2026-08-20">2026年8月20日</time><span aria-hidden="true">·</span><span>约 9 分钟阅读</span></p></div><a class="source-button" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2553044/" target="_blank" rel="noopener noreferrer">查看开放全文 ↗</a></div></div></header>
-
-    <div class="article-layout"><aside class="article-rail" aria-label="文章目录"><p>IN THIS NOTE</p><a href="#concept">核心概念</a><a href="#roles">四类作用</a><a href="#mucus">黏液与肠道</a><a href="#quality">质量评价</a><a href="#limits">局限</a></aside><div class="article-content">
-      <section class="quick-read" aria-labelledby="quick-read-title"><p class="block-label" id="quick-read-title">QUICK READ</p><ul><li>唾液酸是一组九碳酸性糖，常位于糖蛋白和糖脂糖链的最外端。</li><li>它们同时具有物理作用、内源受体配体作用、病原体受体作用和分子拟态作用。</li><li>种类、连接方式、O-乙酰化及下方糖链背景，往往与“总量”同样重要。</li><li>这是一篇 2008 年叙述性综述，不是系统综述，也不代表 2026 年的完整最新证据。</li></ul></section>
-
-      <section id="concept"><h2>为什么糖链最末端如此重要？</h2><p>唾液酸暴露在细胞表面和分泌糖蛋白最外侧，天然处于“第一接触面”。其羧基带来负电荷，亲水性帮助维持水合和空间排斥；与此同时，暴露位置使其成为选择素、Siglec、补体调节蛋白、病毒、细菌和毒素可以识别的结构。</p><p>“唾液酸”不是单一分子。Neu5Ac、Neu5Gc、α2-3 或 α2-6 等连接方式，以及 O-乙酰化等修饰都会改变可识别性与化学稳定性。由此，两个总唾液酸含量相同的样品，可能具有完全不同的受体结合、清除速度和屏障功能。</p></section>
-
-      <section id="roles"><h2>综述中的四类作用</h2><div class="concept-strip" aria-label="唾液酸四类作用"><div><strong>PHYSICS</strong><span>负电荷、水合、空间排斥与糖蛋白稳定</span></div><div><strong>SELF</strong><span>选择素、Siglec 与补体因子等内源识别</span></div><div><strong>PATHOGEN</strong><span>成为病毒、细菌或毒素的结合位点</span></div><div><strong>MIMICRY</strong><span>病原体借宿主样唾液酸逃避免疫</span></div></div>
-        <h3>结构与循环动力学</h3><p>细胞表面的负电荷可减少不希望发生的黏附；糖蛋白末端去唾液酸后，暴露的半乳糖结构可能被肝脏清除受体识别。因此，治疗性糖蛋白的末端“封端”状态会影响体内半衰期。</p>
-        <h3>免疫与感染</h3><p>选择素介导的白细胞滚动依赖特定唾液酸化配体，Siglec 则在多种免疫细胞上读取唾液酸化“自我”信号。另一方面，流感病毒等病原体也识别特定连接方式；可溶性黏蛋白上的唾液酸既可能成为结合位点，也可能作为诱饵困住病原体。</p>
-        <h3>肿瘤与非人源糖</h3><p>恶性转化常伴随异常唾液酸化，部分癌相关黏蛋白因此成为循环标志物。综述也讨论了人类缺乏合成 Neu5Gc 的能力，却可能从动物来源材料接触 Neu5Gc 的问题；相关免疫与临床意义不能由这篇综述单独定论。</p>
+    <header class="article-header"><div class="article-header-inner">
+      <div class="article-kicker-row"><a class="article-section" href="https://qingyuanpen.github.io/#research-notes">Paper Notes</a><a class="article-language-toggle" href="#abstract">摘要精读 ↓</a></div>
+      <p class="paper-series">GLYCOBIOLOGY · CORNELL NOTES · 02</p>
+      <h1>唾液酸与人类<br class="desktop-break">健康和疾病</h1>
+      <p class="standfirst" lang="en">Sialic acids in human health and disease</p>
+      <div class="article-meta"><div><p class="byline">阅读笔记：李冠东（Brandon Lee）</p><p class="meta-line"><time datetime="2026-10-28">2026.10.28 打卡</time><span aria-hidden="true">·</span><span>约 5 分钟阅读</span></p></div><a class="source-button" href="https://doi.org/10.1016/j.molmed.2008.06.002" target="_blank" rel="noopener noreferrer">原论文 · DOI ↗</a></div>
+      <p class="citation">Ajit Varki · <cite>Trends in Molecular Medicine</cite> · 2008, 14(8): 351–360 · Review</p>
+    </div></header>
+    <div class="notebook article-content">
+      <span id="concept"></span><span id="roles"></span><span id="mucus"></span><span id="quality"></span><span id="limits"></span><section id="cornell" class="cornell-sheet" aria-labelledby="cornell-title">
+        <div class="section-heading"><p class="block-label">01 / CORNELL NOTES</p><h2 id="cornell-title">四个问题，抓住综述主线</h2></div>
+        <div class="cornell-labels" aria-hidden="true"><span>CUES / 线索区</span><span>NOTES / 笔记区</span></div>
+        <dl class="cornell-rows">
+          <div class="cornell-row"><dt><span class="cue-number">01</span>唾液酸<br>是什么？</dt><dd>唾液酸是一类具有<strong>九碳骨架</strong>的酸性糖，结构多样；“唾液酸”并不只指一种分子。</dd></div>
+          <div class="cornell-row"><dt><span class="cue-number">02</span>它在哪里？</dt><dd>通常位于<strong>糖链最外侧末端</strong>。这些糖链连接在蛋白质或脂质上，广泛分布于细胞表面，也见于多种可溶性分泌蛋白。</dd></div>
+          <div class="cornell-row"><dt><span class="cue-number">03</span>为何位置<br>如此重要？</dt><dd>末端位置便于与外界分子接触；负电荷和亲水性影响物理性质，特定结构则参与<strong>细胞识别、免疫调节与病原体结合</strong>。作用取决于种类、连接方式和所处糖链背景。</dd></div>
+          <div class="cornell-row"><dt><span class="cue-number">04</span>怎样判断<br>综述证据？</dt><dd><span class="note-tag">阅读判断</span>这篇综述整理已有和新兴认识，没有提出新的实验测定法。阅读时要区分<strong>已确立的作用</strong>与仍在发展的解释；不能把不同情境概括成“唾液酸越多越好”。</dd></div>
+        </dl>
       </section>
-
-      <section id="mucus"><h2>与黏液和结肠最相关的部分</h2><p>呼吸道与胃肠道黏蛋白携带丰富的酸性糖链。唾液酸贡献负电荷、亲水性和病原体结合位点，可能影响黏液流变、润滑与屏障。胃内酸性环境有利于唾液酸释放，而沿肠道向下，O-乙酰化唾液酸更常见；结肠中还可观察到多重 O-乙酰化形式。</p><p>这些修饰可能提高对病原体唾液酸酶的抵抗或改变病原体结合，但综述并未证明每种修饰的统一功能。疾病相关变化也不等于直接因果：例如溃疡性结肠炎或结肠癌中的 O-乙酰化改变，既可能参与病程，也可能只是组织状态变化的伴随标志。</p><div class="translation-box"><p class="block-label">WHY TOTAL SIALIC ACID IS NOT ENOUGH</p><ol><li><strong>总量：</strong>说明样品含有多少可被该分析法捕获的唾液酸。</li><li><strong>种类：</strong>Neu5Ac 与 Neu5Gc 对人源应用的意义不同。</li><li><strong>连接：</strong>α2-3、α2-6 等决定不同受体与病原体识别。</li><li><strong>修饰：</strong>O-乙酰化会改变酶敏感性，也可能影响常规分析的回收。</li><li><strong>上下文：</strong>同一末端糖位于不同糖链和蛋白骨架上，功能不一定相同。</li></ol></div></section>
-
-      <section id="quality"><h2>它如何改变天然黏蛋白的质量评价？</h2><p>如果目标是“高纯、完整、天然且有功能”的黏蛋白，末端糖链不能被当作纯化过程中无关紧要的装饰。更合理的评价框架至少包含四条轴：目标黏蛋白身份；聚合状态与糖链完整性；非目标蛋白、DNA、脂质、内毒素和微生物等杂质；以及与应用相关的流变、润滑、屏障或细胞功能。</p><p>PAS 强阳性不等于目标黏蛋白纯，A280 下降不等于糖链未受损，总唾液酸保留也不等于多聚结构和功能完全保留。这些指标只能互相补充，不能互相替代。</p></section>
-
-      <section id="limits"><h2>局限与阅读边界</h2><ul class="limitations"><li><strong>不是系统综述。</strong> 文章未给出检索策略、纳排标准或证据分级，141 条参考文献是代表性选择。</li><li><strong>时间边界明显。</strong> 2008 年之后糖组学、Siglec、Neu5Gc 和遗传学研究持续发展，文中的基因数量等不能当作当前统计。</li><li><strong>证据强度不一。</strong> 文中同时包含成熟机制、动物研究、体外观察和仍待检验的假说。</li><li><strong>不直接研究羊黏蛋白。</strong> 关于结肠修饰的描述用于提出检测问题，不能代替目标物种实测。</li><li><strong>不能单凭 Neu5Gc 宣判安全性。</strong> 非人源糖值得表征，但应用风险取决于暴露方式、剂量、材料纯度与免疫背景。</li></ul><div class="verdict"><p class="block-label">MY VERDICT</p><h3>这篇综述最重要的贡献，是把“一个含量”升级为“一个结构化界面”。</h3><p>对于天然黏蛋白研究，保护糖链末端既是结构问题，也是功能问题；但任何具体健康或修复功效，都仍需要直接实验验证。</p></div></section>
-
-      <section class="english-abstract" id="english-abstract" aria-labelledby="english-title"><p class="block-label" id="english-title">ENGLISH ABSTRACT</p><p>Varki’s 2008 review presents sialic acids as exposed functional interfaces on glycoconjugates. Their negative charge and hydration contribute to physical organization, while their linkage, modification, and glycan context govern recognition by endogenous receptors, pathogens, and toxins. The review connects sialylation to protein clearance, immunity, infection, cancer, and mucosal biology. For mucin research, its central lesson is that total sialic-acid content cannot describe glycan integrity on its own: Neu5Ac versus Neu5Gc, linkage, O-acetylation, and molecular context may all matter. Because the article is a broad narrative review published in 2008, it should guide questions rather than serve as a current systematic assessment or as direct evidence for any sheep-derived mucin product.</p></section>
-
-      <section class="paper-reference" aria-labelledby="paper-reference-title"><p class="block-label" id="paper-reference-title">PAPER</p><p>Varki A. Sialic acids in human health and disease. <em>Trends in Molecular Medicine</em>. 2008;14(8):351–360.</p><div class="reference-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2553044/" target="_blank" rel="noopener noreferrer">PMCID PMC2553044 ↗</a><a href="https://doi.org/10.1016/j.molmed.2008.06.002" target="_blank" rel="noopener noreferrer">DOI ↗</a></div></section>
-      <nav class="article-end-nav" aria-label="文章结束导航"><a href="../mucin-literature-review/">← 返回黏蛋白专题</a><a href="#">回到顶部 ↑</a></nav>
-    </div></div>
+      <span id="english-abstract"></span><section id="abstract" aria-labelledby="abstract-title">
+        <div class="section-heading"><p class="block-label">02 / ABSTRACT CLOSE READING</p><h2 id="abstract-title">五句摘要，逐句读懂</h2><p class="section-intro">粗体标出句子主干；展开可查看修饰部分。</p></div>
+        <div class="reading-card"><p class="sentence-index">SENTENCE 01 <span>细胞表面的糖链</span></p>
+          <p class="english-sentence" lang="en"><strong>The surfaces</strong> of all vertebrate cells <strong>are decorated with</strong> a dense and complex array of <strong>sugar chains</strong>, which are mostly attached to proteins and lipids.</p>
+          <p class="sentence-translation">所有脊椎动物细胞的表面都覆盖着密集而复杂的糖链，这些糖链大多连接在蛋白质和脂质上。</p>
+          <details><summary>句法拆解</summary><dl class="syntax-list"><div><dt lang="en">of all vertebrate cells</dt><dd>修饰 surfaces：所有脊椎动物细胞的表面。</dd></div><div><dt lang="en">a dense and complex array of</dt><dd>说明糖链密集且排列复杂。</dd></div><div><dt lang="en">which are mostly attached to…</dt><dd>非限制性定语从句，补充说明 sugar chains 的连接对象。</dd></div></dl></details>
+        </div>
+        <div class="reading-card"><p class="sentence-index">SENTENCE 02 <span>分泌蛋白也有糖链</span></p>
+          <p class="english-sentence" lang="en">Most soluble secreted <strong>proteins are</strong> also similarly <strong>decorated with</strong> such <strong>glycans</strong>.</p>
+          <p class="sentence-translation">大多数可溶性分泌蛋白也同样受到这类糖链的修饰。</p>
+          <details><summary>句法拆解</summary><dl class="syntax-list"><div><dt lang="en">soluble secreted proteins</dt><dd>可溶性分泌蛋白；secreted 来自 secrete（分泌），与 secret（秘密）不同。</dd></div><div><dt lang="en">also similarly</dt><dd>连接上一句：细胞表面如此，分泌蛋白也类似。</dd></div></dl></details>
+        </div>
+        <div class="reading-card"><p class="sentence-index">SENTENCE 03 <span>引出唾液酸</span></p>
+          <p class="english-sentence" lang="en"><strong>Sialic acids are a</strong> diverse <strong>family of sugar units</strong> with a nine-carbon backbone that are typically found attached to the outermost ends of these chains.</p>
+          <p class="sentence-translation">唾液酸是一类结构多样、具有九碳骨架的糖单元，通常连接在这些糖链的最外侧末端。</p>
+          <details><summary>句法拆解</summary><dl class="syntax-list"><div><dt lang="en">with a nine-carbon backbone</dt><dd>补充结构特征：具有九碳骨架。</dd></div><div><dt lang="en">that are typically found attached to…</dt><dd>修饰 sugar units，说明它们通常被发现连接在哪里；are 与复数 units 对应。</dd></div></dl></details>
+        </div>
+        <div class="reading-card"><p class="sentence-index">SENTENCE 04 <span>位置与功能的联系</span></p>
+          <p class="english-sentence" lang="en">Given their location and ubiquitous distribution, <strong>sialic acids can mediate or modulate</strong> a wide variety of physiological and pathological <strong>processes</strong>.</p>
+          <p class="sentence-translation">鉴于唾液酸所处的位置及其广泛分布，它们能够介导或调节多种生理和病理过程。</p>
+          <details><summary>句法拆解</summary><dl class="syntax-list"><div><dt lang="en">Given…</dt><dd>表示“鉴于、考虑到”，引出后面判断的依据。</dd></div><div><dt lang="en">mediate / modulate</dt><dd>分别侧重“介导某个过程”与“调节过程的程度或方式”。</dd></div><div><dt lang="en">ubiquitous distribution</dt><dd>广泛分布；不是说每种唾液酸在所有位置都相同。</dd></div></dl></details>
+        </div>
+        <div class="reading-card"><p class="sentence-index">SENTENCE 05 <span>说明综述范围</span></p>
+          <p class="english-sentence" lang="en"><strong>This review considers some examples of</strong> their established and newly emerging <strong>roles</strong> in aspects of human physiology and disease.</p>
+          <p class="sentence-translation">本综述通过一些具体实例，讨论唾液酸在人类生理活动和疾病中已经确立以及新近受到关注的作用。</p>
+          <details><summary>句法拆解</summary><dl class="syntax-list"><div><dt lang="en">established / newly emerging</dt><dd>前者指已经确立的；后者指新近出现或逐渐受到认识的，不等于已经被充分证实。</dd></div><div><dt lang="en">in aspects of human physiology and disease</dt><dd>限定讨论范围：人类生理活动和疾病的相关方面。</dd></div></dl></details>
+        </div>
+      </section>
+      <section id="summary" class="cornell-summary" aria-labelledby="summary-title"><p class="block-label">03 / SUMMARY · 总结区</p><h2 id="summary-title">我留下的一句话</h2><p>读唾液酸，不能只记“含有多少”；还要问它位于哪里、以什么结构出现，以及谁在识别它。</p></section>
+      <div class="article-end-nav"><a href="#cornell">↑ 回到笔记</a><a href="https://cmm.ucsd.edu/research/labs/varki/_files/publications/b113.pdf" target="_blank" rel="noopener noreferrer">作者机构公开全文 ↗</a></div>
+    </div>
   </article></main>
   <footer class="site-footer"><div><p>BRANDON LEE</p><span>Mucin Science · Data Storytelling · Scientific Visualization</span></div></footer>
 </body>
 </html>
-
 
