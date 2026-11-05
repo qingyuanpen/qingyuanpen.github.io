@@ -2,6 +2,7 @@ import {VERSION,STORAGE_KEY,POLICY,DOMAINS,beijingToday,addDays,inCycle,blankRec
 const $=id=>document.getElementById(id);
 let today=beijingToday(),records=[],scope='cycle',demo=new URLSearchParams(location.search).get('demo')==='1',showAll=false,dirty=false,pendingImport=null,storageOK=true,toastTimer;
 const dateInput=$('entry-date'),form=$('entry-form');
+let cloudHooks=null,cloudApplying=false,cloudDraftChanged=false;
 function activeRecords(){return demo?demoRecords():records;}
 function effectiveToday(){return demo?POLICY.end:today;}
 function toast(message,error=false){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').classList.toggle('error',error);$('toast').hidden=false;toastTimer=setTimeout(()=>$('toast').hidden=true,5000);}
@@ -15,6 +16,7 @@ function persist(next){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify({version:VERSION,records:next}));}
   catch{throw Error('保存失败：浏览器存储空间不足或访问被限制。原记录保留，请导出备份。');}
   records=next;
+  if(!cloudApplying)cloudHooks?.localChanged();
 }
 function text(id,value){$(id).textContent=value;}
 function el(tag,cls,content){const node=document.createElement(tag);if(cls)node.className=cls;if(content!==undefined)node.textContent=content;return node;}
@@ -27,7 +29,7 @@ function renderMetrics(){
   text('research-days',s.days.research+' 天达标');text('english-days',s.days.english+' 天达标');text('fitness-days',s.trained+' 次训练'+(s.recovered?' · '+s.recovered+' 天恢复':''));
   renderChart(s);renderHistory(s.selected);
   const bytes=new TextEncoder().encode(JSON.stringify({version:VERSION,records})).length;
-  text('storage-detail',demo?'演示数据不会写入本机，也不会参与真实统计。':`${records.length} 天记录 · 导出文件约 ${(bytes/1024).toFixed(1)} KB · 仅本机保存，尚未连接云端`);
+  text('storage-detail',demo?'演示数据不会写入本机，也不会参与真实统计。':`${records.length} 天记录 · 导出文件约 ${(bytes/1024).toFixed(1)} KB · ${cloudHooks?.label()||'仅本机保存 · 云端连接中'}`);
 }
 function renderChart(s){
   let dates=[];const end=effectiveToday();
@@ -80,7 +82,7 @@ function loadForm(date){
   const found=activeRecords().find(r=>r.date===date),r=found||blankRecord(date);dateInput.value=date;
   for(const k of DOMAINS){$(k+'-minutes').value=r[k].minutes;$(k+'-note').value=r[k].note;}
   $('recovery').checked=r.recovery;$('recovery-confirm').checked=r.recoveryDeclared;$('paused').checked=r.paused;$('pause-reason').value=r.pauseReason;$('reflection').value=r.reflection;
-  dirty=false;$('form-error').hidden=true;dateInput.dataset.loaded=date;
+  dirty=false;cloudDraftChanged=false;$('form-error').hidden=true;dateInput.dataset.loaded=date;
   text('save-state',demo?'演示记录':found?'已保存 · 可继续修改':'尚未保存');text('save-button',demo?'演示模式 · 不保存':found?'更新当日记录 →':'保存当日记录 →');
   const hint=!inCycle(date)?'该日期在本期承诺之外：可以记录投入，暂不判定达标。':date<effectiveToday()?'历史补录：保留实际完成情况，不代表当日按时打卡。':'按实际情况填写，未完成的项目也可以保存。';text('date-hint',hint);
   for(const control of form.querySelectorAll('input,textarea,button'))control.disabled=demo;
@@ -100,7 +102,7 @@ function refreshMode(){
 }
 function toggleDemo(){
   if(dirty&&!confirm('当前内容尚未保存。切换模式会放弃这次修改，是否继续？'))return;
-  demo=!demo;showAll=false;const url=new URL(location.href);if(demo)url.searchParams.set('demo','1');else url.searchParams.delete('demo');history.replaceState(null,'',url);refreshMode();
+  demo=!demo;showAll=false;const url=new URL(location.href);if(demo)url.searchParams.set('demo','1');else url.searchParams.delete('demo');history.replaceState(null,'',url);refreshMode();cloudHooks?.modeChanged();
 }
 dateInput.addEventListener('change',()=>chooseDate(dateInput.value));$('today-button').addEventListener('click',()=>chooseDate(effectiveToday()));
 form.addEventListener('input',()=>{dirty=true;text('save-state','有修改 · 待保存');updatePreview();});form.addEventListener('change',()=>{dirty=true;updatePreview();});
@@ -110,6 +112,7 @@ form.addEventListener('submit',event=>{
     today=beijingToday();dateInput.max=today;
     const r=normalizeRecord(readForm(),{today});validateRecovery(r,records);const previous=records.find(x=>x.date===r.date);r.savedAt=previous?.savedAt||new Date().toISOString();r.updatedAt=new Date().toISOString();
     if(!r.paused&&!r.recovery&&!totalMinutes(r)&&!r.reflection&&!DOMAINS.some(k=>r[k].note))throw Error('请填写至少一项实际内容，或记录今天的特殊情况。');
+    if(cloudDraftChanged&&!confirm('这一天在云端有新记录，是否用当前表单更新？取消后表单仍会保留，可以先查看历史记录。'))return;
     persist(upsert(records,r));loadForm(r.date);renderMetrics();toast('已保存至本机，成长总览已更新。');
   }catch(error){text('form-error',error.message);$('form-error').hidden=false;}
 });
@@ -136,3 +139,30 @@ window.addEventListener('beforeunload',e=>{if(dirty&&!demo){e.preventDefault();e
 window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY||demo)return;try{records=e.newValue?parseBackup(e.newValue,{today}):[];renderMetrics();if(!dirty)loadForm(dateInput.value);toast(dirty?'其他页面更新了记录，当前未保存内容仍保留。':'已同步本机其他页面的更新。');}catch{storageError('其他页面写入的数据无法读取，已停止写入。请先导出原始备份。');}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden||demo)return;const newDay=beijingToday();if(newDay!==today){today=newDay;dateInput.max=today;text('today-label',today.replaceAll('-','.')+' · 北京时间');renderMetrics();if(!dirty)loadForm(today);}});
 load();refreshMode();
+
+import('./cloud.mjs').then(async module=>{
+  cloudHooks=await module.startCloud({
+    getRecords:()=>structuredClone(records),
+    isDemo:()=>demo,
+    notify:toast,
+    refresh:renderMetrics,
+    replaceRecords(next){
+      cloudApplying=true;
+      try{
+        const before=records.find(r=>r.date===dateInput.value),after=next.find(r=>r.date===dateInput.value);
+        if(dirty&&JSON.stringify(before)!==JSON.stringify(after)){
+          cloudDraftChanged=true;
+          $('form-error').textContent='填写期间，云端更新了当天记录。当前表单已保留；保存前会请你确认。';
+          $('form-error').hidden=false;
+        }
+        persist(next);renderMetrics();if(!dirty)loadForm(dateInput.value);
+      }
+      finally{cloudApplying=false;}
+    }
+  });
+  renderMetrics();
+}).catch(error=>{
+  $('cloud-help').hidden=false;
+  $('cloud-help').textContent=error.message;
+  $('cloud-state').textContent='云端连接未完成，本机保存可用';
+});

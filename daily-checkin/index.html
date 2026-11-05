@@ -11,7 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="cloud.css">
+  <script src="vendor/supabase-2.119.0.js"></script>
+  <script type="module" src="app.js?v=20261105-cloud1"></script>
   <link rel="canonical" href="https://qingyuanpen.github.io/daily-checkin/">
 </head>
 <body>
@@ -42,11 +44,15 @@
 <div class="app-shell">
   <header class="topbar">
     <a class="wordmark" href="../#about">BRANDON LEE <span>/</span> <small>GROWTH LOG</small></a>
-    <div class="topbar-actions"><span class="storage-badge" id="storage-badge"><i></i> 本机保存</span><button type="button" class="button ghost small" id="demo-toggle">查看演示 ↗</button><a class="back-link" href="../#about">返回首页 ↗</a></div>
+    <div class="topbar-actions"><span class="storage-badge" id="storage-badge"><i></i> 本机保存</span><button type="button" class="button ghost small" id="cloud-login">登录云端</button><button type="button" class="button ghost small" id="demo-toggle">查看演示 ↗</button><a class="back-link" href="../#about">返回首页 ↗</a></div>
   </header>
   <main class="main" id="overview">
     <div class="demo-banner" id="demo-banner" hidden><span>演示模式 · 以下为虚构示例，仅展示页面效果，不会写入你的记录。</span><button type="button" id="demo-exit">返回我的记录 →</button></div>
     <div class="error-banner" id="storage-error" role="alert" hidden></div>
+    <section class="cloud-panel panel" aria-label="云端同步">
+      <div><strong id="cloud-state" aria-live="polite">本机保存 · 未登录</strong><p id="cloud-description">登录后可跨设备同步；原始记录仅本人可见。</p><p id="cloud-help" class="cloud-help" hidden></p></div>
+      <div class="cloud-actions"><button class="button primary small" type="button" id="cloud-migrate" hidden>合并本机记录到云端</button><button class="button ghost small" type="button" id="cloud-sync" hidden>立即同步</button><button class="button ghost small" type="button" id="cloud-reconnect">重新连接</button><button class="button ghost small" type="button" id="cloud-signout" hidden>退出登录</button></div>
+    </section>
     <section class="intro">
       <div><div class="eyebrow"><span class="live-dot"></span> THE EVERYDAY PROJECT <span class="muted">/ 个人成长记录</span></div><h1>每日打卡<span class="title-dot">.</span></h1><p class="intro-copy">让每一次投入，都成为看得见的成长。</p><div class="identity-line"><span class="avatar">李</span><span>李冠东 <span class="muted">Brandon Lee</span></span><span class="identity-divider"></span><span class="mono muted" id="today-label"></span></div></div>
       <a class="cycle-teaser" href="#commitment"><div class="cycle-orbit" id="cycle-orbit"><span id="cycle-percent">0<small>%</small></span></div><div><span class="eyebrow muted">CURRENT CHAPTER</span><strong>第 01 期 · 两周承诺</strong><span class="mono muted">2026.11.05 — 11.18 <span aria-hidden="true">↗</span></span></div></a>
@@ -74,7 +80,7 @@
         </div>
         <div class="reflection-row"><div class="reflection-input"><label for="reflection">留给明天的自己 <span class="muted">选填</span></label><input id="reflection" maxlength="600" placeholder="今天的一个收获，或明天最想推进的一步"></div><div class="pause-control"><label><input type="checkbox" id="paused"> 特殊情况暂停</label><input id="pause-reason" maxlength="300" placeholder="简要说明报备情况" aria-label="暂停原因" hidden></div></div>
         <div id="form-error" class="form-error" role="alert" hidden></div>
-        <div class="save-row"><p><svg><use href="#i-shield"/></svg><span>记录仅保存在本机浏览器，建议定期导出备份。</span></p><div class="save-actions"><span id="save-state" class="muted" aria-live="polite">尚未保存</span><button type="submit" class="button primary" id="save-button">保存今日记录 <svg><use href="#i-arrow"/></svg></button></div></div>
+        <div class="save-row"><p><svg><use href="#i-shield"/></svg><span>记录先存本机；请以顶部同步状态确认是否已存云端。</span></p><div class="save-actions"><span id="save-state" class="muted" aria-live="polite">尚未保存</span><button type="submit" class="button primary" id="save-button">保存今日记录 <svg><use href="#i-arrow"/></svg></button></div></div>
       </form>
     </section>
     <section id="history" class="history-section"><div class="history-heading"><div><p class="eyebrow muted">YOUR DAYS, IN DETAIL</p><h2>日积月累</h2></div><div class="history-actions"><button type="button" class="button ghost small" id="export-button"><svg><use href="#i-download"/></svg>导出备份</button><button type="button" class="button ghost small" id="import-button"><svg><use href="#i-upload"/></svg>导入记录</button><input type="file" id="import-file" accept=".json,application/json" hidden></div></div><div class="panel history-panel" id="history-list"></div><button type="button" class="show-more" id="show-more" hidden>查看更多记录 ↓</button><p class="storage-detail" id="storage-detail">本机记录 · 尚未连接云端</p></section>
@@ -83,6 +89,9 @@
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 <dialog id="import-dialog"><h2>合并导入记录</h2><p id="import-summary"></p><p class="muted">同日期优先保留本机已有记录，不覆盖。导入后可继续编辑。</p><div><button type="button" class="button ghost" id="cancel-import">取消</button><button type="button" class="button primary" id="confirm-import">确认导入</button></div></dialog>
+
+<dialog id="cloud-login-dialog"><h2>登录我的成长记录</h2><p>使用邮箱链接登录，在手机和电脑上读取同一份记录。</p><form id="login-form"><label for="login-email">登录邮箱</label><input id="login-email" type="email" readonly value="qingyuanpen@gmail.com"><p id="login-result" aria-live="polite"></p><div><button type="button" class="button ghost" id="close-login">取消</button><button type="submit" class="button primary" id="send-login">发送登录链接</button></div></form></dialog>
+<dialog id="cloud-conflict"><h2>同一天有两份不同记录</h2><p>本机和云端都修改了这些日期：</p><p id="conflict-dates" class="mono"></p><p class="muted">请选择要保留的版本。其余日期自动合并；稍后处理会保留本机内容。</p><div class="conflict-actions"><button type="button" class="button ghost" id="conflict-later">稍后处理</button><button type="button" class="button ghost" id="conflict-remote">保留云端版本</button><button type="button" class="button primary" id="conflict-local">保留本机版本</button></div></dialog>
 <noscript><p class="error-banner">请启用 JavaScript 后使用每日打卡和保存功能。</p></noscript>
 </body>
 </html>
